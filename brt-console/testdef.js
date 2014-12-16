@@ -83,7 +83,7 @@ function needs_jquery() {
 
 function load_slider_libs(a) {
     cookie_lib = "//cdn.cpxinteractive.com/slider/lib/js/jquery.easing.cookie.min.js";
-    slider_options = "http://localhost:8000/app." + sliderOptions.version + ".js";
+    slider_options = "app." + sliderOptions.version + ".js";
     window.sliderJQ = a ? jQuery.noConflict(false) : window.jQuery;
     (function(b) {
         b(function() {

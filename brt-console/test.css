@@ -1,0 +1,116 @@
+.slider * {
+    margin: 0;
+    padding: 0;
+}
+
+#slider-992.slider {
+    position: fixed;
+    z-index: 2147483647;
+    visibility: hidden;
+    width: 322px;
+    height: 66px;
+    margin: 0;
+    bottom: 0;
+    bottom: -66px;
+}
+
+#slider-992.slider.closed {
+    visibility: visible;
+}
+
+#slider-992.slider.closed.iframed {
+    bottom: 0;
+}
+
+#slider-992.slider.open {
+    visibility: visible;
+    bottom: 0;
+}
+
+#slider-992.slider * {
+    margin: 0;
+    padding: 0;
+}
+
+#slider-992.slider .slider-contents {
+    position: absolute;
+    z-index: 100;
+    width: 320px;
+    height: 64px;
+    bottom: 40;
+    left: 0;
+}
+
+#slider-992.slider .slider-contents>.slider-iframe {
+    position: absolute;
+    border: 1px solid #000;
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    height: 50px;
+}
+
+#slider-992.slider .slider-contents>.slider-iframe>iframe {
+    border: 0;
+    width: 320px;
+    height: 50px;
+}
+
+#slider-992.slider .slider-contents>.slider-navigation {
+    position: absolute;
+    width: 320px;
+    height: 14px;
+    right: 0;
+    top: 0;
+}
+
+#slider-992.slider .slider-contents>.slider-navigation>.slider-navigation-logo {
+    display: none;
+}
+
+#slider-992.slider .slider-contents>.slider-navigation>.slider-toggle {
+    position: absolute;
+    width: 32px;
+    height: 14px;
+    top: 0;
+    right: -2px;
+}
+
+#slider-992.slider .slider-contents>.slider-navigation>.slider-toggle>a {
+    display: block;
+    width: 32px;
+    height: 14px;
+}
+
+#slider-992.slider .slider-contents>.slider-navigation>.slider-toggle>a>span {
+    display: none;
+    text-indent: -9999px;
+    width: 32px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    text-align: left;
+}
+
+#slider-992.slider .slider-tab-toggle {
+    display: none;
+}
+
+#slider-992.slider .slider-tab-toggle * {
+    display: none;
+}
+
+#slider-992.slider.open>.slider-contents>.slider-navigation>.slider-toggle a>span.hide {
+    background-image: url(//cdn.cpxinteractive.com/slider/lib/images/hideAdTop.gif);
+    display: block !important;
+    visibility: visible;
+}
+
+#slider-992.slider.closed>.slider-contents>.slider-navigation>.slider-toggle a>span.show {
+    background-image: url(//cdn.cpxinteractive.com/slider/lib/images/showAdTop.gif);
+    display: block !important;
+    visibility: visible;
+}

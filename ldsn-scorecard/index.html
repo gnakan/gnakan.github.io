@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css'></link>
+    <link rel='stylesheet' href='bower_components/chartist/dist/chartist.min.css'></link>
+    <link rel='stylesheet' href='css/main.css'></link>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">LDSN Scorecard</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Estimated <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Actual</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Project Title</h1>
+
+          <div class="row height-control">
+            <div id='page-views-chart' class='ct-chart ct-perfect-fourth height-control'></div>
+          </div>
+
+          <div class="table-responsive">
+            <table id='estimated-table' class="table table-striped ">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Estimated Uniques</th>
+                  <th>Estimated Page Views</th>
+                  <th>Estimated Views</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <script src='bower_components/jquery/dist/jquery.min.js'></script>
+    <script src='bower_components/tabletop/src/tabletop.js'></script>
+    <script src='bower_components/chartist/dist/chartist.min.js'></script>
+    <script src='js/app.js'></script>
+</body>
+
+</html>

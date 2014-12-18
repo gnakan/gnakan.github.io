@@ -274,8 +274,7 @@ var Slider = function() {
 	}
 	
 	function _displayDebugConsole(){
-		//console.log(options);
-		console.log(document.referrer);
+		console.log(options);
 		var htmlOptions = {
 			title : "<h3>BRT Slider Debug Console</h3>",
 			sliderVersion : "<p><b>Slider Version:</b> " + options.version + " </p>",

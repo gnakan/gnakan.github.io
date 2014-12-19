@@ -282,7 +282,14 @@ var Slider = function() {
 			publisherID : "<p><b>Publisher ID:</b> " + options.pid + "</p>",
 			cssURL: "<p><b>CSS URL:</b> <a href='" + options.urls.css + "'>" + options.urls.css + "</a></p>",
 			adURL: "<p><b>Ad URL:</b> <a href='" + options.urls.ad + "'>" + options.urls.ad + "</a></p>",
-			jqueryVersion: "<p><b>jQuery version</b> (loaded): " + jQuery.fn.jquery + "</p>"
+			jqueryVersion: "<p><b>jQuery version</b> (loaded): " + jQuery.fn.jquery + "</p>",
+			styleInfo : "<table style='font-size: 1em; width: 350px; text-align: left;'><thead><tr><th>Sizing</th><th>Position</th><th>Margin</th></tr></thead><tbody>" + 
+						"<tr><td>height: " + options.height + "px</td><td>top: " + options.position.top + "</td><td>top: " + options.margin.top +"</td></tr>" + 
+						"<tr><td>width: " + options.width + "px</td><td>right: " + options.position.right + "</td><td>right: " + options.margin.right +"</td></tr>" + 
+						"<tr><td>min-width: " + options.minScreenWidth + "px</td><td>bottom: " + options.position.bottom + "</td><td>bottom: " + options.margin.bottom +"</td></tr>" + 
+						"<tr><td>max-width: " + options.maxScreenWidth + "px</td><td>left: " + options.position.left + "</td><td>left: " + options.margin.left +"</td></tr>" + 
+						"<tr></tr>" + 
+						"</tbody></table>"
 		}
 
 		if(window.location.href.indexOf("brt_console") > -1)
@@ -299,7 +306,7 @@ var Slider = function() {
 			div.style.top = "0";
 			div.style.paddingLeft = "5px";
 			div.style.width = "100%";
-			div.innerHTML =  htmlOptions.title + htmlOptions.sliderVersion + htmlOptions.sliderID + htmlOptions.publisherID + htmlOptions.adURL + htmlOptions.cssURL + htmlOptions.jqueryVersion;
+			div.innerHTML =  htmlOptions.title + htmlOptions.sliderVersion + htmlOptions.sliderID + htmlOptions.publisherID + htmlOptions.adURL + htmlOptions.cssURL + htmlOptions.jqueryVersion + htmlOptions.styleInfo;
 			div.setAttribute('class', 'note');
 			document.body.appendChild(div);
 

@@ -1,4 +1,9 @@
-
+.ct-chart .ct-bar {
+  stroke-width: 20px;
+}
+.ct-chart .ct-label.ct-horizontal {
+  text-align: center;
+}
 
 .height-control
 {

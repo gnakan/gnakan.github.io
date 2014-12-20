@@ -84,8 +84,15 @@ function createPageViewsChart() {
         series: graphData
     };
 
+    var options = {
+        seriesBarDistance: 30,
+        axisX: {
+            showGrid: false
+        }
+    };
+
     // Create a new line chart object where as first parameter we pass in a selector
     // that is resolving to our chart container element. The Second parameter
     // is the actual data object. As a third parameter we pass in our custom options.
-    new Chartist.Bar('#page-views-chart', data);
+    new Chartist.Bar('#page-views-chart', data, options);
 }

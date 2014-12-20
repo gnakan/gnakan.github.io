@@ -3,68 +3,85 @@ $(document).ready(function() {
     Tabletop.init({
         key: public_spreadsheet_url,
         callback: showInfo,
-        simpleSheet: true
+        simpleSheet: false
     })
 });
 
 
-var scorecardData;
+var estimateData;
+var projectData;
 
 
 function showInfo(data, tabletop) {
-    console.log(data);
-    scorecardData = data;
+    //console.log(data);
+    estimateData = data;
 
     createPageViewsChart()
     populateTable();
+    renderProjectData();
 }
 
-function populateTable(){
-    $.each(scorecardData, function(index, obj){
-        console.log(obj);
-        var tableRow = "<tr>" + 
-        "<td>" + obj['*month']+"</td>" + 
-        "<td>" + obj['estimated uniques']+"</td>" + 
-        "<td>" + obj['estimated pageviews']+"</td>" +
-        "<td>" + obj['estimated views']+"</td>" +
-        "</tr>"
-        $('#estimated-table tbody').append(tableRow);
+function populateTable() {
+    $.each(estimateData, function(index, obj) {
+
+        if (obj['name'] == 'estimates') {
+            $.each(obj['elements'], function(i, o) {
+                var tableRow = "<tr>";
+                tableRow += "<td>" + o['*month'].toUpperCase() + "</td>"
+                tableRow += "<td>" + o['estimated uniques'] + "</td>"
+                tableRow += "<td>" + o['estimated pageviews'] + "</td>"
+                tableRow += "<td>" + o['estimated views'] + "</td>"
+                tableRow += "</tr>"
+                $('#estimated-table tbody').append(tableRow);
+            })
+
+        }
+
+    })
+}
+
+function renderProjectData() {
+    $.each(estimateData, function(index, obj) {
+        if (obj['name'] == 'overview') {
+            $('#project-title').text(obj['elements']['0']['project-name']);
+            $('#project-site').html("<small>" + obj['elements']['0']['site'] + "</small>");
+        }
+
     })
 }
 
 function createPageViewsChart() {
     var estimateLabels = [];
-    var estimateData = [];
+    var graphData = [];
     var seriesData;
 
-    //get the labels
-    $.each(scorecardData[0], function(key, value) {
-        if (key != undefined && key[0] != "*") {
-            estimateLabels.push(key);
-        }
-    });
-    //get the data
-    $.each(scorecardData, function(key, value) {
-        seriesData = []
-       // console.log("estimateLabels", estimateLabels)
-        $.each(estimateLabels, function(index, label) {
-            //console.log("label", value[label])
-            if (value[label] != undefined && value[label][0] != "*") {
-                var dataPoint = value[label];
-                seriesData.push(parseInt(dataPoint));
-            }
-        });
-        //console.log(seriesData)
-        estimateData.push(seriesData)
-    });
-
     //console.log(estimateData)
+    //get the labels
+    $.each(estimateData, function(index, obj) {
+        if (obj['name'] == 'estimates') {
+            $.each(obj['elements'], function(key, value) {
+                estimateLabels.push(value['*month'].toUpperCase());
+            });
+
+            //get the data
+            $.each(obj['elements'], function(key, value) {
+                seriesData = []
+                $.each(value, function(i, o) {
+                    if (i != undefined && i[0] != "*") {
+                        var dataPoint = o;
+                        seriesData.push(parseInt(dataPoint));
+                    }
+                })
+                graphData.push(seriesData)
+            });
+        }
+    })
 
     var data = {
         // A labels array that can contain any sort of values
         labels: estimateLabels,
         // Our series array that contains series objects or in this case series data arrays
-        series: estimateData
+        series: graphData
     };
 
     // Create a new line chart object where as first parameter we pass in a selector

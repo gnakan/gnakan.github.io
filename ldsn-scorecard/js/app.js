@@ -19,34 +19,32 @@ function showInfo(data, tabletop) {
     createPageViewsChart()
     populateTable();
     renderProjectData();
+    console.log(estimateData);
 }
 
 function populateTable() {
     $.each(estimateData, function(index, obj) {
-
         if (obj['name'] == 'estimates') {
             $.each(obj['elements'], function(i, o) {
                 var tableRow = "<tr>";
-                tableRow += "<td>" + o['*month'].toUpperCase() + "</td>"
-                tableRow += "<td>" + o['estimated uniques'] + "</td>"
-                tableRow += "<td>" + o['estimated pageviews'] + "</td>"
-                tableRow += "<td>" + o['estimated views'] + "</td>"
+                tableRow += "<td>" + o['*metrics'] + "</td>"
+                tableRow += "<td>" + o['jan'] + "</td>"
+                tableRow += "<td>" + o['feb'] + "</td>"
+                tableRow += "<td>" + o['mar'] + "</td>"
                 tableRow += "</tr>"
                 $('#estimated-table tbody').append(tableRow);
             })
 
         }
-
     })
 }
 
 function renderProjectData() {
     $.each(estimateData, function(index, obj) {
         if (obj['name'] == 'overview') {
-            $('#project-title').text(obj['elements']['0']['project-name']);
+            $('#project-title').html("Project: " + obj['elements']['0']['project-name']);
             $('#project-site').html("<small>" + obj['elements']['0']['site'] + "</small>");
         }
-
     })
 }
 
@@ -55,21 +53,22 @@ function createPageViewsChart() {
     var graphData = [];
     var seriesData;
 
-    //console.log(estimateData)
     //get the labels
     $.each(estimateData, function(index, obj) {
         if (obj['name'] == 'estimates') {
             $.each(obj['elements'], function(key, value) {
-                estimateLabels.push(value['*month'].toUpperCase());
+                estimateLabels.push(value['*metrics']);
             });
 
             //get the data
             $.each(obj['elements'], function(key, value) {
                 seriesData = []
+                    //skip the first value, write the next value to the first label array, write the second value to the second array
                 $.each(value, function(i, o) {
                     if (i != undefined && i[0] != "*") {
-                        var dataPoint = o;
-                        seriesData.push(parseInt(dataPoint));
+                        var noComma = o.replace(/[^\d\.\-\ ]/g, '');
+                        var dataPoint = parseFloat(noComma);
+                        seriesData.push(dataPoint);
                     }
                 })
                 graphData.push(seriesData)
@@ -88,11 +87,14 @@ function createPageViewsChart() {
         seriesBarDistance: 30,
         axisX: {
             showGrid: false
+        },
+        axisY: {
+            labelOffset: {
+                x: 20,
+                y: 0
+            },
         }
     };
 
-    // Create a new line chart object where as first parameter we pass in a selector
-    // that is resolving to our chart container element. The Second parameter
-    // is the actual data object. As a third parameter we pass in our custom options.
     new Chartist.Bar('#page-views-chart', data, options);
 }

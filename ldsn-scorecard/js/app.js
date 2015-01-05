@@ -84,11 +84,17 @@ function createPageViewsChart() {
     };
 
     var options = {
+        showArea: true,
+          showLine: true,
+        showPoint: true,
+        fullWidth: true,
         seriesBarDistance: 30,
         axisX: {
-            showGrid: false
+            showGrid: false,
+            showLabel: false
         },
         axisY: {
+             showLabel: false,
             labelOffset: {
                 x: 20,
                 y: 0
@@ -96,5 +102,5 @@ function createPageViewsChart() {
         }
     };
 
-    new Chartist.Bar('#page-views-chart', data, options);
+    new Chartist.Line('#page-views-chart', data, options);
 }

@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script type='text/javascript' src='js.class.min.js'></script>
+		<script type='text/javascript'>
+			var AdClass = Class({
+				create: function(type, size){
+					this.type = type;
+					this.size = size;
+				}, 
+				get:{
+					allSettings: function(){
+						return [type, size];
+					}
+				}, 
+				set:{
+					type: function(value){
+						this.type = value;
+					},
+					size: function(value){
+						this.size = value;
+					}
+				}
+
+			});
+
+			var testAd1 = new AdClass('slider', '300x250');
+			console.log("Type of slider:", testAd1.type);
+			console.log("Ad size:", testAd1.size);
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

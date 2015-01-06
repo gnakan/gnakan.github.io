@@ -1,31 +1,31 @@
 <html>
 	<head>
-		<script type='text/javascript' src='js.class-noconflict.js'></script>
+		<script type='text/javascript' src='js.class.min.js'></script>
 		<script type='text/javascript'>
-			var AdClass = JSClass({
-				create: function(type, size){
-					this.type = type;
-					this.size = size;
+			var AdClass = Class({
+				create: function(adType, adSize){
+					this.adType = adType;
+					this.adSize = adSize;
 				}, 
 				get:{
 					allSettings: function(){
-						return [type, size];
+						return [adType, adSize];
 					}
 				}, 
 				set:{
 					type: function(value){
-						this.type = value;
+						this.adType = value;
 					},
 					size: function(value){
-						this.size = value;
+						this.adSize = value;
 					}
 				}
 
 			});
 
 			var testAd1 = new AdClass('slider', '300x250');
-			console.log("Type of slider:", testAd1.type);
-			console.log("Ad size:", testAd1.size);
+			console.log("Type of slider:", testAd1.adType);
+			console.log("Ad size:", testAd1.adSize);
 
 		</script>
 	</head>

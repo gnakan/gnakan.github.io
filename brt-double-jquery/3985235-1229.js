@@ -8,13 +8,13 @@ var sliderOptions = {
     urls: {
         slider: src,
         protocol: location.protocol,
-        ad: "//optimizedby.brealtime.com/tt?id=3985235&size=728x90",
-        css: "//portal.brealtime.com/includes/slider/3985235-1229.css?759",
+        ad: "//optimizedby.brealtime.com/tt?id=3528110&size=160x600&referrer=listia.com",
+        css: "//cdn.cpxinteractive.com/slider/defs/3528110-918.css",
         logo: "//cdn.cpxinteractive.com/slider/defs/solidblack.jpg"
     },
-    pid: 3985235,
-    width: 728,
-    height: 90,
+    pid: 3528110,
+    width:160,
+    height: 600,
     debug: true,
     id: 1229,
     animationDelay: 0,

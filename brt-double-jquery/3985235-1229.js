@@ -15,16 +15,16 @@ var sliderOptions = {
     width:160,
     height: 600,
     debug: false,
-    id: 1229,
+    id: 918,
     animationDelay: 0,
     animationDuration: 500,
-    animationDirection: "bottom",
+    animationDirection: "top",
     animationEasing: "jswing",
-    toolbarPosition: "top-right",
-    horizontalPosition: "center",
-    verticalPosition: "bottom",
+    toolbarPosition: "top-left",
+    horizontalPosition: "right",
+    verticalPosition: "top",
     close: {
-        permanently: 0,
+        permanently: 1,
         wTab: 0
     },
     freqLimit: 1,
@@ -44,7 +44,7 @@ var sliderOptions = {
         top: "0",
         right: "0",
         bottom: "0",
-        left: "0"
+        left: "50%"
     }
 };
 var SLIDER_JQ_VERSION = "1.9.1";

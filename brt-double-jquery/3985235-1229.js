@@ -1,7 +1,6 @@
 var thisNode = document.getElementsByTagName("script")[(document.getElementsByTagName("script").length - 1)];
 var src = thisNode.src;
 src = src.substring((window.location.protocol == "http:") ? 7 : 8, src.length).split("/")[0];
-var sliderJQ;
 var sliderOptions = {
     version: "2.6",
     type: "noLogo",
@@ -15,7 +14,7 @@ var sliderOptions = {
     pid: 3528110,
     width:160,
     height: 600,
-    debug: true,
+    debug: false,
     id: 1229,
     animationDelay: 0,
     animationDuration: 500,
@@ -52,7 +51,6 @@ var SLIDER_JQ_VERSION = "1.9.1";
 if (needs_jquery()) {
     console.log('jquery is needed');
     var script = document.createElement("script");
-
     script.src = "//cdnjs.cloudflare.com/ajax/libs/jquery/" + SLIDER_JQ_VERSION + "/jquery.min.js";
     script.type = "text/javascript";
     thisNode.parentNode.appendChild(script);
@@ -60,7 +58,7 @@ if (needs_jquery()) {
         load_slider_libs();
     };
 } else {
-    load_slider_libs()
+    load_slider_libs();
 }
 
 function needs_jquery() {
@@ -79,14 +77,21 @@ function needs_jquery() {
     return (a < e)
 }
 
-function load_slider_libs(a) {
-    sliderJQ = jQuery.noConflict();
+function load_slider_libs() {
+    var script2 = document.createElement("script");
+    script2.innerHTML = "var sliderJQ = jQuery;jQuery.noConflict(true)";
+    script2.type = "text/javascript";
+    thisNode.parentNode.appendChild(script2);
+
     cookie_lib = "//cdn.cpxinteractive.com/slider/lib/js/jquery.easing.cookie.min.js";
     slider_options = "//cdn.cpxinteractive.com/slider/lib/js/app." + sliderOptions.version + ".js";
     
     sliderJQ(document).ready(function(){
          sliderJQ.getScript(cookie_lib, function() {
-                sliderJQ.getScript(slider_options, function() {})
+                sliderJQ.getScript(slider_options, function() {
+                    console.log('The slider is using jquery version ',sliderJQ().jquery);
+                    console.log('The main page is using jquery version ',jQuery().jquery);
+                })
             
             });
     });

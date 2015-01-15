@@ -1,0 +1,123 @@
+.slider * {
+    margin: 0;
+    padding: 0;
+}
+
+#slider-686.slider {
+    position: fixed;
+    z-index: 1000000;
+    visibility: hidden;
+    width: 136px;
+    height: 602px;
+    margin: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#slider-686.slider.closed {
+    visibility: visible;
+}
+
+#slider-686.slider.closed.iframed {
+    bottom: 0;
+    left: 0;
+}
+
+#slider-686.slider.open {
+    visibility: visible;
+    bottom: 0;
+    left: 0;
+}
+
+#slider-686.slider * {
+    margin: 0;
+    padding: 0;
+}
+
+#slider-686.slider .slider-contents {
+    position: absolute;
+    z-index: 100;
+    width: 134px;
+    height: 600px;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+    left: 0;
+    bottom: 0;
+}
+
+#slider-686.slider .slider-contents>.slider-iframe {
+    position: absolute;
+    border: 1px solid #000;
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    left: 0;
+    bottom: 0;
+    width: 120px;
+    height: 600px;
+}
+
+#slider-686.slider .slider-contents>.slider-iframe>iframe {
+    border: 0;
+    width: 120px;
+    height: 600px;
+}
+
+#slider-686.slider .slider-contents>.slider-navigation {
+    position: absolute;
+    width: 14px;
+    height: 600px;
+    right: 0;
+    top: 0;
+}
+
+#slider-686.slider .slider-contents>.slider-navigation>.slider-navigation-logo {
+    display: none;
+}
+
+#slider-686.slider .slider-contents>.slider-navigation>.slider-toggle {
+    position: absolute;
+    width: 14px;
+    height: 32px;
+    top: -2px;
+    right: -2px;
+}
+
+#slider-686.slider .slider-contents>.slider-navigation>.slider-toggle>a {
+    display: block;
+    width: 14px;
+    height: 32px;
+}
+
+#slider-686.slider .slider-contents>.slider-navigation>.slider-toggle>a>span {
+    display: none;
+    text-indent: -9999px;
+    width: 14px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    text-align: left;
+}
+
+#slider-686.slider .slider-tab-toggle {
+    display: none;
+}
+
+#slider-686.slider .slider-tab-toggle * {
+    display: none;
+}
+
+#slider-686.slider.open>.slider-contents>.slider-navigation>.slider-toggle a>span.hide {
+    background-image: url(//cdn.cpxinteractive.com/slider/lib/images/hideAdRight.gif);
+    display: block !important;
+    visibility: visible;
+}
+
+#slider-686.slider.closed>.slider-contents>.slider-navigation>.slider-toggle a>span.show {
+    background-image: url(//cdn.cpxinteractive.com/slider/lib/images/showAdRight.gif);
+    display: block !important;
+    visibility: visible;
+}

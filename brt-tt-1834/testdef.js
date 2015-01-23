@@ -12,8 +12,8 @@ var sliderOptions = {
         logo: "//cdn.cpxinteractive.com/slider/defs/solidblack.jpg"
     },
     pid: 3271734,
-    width: 728,
-    height: 90,
+    width: 300,
+    height: 250,
     debug: false,
     id: 767,
     animationDelay: 0,

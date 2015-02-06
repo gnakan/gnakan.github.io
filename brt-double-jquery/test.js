@@ -3,7 +3,7 @@ var src = thisNode.src;
 src = src.substring((window.location.protocol == "http:") ? 7 : 8, src.length).split("/")[0];
 var sliderJQ;
 var sliderOptions = {
-    version: "2.6.1",
+    version: "2.6",
     type: "noLogo",
     urls: {
         slider: src,

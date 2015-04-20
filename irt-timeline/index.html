@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.jqtimeline.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.jqtimeline.js"></script>
+<title>Demo of jQuery timeline plugin</title>
+<link href="http://www.jqueryscript.net/css/top.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<hr style="margin-bottom:50px"/>
+<div id="myTimeline"></div>
+<script type="text/javascript">
+					var ev = [{
+							id : 1,
+							name : "Ticket opened",
+							on : new Date(2014,0,15)
+						},{
+							id : 4,
+							name : "Resolution plan sign off",
+							on : new Date(2015,0,12)
+						},{
+							id : 7,
+							name : "Final Champion Sign Off",
+							on : new Date(2015,2,9)
+						},{
+							id : 8,
+							name : "Ticket Closed",
+							on : new Date(2015,2,10)
+						}]
+			var tl = $('#myTimeline').jqtimeline({
+							events : ev,
+							numYears:1,
+							startYear:2015,
+							click:function(e,event){
+								alert(event.name);
+							}
+						});
+		</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

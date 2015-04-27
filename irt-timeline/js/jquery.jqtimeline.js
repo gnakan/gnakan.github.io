@@ -14,7 +14,7 @@
 			numYears : 1,
 			gap : 50, // gap between lines
 			showToolTip : true,
-			groupEventWithinPx : 6, // Will show common tooltip for events within this range of px
+			groupEventWithinPx : 20, // Will show common tooltip for events within this range of px
 			events : [],
 			click : null //Handler for click event for event
 		},

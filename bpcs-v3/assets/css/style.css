@@ -1,5 +1,4 @@
-﻿
-/*=============================================================
+﻿/*=============================================================
     Authour URL: www.designbootstrap.com
 
     http://www.designbootstrap.com/
@@ -14,74 +13,65 @@
    
 ========================================================  */
 
-.navbar-brand .img-responsive
-{
+.navbar-brand .img-responsive {
     height: 40px;
     margin-top: 5px;
 }
 
-.sticky-wrapper ul
-{
-      list-style: none;
+.sticky-wrapper ul {
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
 }
 
-.navbar-fixed-top
-{
+.navbar-fixed-top {
     position: absolute;
 }
 
-.subnav
-{
-      font-size: 1.2em;
-  height: 50px;
-  background-color: #333;
-  padding: 0 5%;
-  width: 100%;
-  color: white;
-  font-weight: 100;
-  line-height: 3em;
+.subnav {
+    font-size: 1.2em;
+    height: 50px;
+    background-color: #333;
+    padding: 0 5%;
+    width: 100%;
+    color: white;
+    font-weight: 100;
+    line-height: 3em;
 }
 
-.subnav a
-{
+.subnav a {
     color: white;
 }
 
-.sticky-wrapper ul li
-{
-      float: left;
-  text-align: center;
-  width: 20%;
+.sticky-wrapper ul li {
+    text-align: center;
+    width: 20%;
+    display: inline-block;
 }
-#clients
-{
+
+#clients {
     color: black;
 }
 
-.white-paper-entry
-{
+.white-paper-entry {
     margin-bottom: 60px;
 }
 
-.white-paper-entry h4
-{
+.white-paper-entry h4 {
     margin: 0px;
 }
 
-.white-paper-entry p
-{
-     color: gray;
+.white-paper-entry p {
+    color: gray;
     font-weight: 200;
 }
 
-.white-paper-entry .fa
-{
+.white-paper-entry .fa {
     color: #bbb;
 }
 
-
-.alert-info
-{
+.alert-info {
     background-color: #333;
     color: #f0f0f0;
     border: none;
@@ -89,100 +79,88 @@
     font-weight: 100;
 }
 
-.row-space
-{
+.row-space {
     margin-bottom: 60px;
 }
 
-.section-overview img
-{
+.section-overview img {
     width: 25%;
-
 }
 
-.section-overview h2
-{
+.section-overview h2 {
     color: #4C90CF;
     margin-bottom: 0px !important;
 }
 
-.section-overview p
-{
+.section-overview p {
     margin: 0;
     padding: 0;
     color: gray;
     font-weight: 200;
 }
 
-.container-alt-accent
-{
+.container-alt-accent {
     background-color: #4C90CF;
 }
 
-.container-alt-gray
-{
+.container-alt-gray {
     background-color: #f8f8f8;
     color: #333;
     padding-top: 40px;
 }
 
-.container-alt
-{
+.container-alt {
     background-color: white;
     color: #333;
     padding-top: 20px;
 }
 
-.container-alt h2, .container-alt-gray h2, .container-alt-accent h2
-{
+.container-alt h2,
+.container-alt-gray h2,
+.container-alt-accent h2 {
     font-size: 20px;
     letter-spacing: 2px;
     margin-bottom: 35px;
 }
 
-.case-study
-{
+.case-study {
     overflow: hidden;
     height: 250px;
     width: 48.5%;
     margin: 5px;
 }
 
-.case-study img
-{
+.case-study img {
     position: absolute;
-    left:0;
+    left: 0;
     top: 0;
     max-width: 100%;
 }
 
-.case-study h3
-{
+.case-study h3 {
     position: relative;
-    color:white;
+    color: white;
     font-size: 2.6em;
     line-height: 1.2;
 }
 
-.case-study h4
-{
+.case-study h4 {
     position: relative;
     color: gray;
     font-size: 1.4em;
 }
 
-.case-study .read-more
-{
+.case-study .read-more {
     position: relative;
     color: #4C90CF;
     font-size: 1em;
 }
-
 /*================================
     GENERAL STYLES
 ==================================*/
 
-@import url(http://fonts.googleapis.com/css?family=Roboto); /* GOOGLE FREE FONTS */
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+/* GOOGLE FREE FONTS */
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -206,63 +184,71 @@ section {
 /*================================
     NAVBAR STYLES
 ==================================*/
+
 .navbar-default {
     background-color: rgba(0, 0, 0, 0);
     border-color: transparent;
     color: #fff;
 }
 
-    .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover {
-        color: #fff;
-    }
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+}
 
 .navbar-brand {
     padding: 0px;
 }
+
 .navbar-default .navbar-toggle .icon-bar {
-    background-color:#fff;
+    background-color: #fff;
 }
 /*================================
     HOME SECTION STYLES
 ==================================*/
-
 /*STYLE OF BACKGROUND IMAGE*/
+
 #home {
-    background: url(http://gnakan.github.io/bpcs-v2/img/alone.jpeg) no-repeat center center; /*Full Witdth background image*/
+    background: url(http://gnakan.github.io/bpcs-v2/img/alone.jpeg) no-repeat center center;
+    /*Full Witdth background image*/
+    
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;
     -moz-background-size: cover;
     min-height: 600px;
 }
-    /*STYLE FOR OVERLAY CLASS - WHICH IS ABOVE IMAGE WITH OPACITY/TRANSPARENCY 0.75*/
-    #home .overlay {
-        padding-top: 90px;
-        /*background-color: rgba(0, 0, 0,0.5); /*.75 opacity of the color so that background image is visible*/
-        min-height: 600px;
-        color: #fff;
-    }
+/*STYLE FOR OVERLAY CLASS - WHICH IS ABOVE IMAGE WITH OPACITY/TRANSPARENCY 0.75*/
 
-    #home h1 {
-        padding-top: 80px;
-        font-weight: 900;
-        font-size: 100px;
-        font-family: 'Browallia New';
-    }
+#home .overlay {
+    padding-top: 90px;
+    /*background-color: rgba(0, 0, 0,0.5); /*.75 opacity of the color so that background image is visible*/
+    
+    min-height: 600px;
+    color: #fff;
+}
+
+#home h1 {
+    padding-top: 80px;
+    font-weight: 900;
+    font-size: 100px;
+    font-family: 'Browallia New';
+}
 /*SMPLE CLASS TO ADJUST SECTION PADDING & HEIGHT*/
-
 /*CLASS TO FORMAT TEXT*/
+
 .p-cls {
     padding-top: 30px;
     padding-bottom: 40px;
 }
-
 /*======================================
     PARALLAX LIKE / STATS SECTION STYLES
 =========================================*/
 
 .parallax-like {
-    background: url(../img/stats.jpg) no-repeat center center; /* DEFINE IMAGE PATH CAREFULLY*/
+    background: url(../img/stats.jpg) no-repeat center center;
+    /* DEFINE IMAGE PATH CAREFULLY*/
+    
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;
@@ -270,61 +256,68 @@ section {
     background-attachment: fixed;
 }
 
-    .parallax-like .overlay {
-        min-height: 200px;
-        background: rgba(0, 0, 0,0.5);
-        font-size: 40px;
-        padding-bottom: 60px;
-        padding-top: 60px;
-    }
-
+.parallax-like .overlay {
+    min-height: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
 /*================================
     PORTFOLIO / WORK SECTION STYLES
 ==================================*/
-.portfolio-item img:hover { /* POSTFOLIO IMAGE BIG ON HOVER */
+
+.portfolio-item img:hover {
+    /* POSTFOLIO IMAGE BIG ON HOVER */
+    
     cursor: pointer;
     -webkit-transform: scale(1.1, 1.1);
     -ms-transform: scale(1.1, 1.1);
     transform: scale(1.1, 1.1);
     transition-duration: 0.3s;
-    -webkit-transition-duration: 0.3s; /* Safari */
+    -webkit-transition-duration: 0.3s;
+    /* Safari */
+    
     z-index: 1;
 }
-
 /*================================
     VIDEO SECTION STYLES
 ==================================*/
+
 #video-sec {
     color: #fff;
     text-align: center;
 }
 
-    #video-sec .overlay {
-        background-color: rgba(0, 0, 0, 0.85);
-        min-height: 300px;
-        color: #fff;
-    }
+#video-sec .overlay {
+    background-color: rgba(0, 0, 0, 0.85);
+    min-height: 300px;
+    color: #fff;
+}
 
-    #video-sec h1 {
-        padding-top: 80px;
-        font-size: 50px;
-        font-weight: 900;
-        padding-bottom: 30px;
-    }
+#video-sec h1 {
+    padding-top: 80px;
+    font-size: 50px;
+    font-weight: 900;
+    padding-bottom: 30px;
+}
 /*================================
     CLIENTS SECTION STYLES
 ==================================*/
+
 #clients {
-    padding-bottom:50px;
-    padding-top:50px;
+    padding-bottom: 50px;
+    padding-top: 50px;
 }
-    #clients img {
-        opacity:0.5;
-        cursor:pointer;
-    }
-        #clients img:hover {
-            opacity:1;
-        }
+
+#clients img {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#clients img:hover {
+    opacity: 1;
+}
 /*================================
     FOOTER SECTION STYLES
 ==================================*/
@@ -334,11 +327,12 @@ footer {
     font-size: 15px;
     text-align: center;
     font-weight: 100;
-    background-color: rgb(0,0,0);
+    background-color: rgb(0, 0, 0);
     color: #fff;
 }
 
-    footer a, footer a:hover {
-        color: #fff;
-        text-decoration: none;
-    }
+footer a,
+footer a:hover {
+    color: #fff;
+    text-decoration: none;
+}

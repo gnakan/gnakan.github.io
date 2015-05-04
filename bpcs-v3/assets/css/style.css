@@ -14,7 +14,33 @@
    
 ========================================================  */
 
+.sticky-wrapper ul
+{
+      list-style: none;
+}
 
+.subnav
+{
+      font-size: .8em;
+  height: 50px;
+  background-color: #333;
+  padding: 0 5%;
+  width: 100%;
+  color: white;
+}
+
+.subnav a
+{
+    color: white;
+}
+
+.sticky-wrapper ul li
+{
+      float: left;
+  padding: 1.5em;
+  text-align: center;
+  width: 20%;
+}
 #clients
 {
     color: black;

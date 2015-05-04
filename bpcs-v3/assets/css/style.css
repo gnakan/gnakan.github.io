@@ -19,6 +19,11 @@
       list-style: none;
 }
 
+.navbar-fixed-top
+{
+    position: absolute;
+}
+
 .subnav
 {
       font-size: .8em;

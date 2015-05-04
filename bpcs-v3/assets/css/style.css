@@ -58,7 +58,7 @@
 
 .white-paper-entry h4
 {
-    margin-top: 0px;
+    margin: 0px;
 }
 
 .white-paper-entry p
@@ -308,7 +308,6 @@ section {
     CLIENTS SECTION STYLES
 ==================================*/
 #clients {
-    background-color:#f4f4f4;
     padding-bottom:50px;
     padding-top:50px;
 }

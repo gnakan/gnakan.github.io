@@ -26,12 +26,14 @@
 
 .subnav
 {
-      font-size: .8em;
+      font-size: 1.2em;
   height: 50px;
   background-color: #333;
   padding: 0 5%;
   width: 100%;
   color: white;
+  font-weight: 100;
+  line-height: 3em;
 }
 
 .subnav a
@@ -42,7 +44,6 @@
 .sticky-wrapper ul li
 {
       float: left;
-  padding: 1.5em;
   text-align: center;
   width: 20%;
 }

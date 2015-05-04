@@ -20,6 +20,28 @@
     color: black;
 }
 
+.white-paper-entry
+{
+    margin-bottom: 60px;
+}
+
+.white-paper-entry h4
+{
+    margin-top: 0px;
+}
+
+.white-paper-entry p
+{
+     color: gray;
+    font-weight: 200;
+}
+
+.white-paper-entry .fa
+{
+    color: #bbb;
+}
+
+
 .alert-info
 {
     background-color: #333;
@@ -34,6 +56,89 @@
     margin-bottom: 60px;
 }
 
+.section-overview img
+{
+    width: 25%;
+
+}
+
+.section-overview h2
+{
+    color: #4C90CF;
+    margin-bottom: 0px !important;
+}
+
+.section-overview p
+{
+    margin: 0;
+    padding: 0;
+    color: gray;
+    font-weight: 200;
+}
+
+.container-alt-accent
+{
+    background-color: #4C90CF;
+}
+
+.container-alt-gray
+{
+    background-color: #f8f8f8;
+    color: #333;
+    padding-top: 20px;
+}
+
+.container-alt
+{
+    background-color: white;
+    color: #333;
+    padding-top: 20px;
+}
+
+.container-alt h2, .container-alt-gray h2, .container-alt-accent h2
+{
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+}
+
+.case-study
+{
+    overflow: hidden;
+    height: 250px;
+    width: 48.5%;
+    margin: 5px;
+}
+
+.case-study img
+{
+    position: absolute;
+    left:0;
+    top: 0;
+    max-width: 100%;
+}
+
+.case-study h3
+{
+    position: relative;
+    color:white;
+    font-size: 2.6em;
+    line-height: 1.2;
+}
+
+.case-study h4
+{
+    position: relative;
+    color: gray;
+    font-size: 1.4em;
+}
+
+.case-study .read-more
+{
+    position: relative;
+    color: #4C90CF;
+    font-size: 1em;
+}
 
 /*================================
     GENERAL STYLES

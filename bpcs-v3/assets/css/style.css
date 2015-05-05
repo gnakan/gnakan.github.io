@@ -236,6 +236,17 @@ section {
     -moz-background-size: cover;
     min-height: 600px;
 }
+
+#home {
+    background: url(../img/home2.jpeg) no-repeat center center;
+    /*Full Witdth background image*/
+    
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+    min-height: 600px;
+}
 /*STYLE FOR OVERLAY CLASS - WHICH IS ABOVE IMAGE WITH OPACITY/TRANSPARENCY 0.75*/
 
 #home .overlay {

@@ -247,6 +247,17 @@ section {
     -moz-background-size: cover;
     min-height: 600px;
 }
+
+#connect {
+    background: url(../img/connect.jpg) no-repeat center center;
+    /*Full Witdth background image*/
+    
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+    min-height: 600px;
+}
 /*STYLE FOR OVERLAY CLASS - WHICH IS ABOVE IMAGE WITH OPACITY/TRANSPARENCY 0.75*/
 
 #home .overlay {
@@ -257,7 +268,7 @@ section {
     color: #fff;
 }
 
-#home h1, #solutions h1, #team h1 {
+#home h1, #solutions h1, #team h1, #connect h1 {
     padding-top: 80px;
     font-weight: 900;
     font-size: 100px;

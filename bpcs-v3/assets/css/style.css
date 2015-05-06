@@ -305,8 +305,9 @@ section {
 
 #home h1, #solutions h1, #team h1, #connect h1 {
     padding-top: 80px;
-    font-weight: 900;
+    font-weight: 100;
     font-size: 100px;
+    letter-spacing: 2px;
 }
 /*SMPLE CLASS TO ADJUST SECTION PADDING & HEIGHT*/
 /*CLASS TO FORMAT TEXT*/

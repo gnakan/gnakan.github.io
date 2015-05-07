@@ -19,6 +19,34 @@
     margin: 0;
 }
 
+.form-control
+{
+    border-color: #F8F8F4;
+}
+
+form .btn
+{
+        font-weight: 100;
+    letter-spacing: 2px;
+    background-color: inherit;
+    border: 2px solid #73a2c7;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1.4em;
+    color: #73a2c7;
+}
+
+.accent-heading
+{
+    font-weight: 100;
+    color: #73a2c7;
+    letter-spacing: 1px !important;
+    font-size: 2em !important;
+    margin: 0;
+    padding: 0;
+}
+
 .team-box p
 {
     letter-spacing: 1px;
@@ -136,7 +164,26 @@
 }
 
 .container-alt-accent {
-    background-color: #4C90CF;
+    background-color: #73a2c7;
+}
+
+.container-alt-accent h1
+{
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.container-alt-accent button
+{
+    font-weight: 100;
+    letter-spacing: 2px;
+    background-color: inherit;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1.4em;
 }
 
 .container-alt-gray {

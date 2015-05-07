@@ -320,7 +320,8 @@ section {
 }
 
 #home {
-    background: url(../img/home2.jpeg) no-repeat center center;
+    /*background: url(../img/home2.jpeg) no-repeat center center;*/
+    background: url(../img/food.jpeg) no-repeat center center;
     /*Full Witdth background image*/
     
     padding: 0;

@@ -21,6 +21,23 @@
     text-align: left;
 }
 
+.mine
+{
+    list-style: none;
+}
+
+.mine li
+{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.mine i
+{
+    margin-right: 10px;
+}
+
 #locations
 {
     padding: 0;

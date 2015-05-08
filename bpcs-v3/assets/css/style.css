@@ -13,6 +13,14 @@
    
 ========================================================  */
 
+.site-footer p
+{
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: .8em;
+    text-align: left;
+}
+
 #locations
 {
     padding: 0;

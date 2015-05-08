@@ -174,7 +174,7 @@ form .btn
     margin-bottom: 40px;
 }
 
-.container-alt-accent button
+.container-alt-accent button, .btn-callToAction
 {
     font-weight: 100;
     letter-spacing: 2px;

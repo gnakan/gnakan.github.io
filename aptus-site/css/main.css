@@ -1423,7 +1423,6 @@ span.color-red {
   transition: .25s linear;
 }
 .in-press a:before {
-  content: "\201C";
   margin-left: -16px;
   font-size: 2.2em;
 }

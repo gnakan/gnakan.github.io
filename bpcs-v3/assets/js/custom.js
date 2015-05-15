@@ -31,6 +31,25 @@ $(document).ready(function () {
 
 
 
+        $(".read-more-btn").on('click', function(e){
+            if($(this).text() == "Read More"){
+                $(this).text("Show Less");
+                $(this).prev('.read-more').show(500);
+            }
+            else
+            {
+                $(this).text("Read More");
+                $(this).prev('.read-more').hide(500);
+            }
+            
+        })
+
+
+
+
+
+
+
     $('a[href^="#"]').on('click', function(event) {
     var target = $(this).attr('href');
     console.log(target);

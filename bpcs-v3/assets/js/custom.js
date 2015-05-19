@@ -14,6 +14,10 @@
    
 ========================================================  */
 
+$(window).on('beforeunload', function(){
+  $(window).scrollTop(0);
+});
+
 $(document).ready(function () {
     // SCROLL SCRIPTS 
         $('.scroll-me a').bind('click', function (event) { //just pass scroll-me class and start scrolling
@@ -46,7 +50,11 @@ $(document).ready(function () {
 
 
 
-
+    $('.hero-control').on('click', function(){
+        $('html, body').animate({
+            scrollTop: window.innerHeight
+        }, 1000);
+    });
 
 
 

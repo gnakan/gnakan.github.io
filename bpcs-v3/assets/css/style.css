@@ -13,6 +13,11 @@
    
 ========================================================  */
 
+.hero-control
+{
+    height: 100%;
+}
+
 .read-more-btn {
     width: 100%;
     bottom: 50px;
@@ -453,7 +458,6 @@ section {
     -webkit-background-size: cover;
     background-size: cover;
     -moz-background-size: cover;
-    min-height: 600px;
 }
 
 #home {

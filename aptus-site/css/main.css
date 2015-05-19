@@ -162,6 +162,7 @@ a:hover {
   -moz-box-shadow: 0 0 3px #999;
   box-shadow: 0 0 3px #999;
   color: 0 0 3px #999;
+  min-height: 300px;
 }
 .service-wrapper h3 {
   font-size: 1.2em;

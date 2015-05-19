@@ -1,5 +1,10 @@
 $(document).ready(function(){
     
+	//just a little something to change up the content
+	var randomnDisplay=".rotate" + Math.floor(Math.random()*3);
+	$(randomnDisplay).show(100);
+
+
 	//Homepage Slider
     var options = {
         nextButton: false,

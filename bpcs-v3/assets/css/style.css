@@ -16,6 +16,7 @@
 .hero-control
 {
     height: 100%;
+    cursor: pointer;
 }
 
 .read-more-btn {
@@ -39,6 +40,7 @@
     text-decoration: none;
     font-weight: bold;
     background-color: #f8f8f8;
+    cursor: pointer;
 }
 
 .sticky-wrapper a:hover, .sticky-wrapper a:visited, .sticky-wrapper a:active

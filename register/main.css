@@ -1,0 +1,31 @@
+.hero
+{
+	background-color: #F5F4F0;
+	width: 100%;
+	overflow: hidden;
+}
+
+.hero .logo
+{
+	width: 300px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.hero h2
+{
+	margin-top: 50px;
+}
+
+.hero p
+{
+	margin-top: 30px;
+}
+
+.notification
+{
+	height: 50px;
+	line-height: 50px;
+	font-size: 1.3em;
+	font-weight: 100;
+}

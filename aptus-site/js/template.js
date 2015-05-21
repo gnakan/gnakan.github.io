@@ -5,35 +5,35 @@ $(document).ready(function(){
 	$(randomnDisplay).show(100);
 
 
-	//Homepage Slider
-    var options = {
-        nextButton: false,
-        prevButton: false,
-        pagination: true,
-        animateStartingFrameIn: true,
-        autoPlay: true,
-        autoPlayDelay: 3000,
-        preloader: true
-    };
-    
-    var mySequence = $("#sequence").sequence(options).data("sequence");
+	$('a[href^="#"]').on('click', function(event) {
+    var target = $(this).attr('href');
+    console.log(target);
+    if( target.length ) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: $(target).offset().top
+        }, 1000);
+    }
+});
 
-    //Main menu Initialization
-    mainMenu.init();
 
-	//Products slider
-	var produxtsSlider = $('.products-slider').bxSlider({
-		slideWidth: $('.products-slider .shop-item').outerWidth()-20, //Gets slide width
-		responsive: true,
-		minSlides: 1,
-		maxSlides: 4,
-		slideMargin: 20,
-		auto: true,
-		autoHover: true,
-		speed: 800,
-		pager: true,
-		controls: false
-	});
+	$(".read-more-btn").on('click', function(e){
+            if($(this).text() == "Read More"){
+                $(this).text("Show Less");
+                $(this).prev('.read-more').show(500);
+            }
+            else
+            {
+                $(this).text("Read More");
+                $('html,body').animate({
+          			scrollTop: $('#careers').offset().top
+        		}, 1000);
+                $(this).prev('.read-more').hide(500);
+                
+            }
+            
+     });
+
 
 	//Make Videos Responsive
 	$(".video-wrapper").fitVids();

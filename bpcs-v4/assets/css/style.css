@@ -1,0 +1,613 @@
+﻿/*=============================================================
+    Authour URL: www.designbootstrap.com
+
+    http://www.designbootstrap.com/
+
+    License: MIT
+
+    http://opensource.org/licenses/MIT
+
+    100% Free To use For Personal And Commercial Use.
+
+    IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
+   
+========================================================  */
+
+a:hover
+{
+    text-decoration: none;
+}
+
+
+.hero-control
+{
+    height: 100%;
+    cursor: pointer;
+}
+
+.read-more-btn {
+    width: 100%;
+    bottom: 50px;
+    position: absolute;
+    outline: none;
+}
+
+#leadership .row {
+    margin-bottom: 30px;
+}
+
+.team-box:hover {
+    transform: scale(1.1);
+}
+
+.sticky-wrapper li:hover {
+    color: white;
+    transform: scale(1.1);
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.sticky-wrapper a:hover, .sticky-wrapper a:visited, .sticky-wrapper a:active
+{
+    text-decoration: none;
+}
+
+.sticky-wrapper li
+{
+    transition: all .2s ease-in-out;
+}
+
+.read-more {
+    display: none;
+}
+
+.social-overlay {
+    color: white;
+    left: 35%;
+    top: 30px;
+    position: absolute;
+}
+
+.site-footer {
+    background-color: #333;
+    overflow: hidden;
+    font-size: .9em;
+    color: gray;
+}
+
+.site-footer a,
+.site-footer a:visited,
+.site-footer a:active {
+    color: gray;
+}
+
+.site-footer p {
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-size: .8em;
+    text-align: left;
+}
+
+.footer-block {
+    text-align: left;
+    font-weight: 100;
+}
+
+.footer-block h3 {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 2px;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.footer-block ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-block ul li {
+    margin: 0;
+    padding: 5px 0px 5px 0px;
+    text-align: left;
+}
+
+.mine i {
+    margin-right: 2px;
+}
+
+#locations {
+    padding: 0;
+    margin: 0;
+}
+
+.form-control {
+    border-color: #F8F8F4;
+}
+
+form .btn {
+    font-weight: 100;
+    letter-spacing: 2px;
+    background-color: rgba(255, 255, 255, 0.0);
+    ;
+    border: 2px solid #73a2c7;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1.4em;
+    color: #73a2c7;
+}
+
+.accent-heading {
+    font-weight: 100;
+    color: #73a2c7;
+    letter-spacing: 1px !important;
+    font-size: 2em !important;
+    margin: 0;
+    padding: 0;
+}
+
+.team-box {
+    margin: .5%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: white;
+    padding: 10px 0px 100px 0px;
+    min-height: 440px;
+    position: relative;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.team-box .text-content {
+    overflow: hidden;
+    width: 100%;
+    padding-top: 5px;
+}
+
+.team-box .links {
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+    bottom: 0px;
+    padding: 5px;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+}
+
+.team-box .links ul {
+    list-style: none;
+    padding: 0;
+    height: 50px;
+}
+
+.team-box .links ul li {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.team-box p {
+    letter-spacing: 1px;
+    font-size: .9em;
+    color: #888;
+    line-height: 1.3em;
+    font-weight: 100;
+    padding: 0px 10px 0px 10px;
+}
+
+.team-box h3 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 0px;
+}
+
+.team-box h4 {
+    font-weight: 100;
+    color: #666;
+    margin: 0;
+}
+
+.team-title {
+    background-color: #73a2c7;
+    position: absolute;
+    top: 198px;
+    color: white;
+    font-weight: 100;
+    padding: 2px 10px 2px 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .9em;
+}
+
+.navbar-brand .img-responsive {
+    height: 40px;
+    margin-top: 5px;
+}
+
+.sticky-wrapper ul {
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar-fixed-top {
+    position: absolute;
+}
+
+.subnav {
+    font-size: 1.2em;
+    height: 50px;
+    background-color: #333;
+    padding: 0 5%;
+    width: 100%;
+    color: white;
+    font-weight: 100;
+    line-height: 3em;
+}
+
+.subnav a {
+    color: gray;
+    letter-spacing: 2px;
+}
+
+.sticky-wrapper ul li {
+    text-align: center;
+    width: 20%;
+    display: inline-block;
+}
+
+#clients {
+    color: black;
+}
+
+.white-paper-entry {
+    margin-bottom: 60px;
+}
+
+.white-paper-entry h4 {
+    margin: 0px;
+}
+
+.white-paper-entry p {
+    color: gray;
+    font-weight: 200;
+}
+
+.white-paper-entry .fa {
+    color: #bbb;
+}
+
+.alert-info {
+    background-color: #333;
+    color: #f0f0f0;
+    border: none;
+    border-radius: 0px;
+    font-weight: 100;
+}
+
+.row-space {
+    margin-bottom: 60px;
+}
+
+.section-overview img {
+    width: 25%;
+}
+
+.section-overview h2 {
+    color: #4C90CF;
+    margin-bottom: 0px !important;
+}
+
+.section-overview p {
+    margin: 0;
+    padding: 0;
+    color: gray;
+    font-weight: 200;
+}
+
+.container-alt-accent {
+    background-color: #73a2c7;
+}
+
+.container-alt-accent h1 {
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.container-alt-accent button,
+.btn-callToAction {
+    font-weight: 100;
+    letter-spacing: 2px;
+    background-color: rgba(255, 255, 255, 0.0);
+    border: 2px solid white;
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.btn-callToAction:hover {
+    color: white;
+}
+
+.container-alt-gray {
+    background-color: #f8f8f8;
+    color: #333;
+    padding-top: 40px;
+}
+
+.container-alt {
+    background-color: white;
+    color: #333;
+    padding-top: 20px;
+}
+
+.container-alt footer {
+    background-color: white;
+}
+
+.container-alt h2,
+.container-alt-gray h2,
+.container-alt-accent h2 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+}
+
+.case-study {
+    overflow: hidden;
+    height: 250px;
+    width: 48.5%;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.case-study img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 100%;
+}
+
+.case-study h3 {
+    position: relative;
+    color: white;
+    font-size: 2.6em;
+    line-height: 1.2;
+}
+
+.case-study h4 {
+    position: relative;
+    color: gray;
+    font-size: 1.4em;
+}
+
+.case-study .read-more {
+    position: relative;
+    color: #4C90CF;
+    font-size: 1em;
+}
+/*================================
+    GENERAL STYLES
+==================================*/
+
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+/* GOOGLE FREE FONTS */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+section {
+    padding-top: 80px;
+    padding-bottom: 120px;
+}
+
+.head-set {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.pad-bottom {
+    padding-bottom: 60px;
+}
+/*================================
+    NAVBAR STYLES
+==================================*/
+
+.navbar-default {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: transparent;
+    color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+/*================================
+    HOME SECTION STYLES
+==================================*/
+/*STYLE OF BACKGROUND IMAGE*/
+
+#solutions {
+    background: url(../img/one_home.jpeg) no-repeat center center;
+    /*Full Witdth background image*/
+    
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+    min-height: 600px;
+}
+
+#team {
+    background: url(../img/team.jpg) no-repeat center center;
+    /*Full Witdth background image*/
+    
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+}
+
+#home {
+    background: url(../img/home2.jpeg) no-repeat center center;
+    /*background: url(../img/food.jpeg) no-repeat center center;*/
+    /*Full Witdth background image*/
+    
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+    min-height: 600px;
+}
+
+#connect {
+    background: url(../img/connect.jpg) no-repeat center center;
+    /*Full Witdth background image*/
+    
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+    min-height: 600px;
+}
+/*STYLE FOR OVERLAY CLASS - WHICH IS ABOVE IMAGE WITH OPACITY/TRANSPARENCY 0.75*/
+
+#home .overlay {
+    padding-top: 90px;
+    /*background-color: rgba(0, 0, 0,0.5); /*.75 opacity of the color so that background image is visible*/
+    
+    min-height: 600px;
+    color: #fff;
+}
+
+#home h1,
+#solutions h1,
+#team h1,
+#connect h1 {
+    padding-top: 80px;
+    font-weight: 100;
+    font-size: 100px;
+    letter-spacing: 2px;
+}
+/*SMPLE CLASS TO ADJUST SECTION PADDING & HEIGHT*/
+/*CLASS TO FORMAT TEXT*/
+
+.p-cls {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+/*======================================
+    PARALLAX LIKE / STATS SECTION STYLES
+=========================================*/
+
+.parallax-like {
+    background: url(../img/stats.jpg) no-repeat center center;
+    /* DEFINE IMAGE PATH CAREFULLY*/
+    
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    background-attachment: fixed;
+}
+
+.parallax-like .overlay {
+    min-height: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+/*================================
+    PORTFOLIO / WORK SECTION STYLES
+==================================*/
+
+.portfolio-item img:hover {
+    /* POSTFOLIO IMAGE BIG ON HOVER */
+    
+    cursor: pointer;
+    -webkit-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+    transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    /* Safari */
+    
+    z-index: 1;
+}
+/*================================
+    VIDEO SECTION STYLES
+==================================*/
+
+#video-sec {
+    color: #fff;
+    text-align: center;
+}
+
+#video-sec .overlay {
+    background-color: rgba(0, 0, 0, 0.85);
+    min-height: 300px;
+    color: #fff;
+}
+
+#video-sec h1 {
+    padding-top: 80px;
+    font-size: 50px;
+    font-weight: 900;
+    padding-bottom: 30px;
+}
+/*================================
+    CLIENTS SECTION STYLES
+==================================*/
+
+#clients {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+#clients img {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#clients img:hover {
+    opacity: 1;
+}
+/*================================
+    FOOTER SECTION STYLES
+==================================*/
+
+footer {
+    padding: 20px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 100;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+}
+
+footer a,
+footer a:hover {
+    color: #fff;
+    text-decoration: none;
+}

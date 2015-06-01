@@ -13,6 +13,22 @@
    
 ========================================================  */
 
+#recognition .media
+{
+    margin-bottom: 75px;
+}
+
+#recognition .media h3
+{
+    margin-top: 50px;
+}
+
+#recognition .row
+{
+    margin-bottom: 50px;
+}
+
+
 .client-list
 {
     list-style-type: none;

@@ -13,6 +13,67 @@
    
 ========================================================  */
 
+.client-list
+{
+    list-style-type: none;
+}
+
+.client-list li
+{
+    float: left;
+    width: 150px;
+    height: 40px;
+    background-color: #ccc;
+    margin: 5px;
+    text-align: center;
+    line-height: 40px;
+
+}
+
+.show-link
+{
+    cursor: pointer;
+    padding-top: 12px;
+}
+
+.share-header
+{
+    position: absolute;
+    margin-bottom: 30px;
+}
+
+.share-link
+{
+    width: 40px;
+    height: 50px;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    color: #333;
+    margin-top: 11px;
+}
+
+.share-link-show
+{
+    background-color: rgba(0,0,0,0.05);
+    width: 700px;
+    border-radius: 5px;
+}
+
+.share-link div
+{
+    height: 50px;
+}
+
+.share-url, .share-copy
+{
+    line-height: 50px;
+}
+
+.share-copy
+{
+    text-align: center;
+}
+
 .btn-view
 {
     padding-top: 30px;
@@ -333,7 +394,7 @@ form .btn {
     letter-spacing: 2px;
     background-color: rgba(255, 255, 255, 0.0);
     border: 2px solid white;
-    border-radius: 20px;
+    border-radius: 5px;
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 1.4em;
@@ -341,6 +402,8 @@ form .btn {
 
 .btn-callToAction:hover {
     color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
 }
 
 .container-alt-gray {
@@ -367,12 +430,28 @@ form .btn {
     margin-bottom: 35px;
 }
 
+.case-study:hover
+{
+    background-color: #73a2c7;
+    height: 275px;
+    color: white !important;
+}
+
+
 .case-study {
     overflow: hidden;
-    height: 250px;
     width: 48.5%;
     margin: 5px;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+    background-color: #212121;
+    height: 150px;
+    border-radius: 5px;
+}
+
+.case-study p
+{
+    color: #212121;
 }
 
 .case-study img {
@@ -391,14 +470,20 @@ form .btn {
 
 .case-study h4 {
     position: relative;
-    color: gray;
+    color: #ccc;
     font-size: 1.4em;
+}
+
+.case-study p
+{
+    color: white;
 }
 
 .case-study .read-more {
     position: relative;
-    color: #4C90CF;
+    color: white;
     font-size: 1em;
+    display: block;
 }
 /*================================
     GENERAL STYLES

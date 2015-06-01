@@ -535,14 +535,21 @@ section {
 /*STYLE OF BACKGROUND IMAGE*/
 
 #solutions {
-    background: url(../img/one_home.jpeg) no-repeat center center;
+    background: url(../img/solutions2.jpeg) no-repeat center center;
     /*Full Witdth background image*/
     
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;
     -moz-background-size: cover;
+    
+}
+
+#solutions .overlay
+{
+    background-color: rgba(0, 0, 0,0.5); /*.75 opacity of the color so that background image is visible*/
     min-height: 600px;
+    background: linear-gradient(rgba(0, 0, 0,0.5), rgba(0, 0, 0, 0));
 }
 
 #team {

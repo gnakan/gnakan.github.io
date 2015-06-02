@@ -31,6 +31,11 @@ $(document).ready(function() {
         $(".player").mb_YTPlayer(); // .player - class to add for playing video ( see the div above to understand)
     });
 
+
+    $(document).on('scroll', function(){
+        $('.bounce').hide();
+    });
+
     $(".read-more-btn").on('click', function(e) {
         if ($(this).text() == "Read More") {
             $(this).text("Show Less");

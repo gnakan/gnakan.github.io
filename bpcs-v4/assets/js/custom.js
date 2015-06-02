@@ -47,7 +47,8 @@ $(document).ready(function() {
 
     });
 
-    $('.hero-control').on('click', function() {
+    $('.hero-control').on('click', function(e) {
+        console.log(e.target)
         $('html, body').animate({
             scrollTop: window.innerHeight
         }, 1000);
@@ -70,7 +71,6 @@ $(document).ready(function() {
 
     $('a[href^="#"]').on('click', function(event) {
         var target = $(this).attr('href');
-        console.log(target);
         if (target.length) {
             event.preventDefault();
             $('html, body').animate({
@@ -79,3 +79,9 @@ $(document).ready(function() {
         }
     });
 });
+
+
+function test(){
+    $(this).preventDefault;
+    console.log('yes')
+}

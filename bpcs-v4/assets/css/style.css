@@ -463,11 +463,17 @@ form .btn {
     margin-bottom: 35px;
 }
 
+.case-study p
+{
+    color: white;
+    margin-top: 20px;
+}
+
+
 .case-study:hover
 {
     background-color: #73a2c7;
     height: 275px;
-    color: white !important;
 }
 
 
@@ -482,10 +488,6 @@ form .btn {
     border-radius: 5px;
 }
 
-.case-study p
-{
-    color: #212121;
-}
 
 .case-study img {
     position: absolute;
@@ -505,11 +507,6 @@ form .btn {
     position: relative;
     color: #ccc;
     font-size: 1.4em;
-}
-
-.case-study p
-{
-    color: white;
 }
 
 .case-study .read-more {

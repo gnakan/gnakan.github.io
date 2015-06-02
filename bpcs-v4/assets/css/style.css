@@ -586,7 +586,7 @@ section {
 {
     background-color: rgba(0, 0, 0,0.5); /*.75 opacity of the color so that background image is visible*/
     min-height: 600px;
-    background: linear-gradient(rgba(0, 0, 0,0.5), rgba(0, 0, 0, 0));
+    background: linear-gradient(rgba(115, 162, 199,0.5), rgba(0, 0, 0, 0));
 }
 
 #team {

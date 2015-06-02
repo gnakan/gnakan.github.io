@@ -1,4 +1,11 @@
-﻿#locations
+﻿.img-hero-branding
+{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#locations
 {
     display:none;
 }

@@ -574,7 +574,7 @@ section {
 ==================================*/
 
 .navbar-default {
-    background: rgb(0,0,0)
+    background-color: black;
     background-color: rgba(0, 0, 0, 0);
     border-color: transparent;
     color: #fff;

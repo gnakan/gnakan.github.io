@@ -1,4 +1,9 @@
-﻿.img-hero-branding
+﻿.blog-post-meta
+{
+    color: #999;
+}
+
+.img-hero-branding
 {
     width: 70%;
     margin: 0 auto;
@@ -297,7 +302,7 @@ form .btn {
 
 .team-box .links ul li {
     display: inline-block;
-    margin-top: 5px;
+    margin: 5px 10px 0px 10px;
 }
 
 .team-box p {
@@ -616,7 +621,7 @@ section {
 }
 
 #connect {
-    background: url(../img/connect.jpg) no-repeat center center;
+    background: url(../img/connect2.jpeg) no-repeat bottom center;
     /*Full Witdth background image*/
     
     padding: 0;

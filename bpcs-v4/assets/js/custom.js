@@ -47,11 +47,12 @@ $(document).ready(function() {
 
     });
 
-    $('.hero-control').on('click', function(e) {
-        console.log(e.target)
+    $('.hero-control-scroll').on('click', function(e) {
+        
         $('html, body').animate({
             scrollTop: window.innerHeight
         }, 1000);
+
     });
 
     $('.share-link').on('click', function(e) {

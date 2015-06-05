@@ -5,7 +5,7 @@
         background-color: rgba(0,0,0, 0.8);
     }
 
-    #home h1
+    #home h1, #solutions h1, #team h1, #connect h1
     {
         font-size: 4em !important;
     }

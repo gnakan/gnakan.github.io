@@ -65,6 +65,15 @@ $(document).ready(function() {
 
     });
 
+    $('.arrow').on('click', function(e) {
+        
+       console.log('here');
+        $('html, body').animate({
+            scrollTop: window.innerHeight
+        }, 1000);
+
+    });
+
     $('.share-link').on('click', function(e) {
         e.preventDefault();
         var menuWidth = 600;

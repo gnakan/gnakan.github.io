@@ -606,7 +606,7 @@ section {
     -webkit-background-size: cover;
     background-size: cover;
     -moz-background-size: cover;
-    
+    height: 100vh;
 }
 
 #solutions .overlay
@@ -614,6 +614,7 @@ section {
     background-color: rgba(0, 0, 0,0.5); /*.75 opacity of the color so that background image is visible*/
     min-height: 600px;
     background: linear-gradient(rgba(115, 162, 199,0.5), rgba(0, 0, 0, 0));
+    height: 100vh;
 }
 
 #team {
@@ -624,6 +625,7 @@ section {
     -webkit-background-size: cover;
     background-size: cover;
     -moz-background-size: cover;
+    height: 100vh;
 }
 
 #home {
@@ -636,6 +638,7 @@ section {
     background-size: cover;
     -moz-background-size: cover;
     min-height: 600px;
+    height: 100vh;
 }
 
 #connect {
@@ -647,6 +650,7 @@ section {
     background-size: cover;
     -moz-background-size: cover;
     min-height: 600px;
+    height: 100vh;
 }
 /*STYLE FOR OVERLAY CLASS - WHICH IS ABOVE IMAGE WITH OPACITY/TRANSPARENCY 0.75*/
 
@@ -655,6 +659,7 @@ section {
     /*background-color: rgba(0, 0, 0,0.5); /*.75 opacity of the color so that background image is visible*/
     
     min-height: 600px;
+
     color: #fff;
 }
 

@@ -33,7 +33,17 @@ $(document).ready(function() {
 
 
     $(document).on('scroll', function(){
-        $('.bounce').hide();
+
+        if($(window).scrollTop() == 0)
+        {
+            $('.bounce').show();
+        }
+        else
+        {
+            $('.bounce').hide();
+        }
+
+        
     });
 
     $(".read-more-btn").on('click', function(e) {

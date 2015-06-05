@@ -453,6 +453,7 @@ form .btn {
 .btn-callToAction {
     font-weight: 100;
     letter-spacing: 2px;
+    background-color: black;
     background-color: rgba(255, 255, 255, 0.0);
     border: 2px solid white;
     border-radius: 5px;

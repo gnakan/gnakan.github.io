@@ -1,0 +1,54 @@
+<html>
+
+<head></head>
+
+<body>
+    Description here with no html content code.
+    <h1>How To Install Jenkins on Ubuntu 14.04.1 LTS</h1>
+    <!-- START: GD provided 
+    Time value is the time it takes to complete with accommodation for reading article itself (appropriate options are 5, 10, 15, 20, 30, 45 minutes, or 1, 2, or 3 hours). Timeframes only need to include steps outlined in the article itself; do not include timeframes for articles linked to.
+
+    -->
+    <p><strong>Difficulty</strong>: 2
+        <br/>
+        <strong>Time</strong>: 10 minutes</p>
+    <!-- END: GD provided -->
+    <p>In this article, you will learn how to install Jenkins on a GoDaddy Cloud Server running Ubuntu 14.04.1 LTS. Jenkins is an application often used for continuous integration pipelines, allowing for the management and monitoring of project build jobs.</p>
+    <!-- Sections start with h2 -->
+    <h2>Installation</h2>
+    <p>The following steps assume you have root access and have terminal access. All commands can be ran via SSH.</p>
+    <ol>
+        <li>
+            Add the Jenkins public key to apt:
+            <br>
+            <code>wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -</code>
+        </li>
+        <li>
+            Add the Jenkins source list to apt:
+            <br>
+            <code>echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list</code>
+        </li>
+        <li>
+            Update apt's cache:
+            <br>
+            <code>apt-get update</code>
+        </li>
+        <li>
+            Install Jenkins:
+            <br>
+            <code>apt-get install jenkins</code>
+        </li>
+    </ol>
+    <p>Assuming your GoDaddy Cloud Server is publicly accessible at bpcs.testserver.com, if you open bpcs.testserver.com:8080 in a web browser, the Jenkins homepage should display</p>
+    <p>
+        <img src='/368/060915/jenkins-success.png' alt="Jenkins successful installation" />
+    </p>
+    <h2>Conclusion</h2>
+    <p>In this article, you have installed a fully functional instance of Jenkins on your GoDaddy Cloud Server. For information about adding a new job in Jenkins, check out <a href='#'>Adding A New Job In Jenkins</a>. For general information about Jenkins, visit the main Jenkins website at <a href='https://jenkins-ci.org/'>https://jenkins-ci.org</a>.
+    </p>
+    <!-- START: GD provided -->
+    <p>Have questions? Email us at <a href='mailto:clouddocs@godaddy.com'>clouddocs@godaddy.com</a> or leave a comment.</p>
+    <!-- END: GD provided -->
+</body>
+
+</html>

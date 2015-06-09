@@ -277,7 +277,7 @@ form .btn {
 }
 
 .team-box {
-    margin: .5%;
+    margin: 0px 0px 20px 0px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     background-color: white;
     padding: 10px 0px 100px 0px;
@@ -290,7 +290,7 @@ form .btn {
 .team-box .text-content {
     overflow: hidden;
     width: 100%;
-    padding-top: 5px;
+    padding: 5px 10px;
 }
 
 .team-box .links {
@@ -321,7 +321,6 @@ form .btn {
     color: #888;
     line-height: 1.3em;
     font-weight: 100;
-    padding: 0px 10px 0px 10px;
 }
 
 .team-box h3 {
@@ -330,12 +329,14 @@ form .btn {
     text-transform: uppercase;
     font-weight: 900;
     margin: 0px;
+    padding: 0px 10px;
 }
 
 .team-box h4 {
     font-weight: 100;
     color: #666;
     margin: 0;
+    padding: 0px 10px;
 }
 
 .team-title {
@@ -386,6 +387,9 @@ form .btn {
     text-align: center;
     width: 20%;
     display: inline-block;
+    min-width: 80px;
+    overflow: hidden;
+    font-size: .8em;
 }
 
 #clients {
@@ -678,7 +682,6 @@ section {
     font-weight: 100;
     letter-spacing: 2px;
     font-size: 2em;
-    text-shadow: 1px 1px 9px rgba(0, 0, 0, 0.4);
     margin-top: -10px;
 }
 /*SMPLE CLASS TO ADJUST SECTION PADDING & HEIGHT*/

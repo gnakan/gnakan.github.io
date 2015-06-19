@@ -2,10 +2,7 @@
     .navbar-collapse {
         background-color: rgba(0, 0, 0, 0.8);
     }
-    #home h1,
-    #solutions h1,
-    #team h1,
-    #connect h1 {
+    .hero-box h1 {
         font-size: 4em !important;
     }
 }
@@ -665,10 +662,7 @@ section {
     width: 100%;
 }
 
-#home h1,
-#solutions h1,
-#team h1,
-#connect h1 {
+.hero-box h1{
     font-weight: 400;
     font-size: 7em;
     letter-spacing: 5px;

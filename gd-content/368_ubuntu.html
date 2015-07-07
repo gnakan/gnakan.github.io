@@ -1,7 +1,11 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta name='description' content='Installing Jenkins on Ubuntu 14.04.1 LTS.'>
+    <title>Installing Jenkins on Ubuntu 14.04.1 LTS</title>
+    <meta name='description' content='Installing Jenkins on Ubuntu 14.04.1 LTS.' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
@@ -23,22 +27,22 @@
     <ol>
         <li>
             Add the Jenkins public key to apt:
-            <br>
+            <br/>
             <code>wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -</code>
         </li>
         <li>
             Add the Jenkins source list to apt:
-            <br>
+            <br/>
             <code>echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list</code>
         </li>
         <li>
             Update apt's cache:
-            <br>
+            <br/>
             <code>apt-get update</code>
         </li>
         <li>
             Install Jenkins:
-            <br>
+            <br/>
             <code>apt-get install jenkins</code>
         </li>
     </ol>

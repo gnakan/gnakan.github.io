@@ -12,12 +12,68 @@
     IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
    
 ========================================================  */
+var vid = document.getElementById("bgvid");
+var pauseButton = document.getElementById("teamCulture");
+
+function vidFade() {
+    vid.classList.add("stopfade");
+};
+
+
+
+vid.addEventListener('ended', function() {
+    // only functional if "loop" is removed
+    vid.pause();
+    // to capture IE10
+    vidFade();
+});
+
+/*
+pauseButton.addEventListener("click", function() {
+vid.classList.toggle("stopfade");
+if (vid.paused) {
+vid.play();
+pauseButton.innerHTML = "Pause";
+} else {
+vid.pause();
+pauseButton.innerHTML = "Paused";
+}
+})
+*/
+
+
+
 
 $(window).on('beforeunload', function() {
     $(window).scrollTop(0);
 });
 
 $(document).ready(function() {
+    
+    $('#vid-close').on('click', function() {
+        
+        $('#bgvid').css('opacity', 0);
+        $(this).hide();
+        vid.pause();
+        $('.vid-container').show();
+    })
+
+
+    $('#teamCulture').on('click', function() {
+        $('.vid-container').hide();
+        $('#bgvid').css('opacity', 1);
+        $('#vid-close').show();
+        if(vid.paused)
+        {
+            vid.play();
+        }
+        else
+        {
+            vid.pause();
+        }
+    });
+
+
     // SCROLL SCRIPTS 
     $('.scroll-me a').bind('click', function(event) { //just pass scroll-me class and start scrolling
         var $anchor = $(this);
@@ -32,18 +88,15 @@ $(document).ready(function() {
     });
 
 
-    $(document).on('scroll', function(){
+    $(document).on('scroll', function() {
 
-        if($(window).scrollTop() == 0)
-        {
+        if ($(window).scrollTop() == 0) {
             $('.bounce').show();
-        }
-        else
-        {
+        } else {
             $('.bounce').hide();
         }
 
-        
+
     });
 
     $(".read-more-btn").on('click', function(e) {
@@ -58,7 +111,7 @@ $(document).ready(function() {
     });
 
     $('.hero-control-scroll').on('click', function(e) {
-        
+
         $('html, body').animate({
             scrollTop: window.innerHeight
         }, 1000);
@@ -75,9 +128,8 @@ $(document).ready(function() {
     $('.share-link').on('click', function(e) {
         e.preventDefault();
         var menuWidth = 600;
-        
-        if ($(this).width() < menuWidth) 
-        {
+
+        if ($(this).width() < menuWidth) {
             $(this).addClass('share-link-show');
         }
 
@@ -99,7 +151,7 @@ $(document).ready(function() {
 });
 
 
-function test(){
+function test() {
     $(this).preventDefault;
     console.log('yes')
 }

@@ -1,4 +1,30 @@
-﻿@media screen and (max-width: 767px) {
+﻿.no-padding
+{
+    padding: 0px !important;
+}
+
+video#bgvid {
+width: 100%;
+opacity: 0;
+background-size: cover;
+z-index: 100;
+transition: 1s opacity;
+}
+
+video#bgvid {  }
+.stopfade { opacity: .5; }
+
+#vid-close
+{
+    position: absolute;
+    z-index: 1000;
+    right: 10px;
+    opacity: .3;
+    display:none;
+}
+
+
+@media screen and (max-width: 767px) {
     .navbar-collapse {
         background-color: rgba(0, 0, 0, 0.8);
     }
@@ -592,6 +618,19 @@ section {
 ==================================*/
 /*STYLE OF BACKGROUND IMAGE*/
 
+#teamCulture
+{
+    background: url(../img/culture_team.jpg) no-repeat center center;
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+    height: 100vh;
+    overflow:hidden;
+}
+
+
+
 #solutions {
     background: url(../img/solutions2.jpeg) no-repeat center center;
     /*Full Witdth background image*/
@@ -667,6 +706,16 @@ section {
     font-size: 7em;
     letter-spacing: 5px;
     text-shadow: 1px 1px 9px rgba(0, 0, 0, 0.4);
+}
+
+.hero-box-white
+{
+    color: white;
+}
+
+.hero-box-white h1
+{
+    text-shadow: none;
 }
 
 #home h2,

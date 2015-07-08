@@ -14,6 +14,7 @@
 ========================================================  */
 var vid = document.getElementById("bgvid");
 var pauseButton = document.getElementById("teamCulture");
+var vidStatus = 0;
 
 function vidFade() {
     vid.classList.add("stopfade");
@@ -51,10 +52,10 @@ $(window).on('beforeunload', function() {
 $(document).ready(function() {
     
     $('#vid-close').on('click', function() {
-        
-        $('#bgvid').css('opacity', 0);
+        vidStatus = 0;
+        vid.play();
         $(this).hide();
-        vid.pause();
+        vid.muted = true;
         $('.vid-container').show();
     })
 
@@ -63,7 +64,13 @@ $(document).ready(function() {
         $('.vid-container').hide();
         $('#bgvid').css('opacity', 1);
         $('#vid-close').show();
-        if(vid.paused)
+        if(vidStatus == 0)
+        {
+            vidStatus = 1;
+            vid.load();
+            vid.muted = false;
+        }
+        else if(vid.paused && vidStatus == 1)
         {
             vid.play();
         }

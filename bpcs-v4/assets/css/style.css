@@ -63,6 +63,11 @@ video#bgvid {  }
     border-radius: 3px;
 }
 
+.hero-award
+{
+    max-width: 300px;
+}
+
 .blog-post-meta {
     color: #999;
 }

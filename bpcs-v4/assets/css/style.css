@@ -66,6 +66,7 @@ video#bgvid {  }
 .hero-award
 {
     max-width: 300px;
+    margin-top: 10px;
 }
 
 .blog-post-meta {

@@ -69,6 +69,12 @@ video#bgvid {  }
     margin-top: 10px;
 }
 
+.hero-ribbon
+{
+    position: absolute;
+    left: 0;
+}
+
 .blog-post-meta {
     color: #999;
 }

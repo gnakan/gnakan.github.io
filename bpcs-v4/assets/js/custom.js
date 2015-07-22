@@ -64,7 +64,7 @@ $(document).ready(function() {
 
     $('.awardLink').on('click', function(e) {
         window.open('http://www.bizjournals.com/seattle/morning_call/2015/07/blueprint-consulting-services-earned-eastside.html', "_blank");
-        window.location.href = '/solutions.html#recognition';
+        window.location.href = './solutions.html#recognition';
     });
 
 

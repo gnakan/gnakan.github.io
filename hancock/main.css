@@ -1,0 +1,122 @@
+.bpcs_signature
+{
+	width: 250px;
+	font-family: sans-serif;
+	font-weight: 100;
+	color: #444;
+	font-size: .6em;
+	overflow: hidden;
+	position: relative;
+	letter-spacing: .8px;
+}
+
+.split
+{
+	width: 45%;
+	float: left;
+	overflow: hidden;
+}
+
+h1
+{
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	font-weight: 100;
+}
+
+h2
+{
+	font-size:.8em;
+	margin: 0;
+	padding: 0;
+	font-weight: 100;
+	text-transform: capitalize;
+}
+
+.logo
+{
+	border-right: 5px solid #4F91CD;
+	padding-right: 5px;
+	margin-right: 10px;
+	text-align: center;
+}
+
+.logo img
+{
+	width: 100px;
+}
+
+a:visited, a:active, a
+{
+	text-decoration: none;
+	color: #444;
+}
+
+.logo a:visited, .logo a:active, .logo a
+{
+	color: #4F91CD;
+}
+
+ul
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li
+{
+	margin: 0;
+	padding: 0;
+}
+
+li i
+{
+	margin-right: 2px;
+}
+
+.contact
+{
+	color: #444;
+	margin-top: 10px;
+
+}
+
+.contact li
+{
+	padding-left: 2px;
+	line-height: 15px;
+	height: 15px;
+	text-transform: lowercase;
+	margin-bottom: 2px;
+}
+
+.contact img
+{
+	width: 13px;
+	vertical-align: middle;
+	margin-top: 2px;
+	margin-right: 3px;
+}
+
+.social
+{
+	position: absolute;
+	bottom: 0px;
+}
+
+.social li
+{
+	color: #444;
+	display: inline-block;
+	margin-right: 7px;
+	
+}
+
+.icon-logo
+{
+	background: url('bpcs_icons.png') no-repeat -303px -2px;
+	width: 117px;
+	height: 95px;
+}

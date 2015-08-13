@@ -3,12 +3,6 @@
     cursor: pointer;
 }
 
-.award-location-1, .award-location-2
-{
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
 .no-padding
 {
     padding: 0px !important;
@@ -77,6 +71,8 @@ video#bgvid {  }
 .hero-award
 {
     max-width: 240px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .hero-ribbon

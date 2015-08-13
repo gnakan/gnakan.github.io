@@ -1,6 +1,10 @@
 ﻿.awardLink
 {
     cursor: pointer;
+}
+
+.award-location-1, .award-location-2
+{
     margin-left: 15px;
     margin-right: 15px;
 }

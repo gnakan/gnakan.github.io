@@ -62,10 +62,17 @@ $(document).ready(function() {
     });
 
 
-    $('.awardLink').on('click', function(e) {
+    $('.award-location-1').on('click', function(e) {
         window.open('http://www.bizjournals.com/seattle/morning_call/2015/07/blueprint-consulting-services-earned-eastside.html', "_blank");
         window.location.href = './solutions.html#recognition';
     });
+
+    $('.award-location-2').on('click', function(e) {
+        window.open('http://www.inc.com/profile/blueprint-consulting-services', "_blank");
+        window.location.href = './solutions.html#recognition';
+    });
+
+    
 
 
     $('a[href^="#"]').on('click', function(event) {

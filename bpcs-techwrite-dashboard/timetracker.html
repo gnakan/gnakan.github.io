@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class='container'>
+        <h1>Weekly Status</h1>
+        <div class='row'>
+            <div class='col-md-3'>
+                <div class='dashboard-widget'>
+                    <div class='dashboard-widget-label'>Assigned Articles</div>
+                    <div id='dashboard-articles-num' class='dashboard-widget-num'></div>
+                </div>
+            </div>
+            <div class='col-md-3'>
+                <div class='dashboard-widget'>
+                    <div class='dashboard-widget-label'>Articles In Progress</div>
+                    <div id='dashboard-articles-progress' class='dashboard-widget-num'></div>
+                </div>
+            </div>
+        </div>
+        <div class='table-responsive'>
+            <h3>Article Details</h3>
+            <table id="myTable" class="table table-striped table-bordered table-hover table-condensed">
+                <tbody>
+                    <tr>
+                        <td>ARTICLE #</td>
+                        <td>LEVEL</td>
+                        <td>STATUS</td>
+                        <td>DRAFT EST</td>
+                        <td>DRAFT ACTUAL</td>
+                        <td>DRAFT DIFF</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type='text/javascript' src='timetracker.js'></script>
+</body>
+
+</html>

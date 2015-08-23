@@ -151,7 +151,7 @@ function getName(account) {
 };
 
 function addTableRow(issue) {
-    $('#myTable tr:last').after('<tr><td><a href="' + issue.html_url + '">' + issue.title + '</a></td><td>' + getIssueLevel(issue) + '</td><td>' + getIssueStatus(issue) + '</td><td>1.5</td><td>' + getDraftTime(issue) + '</td><td class="timeDiff">' + getDiffPercent(1.5, getDraftTime(issue)) + '</td></tr>');
+    $('#myTable tr:last').after('<tr><td><a href="' + issue.html_url + '">' + issue.title + '</a></td><td>' + getIssueLevel(issue) + '</td><td>' + getIssueStatus(issue) + '</td><td>1.5</td><td>' + getDraftTime(issue) + '</td><td class="timeDiff">' + getDiffPercent(projDef.$level[0].draftEstimate, getDraftTime(issue)) + '</td></tr>');
     $("td.timeDiff:contains('-')").addClass('green');
   	$("td.timeDiff:contains('+')").addClass('red');
 };

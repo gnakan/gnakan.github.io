@@ -7,27 +7,36 @@ var projDef = {
 
     "timeTrackingVars": ['$draft'],
 
-    "$level": [{
-        "level": "1",
+    "articleLevels": [{
+        "label": "Level 1",
         "draftEstimate": 1.5
     }, {
-        "level": "2",
+        "label": "Level 2",
         "draftEstimate": 3
     }, {
-        "level": "3",
+        "label": "Level 3",
         "draftEstimate": 6
+    },
+    {
+        "label": "Level 4",
+        "draftEstimate": 8
     }],
 
     "status": ['coding', 'drafting', 'editing', 'testing', 'reviewing', 'Ready: Coding', 'Ready:Drafting', 'Ready:Editing', 'Ready: Testing', 'Ready: GD Review'],
 };
 
-var projAssignments = {
-    "accounts": [{
-        "account": "gnakan",
-        "name": "Gary Nakanelua",
-        "role": projDef.roles[0]
-    }]
-}
+var contentCreatorArr = [
+    "Christine Tzeng",
+    "Conrad J",
+    "Pooja"
+];
+
+var articleLevelsArr = [
+    {"Level 1": 1.5},
+    {"Level 2": 3},
+    {"Level 3": 6},
+    {"Level 4": 8}
+];
 
 
 var projIssues = 0;
@@ -70,13 +79,19 @@ function buildDashboard(data) {
 
 
 //check the issue body for the issue level
-function getIssueLevel(issue) {
+function getIssueLevel(issue, dataType) {
+    var articleLevel = "";
+    var articleEstimate = "";
+    console.log(dataType);
+    /*
     var issueLevel = "";
     var testOBJ = {};
     if (issue.body && issue.body.split('$level:')) {
         var levelFront = issue.body.split('$level:');
-        var levelBack = levelFront[1].split(/\s+/); //split by the carriage return
-        issueLevel = levelBack[0];
+        if (typeof levelFront[1] !== 'undefined') {
+            var levelBack = levelFront[1].split(/\s+/); //split by the carriage return
+            issueLevel = levelBack[0];
+        }
     }
 
     $.each(projDef.$level, function(index, obj) {
@@ -88,8 +103,36 @@ function getIssueLevel(issue) {
 
         }
     });
+    */
+    $.each(issue.labels, function(index, obj) {
+        var label = obj.name;
 
-    return issueLevel;
+        $.each(projDef.articleLevels, function(i, o){
+            console.log(o)
+            if(o.label == label)
+            {
+                console.log(o.draftEstimate)
+                label = label.replace("Level ", "");
+                articleLevel = label;
+                articleEstimate = o.draftEstimate;
+            }
+        });
+/*
+        if (articleLevelsArr.indexOf(label) >= 0) {
+            label = label.replace("Level ", "");
+            articleLevel = label;
+        }
+        */
+    });
+    if(dataType == 1)
+    {
+        return articleLevel;
+    }
+    else if(dataType == 2)
+    {
+        return articleEstimate;
+    }
+    
 };
 
 //check the issue labels 
@@ -129,31 +172,33 @@ function getDiffPercent(value1, value2) {
             value2 = parseInt(value2)
         }
 
-        diff = Math.floor(((value2 - value1) / value1) * 100) 
+        diff = Math.floor(((value2 - value1) / value1) * 100)
 
-        if(diff >= 1){
-        	diff = "+" + diff + "%";
-        }
-        else
-        {
-        	diff = diff + "%"
+        if (diff >= 1) {
+            diff = "+" + diff + "%";
+        } else {
+            diff = diff + "%"
         }
     }
     return diff;
 };
 
-function getName(account) {
-    $.each(projDef.accounts, function(index, obj) {
-        if (account == obj.account) {
-            console.log(obj.name)
+function getContentCreator(issue) {
+    var contentCreator = "";
+    $.each(issue.labels, function(index, obj) {
+        var label = obj.name;
+        if (contentCreatorArr.indexOf(label) >= 0) {
+            contentCreator = label;
         }
     });
+
+    return contentCreator;
 };
 
 function addTableRow(issue) {
-    $('#myTable tr:last').after('<tr><td><a href="' + issue.html_url + '">' + issue.title + '</a></td><td>' + getIssueLevel(issue) + '</td><td>' + getIssueStatus(issue) + '</td><td>1.5</td><td>' + getDraftTime(issue) + '</td><td class="timeDiff">' + getDiffPercent(projDef.$level[0].draftEstimate, getDraftTime(issue)) + '</td></tr>');
+    $('#myTable tr:last').after('<tr><td><a href="' + issue.html_url + '">' + issue.title + '</a></td><td>' + getIssueLevel(issue, 1) + '</td><td>' + getIssueStatus(issue) + '</td><td>' + getContentCreator(issue) + '</td><td>' + getIssueLevel(issue, 2) + '</td><td>' + getDraftTime(issue, 1) + '</td><td class="timeDiff">' + getDiffPercent(projDef.articleLevels[0].draftEstimate, getDraftTime(issue)) + '</td></tr>');
     $("td.timeDiff:contains('-')").addClass('green');
-  	$("td.timeDiff:contains('+')").addClass('red');
+    $("td.timeDiff:contains('+')").addClass('red');
 };
 
 

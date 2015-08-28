@@ -104,6 +104,7 @@ function buildDashboard(data) {
     $('#dashboard-articles-num').text(projIssues);
     $('#dashboard-articles-progress').text(Math.floor((projIssuesInProgress / projIssues) * 100) + "%");
     $('#dashboard-articles-score').text(scoreToLetterGrade());
+    $("#dashboard-articles-score:contains('B')").addClass('green');
 };
 
 

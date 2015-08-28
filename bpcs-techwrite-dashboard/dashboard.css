@@ -27,3 +27,7 @@ td.red {
 td.green {
   color: green;
 }
+
+td.gray{
+	color: #ddd;
+}

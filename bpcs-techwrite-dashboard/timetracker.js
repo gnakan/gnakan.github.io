@@ -1,11 +1,13 @@
 //create the project definition file
 
 var projDef = {
-    "repoIssueURL": "https://api.github.com/repos/gnakan/GDTest/issues",
+    "repoIssueURL": "https://api.github.com/repos/gnakan/gd-cloud-docs/issues",
 
     "roles": ['Content Creator'],
 
-    "timeTrackingVars": ['$draft'],
+    "timeTrackingVars": ['$draft', '$editing'],
+
+    "editScoreVar": "$edit-score",
 
     "articleLevels": [{
         "label": "Level 1",
@@ -16,31 +18,44 @@ var projDef = {
     }, {
         "label": "Level 3",
         "draftEstimate": 6
-    },
-    {
+    }, {
         "label": "Level 4",
         "draftEstimate": 8
     }],
 
-    "status": ['coding', 'drafting', 'editing', 'testing', 'reviewing', 'Ready: Coding', 'Ready:Drafting', 'Ready:Editing', 'Ready: Testing', 'Ready: GD Review'],
+    "activeStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for review'],
+    "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting']
 };
 
 var contentCreatorArr = [
-    "Christine Tzeng",
+    "Christine T",
     "Conrad J",
-    "Pooja"
+    "Pooja N",
+    "Brian M",
+    "Thomas H",
+    "Advaiya M"
 ];
 
-var articleLevelsArr = [
-    {"Level 1": 1.5},
-    {"Level 2": 3},
-    {"Level 3": 6},
-    {"Level 4": 8}
+var editorArr = [
+    "Carla J",
+    "Crystal S"
 ];
+
+var articleLevelsArr = [{
+    "Level 1": 1.5
+}, {
+    "Level 2": 3
+}, {
+    "Level 3": 6
+}, {
+    "Level 4": 8
+}];
 
 
 var projIssues = 0;
 var projIssuesInProgress = 0;
+var projectArticlesToScore = 0;
+var projArticlesScoreTotal = 0;
 
 var issueData = {};
 var issueComments = {};
@@ -49,16 +64,29 @@ var issueComments = {};
 
 //get list of Github issues
 function getAllIssues() {
-    $.get(projDef.repoIssueURL)
+    $.get(projDef.repoIssueURL + "?page=1&per_page=100")
         .done(function(data) {
-            issueData = data;
-            getAllIssueComments();
+            issueData = data; //initial load
+            $.get(projDef.repoIssueURL + "?page=2&per_page=100")
+                .done(function(data2) {
+                    $.each(data2, function(index, obj) {
+                        issueData.push(obj);
+                    });
+                    $.get(projDef.repoIssueURL + "?page=3&per_page=100")
+                        .done(function(data2) {
+                            $.each(data2, function(index, obj) {
+                                issueData.push(obj);
+                            });
+
+                            getAllIssueComments();
+                        });
+                });
         });
 };
 
 //get all comments associated with issues
 function getAllIssueComments() {
-    $.get(projDef.repoIssueURL + "/comments")
+    $.get(projDef.repoIssueURL + "/comments?page=1&per_page=100")
         .done(function(data) {
             issueComments = data;
             buildDashboard(issueData);
@@ -75,14 +103,29 @@ function buildDashboard(data) {
     //build the widgets
     $('#dashboard-articles-num').text(projIssues);
     $('#dashboard-articles-progress').text(Math.floor((projIssuesInProgress / projIssues) * 100) + "%");
+    $('#dashboard-articles-score').text(scoreToLetterGrade());
 };
 
+
+function scoreToLetterGrade() {
+    var letterGrade = "";
+    var score = Math.floor((projArticlesScoreTotal / projectArticlesToScore));
+
+    if (score == 3) {
+        letterGrade = "A";
+    } else if (score >= 2 && score < 3) {
+        letterGrade = "B"
+    } else {
+        letterGrade = "C";
+    }
+
+    return letterGrade;
+}
 
 //check the issue body for the issue level
 function getIssueLevel(issue, dataType) {
     var articleLevel = "";
     var articleEstimate = "";
-    console.log(dataType);
     /*
     var issueLevel = "";
     var testOBJ = {};
@@ -107,45 +150,42 @@ function getIssueLevel(issue, dataType) {
     $.each(issue.labels, function(index, obj) {
         var label = obj.name;
 
-        $.each(projDef.articleLevels, function(i, o){
-            console.log(o)
-            if(o.label == label)
-            {
-                console.log(o.draftEstimate)
+        $.each(projDef.articleLevels, function(i, o) {
+            if (o.label == label) {
                 label = label.replace("Level ", "");
                 articleLevel = label;
                 articleEstimate = o.draftEstimate;
             }
         });
-/*
-        if (articleLevelsArr.indexOf(label) >= 0) {
-            label = label.replace("Level ", "");
-            articleLevel = label;
-        }
-        */
+        /*
+                if (articleLevelsArr.indexOf(label) >= 0) {
+                    label = label.replace("Level ", "");
+                    articleLevel = label;
+                }
+                */
     });
-    if(dataType == 1)
-    {
+    if (dataType == 1) {
         return articleLevel;
-    }
-    else if(dataType == 2)
-    {
+    } else if (dataType == 2) {
         return articleEstimate;
     }
-    
+
 };
 
 //check the issue labels 
 function getIssueStatus(issue) {
-    var issueStatus = "Ready For Drafting";
+    var issueStatus = "Ready for drafting";
     $.each(issue.labels, function(index, obj) {
         var label = obj.name;
-        if (projDef.status.indexOf(label) >= 0) {
+        if (projDef.allStatus.indexOf(label) >= 0) {
             issueStatus = label;
-            projIssuesInProgress++;
+
+            if (projDef.activeStatus.indexOf(issueStatus) >= 0) {
+                projIssuesInProgress++;
+            }
+
         }
     });
-
     return issueStatus;
 };
 
@@ -159,6 +199,28 @@ function getDraftTime(issue) {
         }
     });
     return time;
+};
+
+//checks for edit score from comments
+function getEditScore(issue) {
+    var editScoreVar = projDef.editScoreVar;
+    var score = "unavailable";
+    $.each(issueComments, function(index, obj) {
+        console.log(obj)
+        if (issue.url == obj.issue_url && obj.body.indexOf(editScoreVar) >= 0) {
+            projectArticlesToScore++;
+            score = obj.body.split(editScoreVar + ":")[1];
+            console.log(score);
+            if (score == "A") {
+                projArticlesScoreTotal = projArticlesScoreTotal + 3;
+            } else if (score == "B") {
+                projArticlesScoreTotal = projArticlesScoreTotal + 2;
+            } else {
+                projArticlesScoreTotal = projArticlesScoreTotal + 1;
+            };
+        }
+    });
+    return score;
 };
 
 function getDiffPercent(value1, value2) {
@@ -196,7 +258,7 @@ function getContentCreator(issue) {
 };
 
 function addTableRow(issue) {
-    $('#myTable tr:last').after('<tr><td><a href="' + issue.html_url + '">' + issue.title + '</a></td><td>' + getIssueLevel(issue, 1) + '</td><td>' + getIssueStatus(issue) + '</td><td>' + getContentCreator(issue) + '</td><td>' + getIssueLevel(issue, 2) + '</td><td>' + getDraftTime(issue, 1) + '</td><td class="timeDiff">' + getDiffPercent(projDef.articleLevels[0].draftEstimate, getDraftTime(issue)) + '</td></tr>');
+    $('#myTable tr:last').after('<tr><td><a href="' + issue.html_url + '">' + issue.title + '</a></td><td>' + getIssueLevel(issue, 1) + '</td><td>' + getIssueStatus(issue) + '</td><td>' + getContentCreator(issue) + '</td><td>' + getIssueLevel(issue, 2) + '</td><td>' + getDraftTime(issue, 1) + '</td><td class="timeDiff">' + getDiffPercent(projDef.articleLevels[0].draftEstimate, getDraftTime(issue)) + '</td><td>' + getEditScore(issue) + '</td></tr>');
     $("td.timeDiff:contains('-')").addClass('green');
     $("td.timeDiff:contains('+')").addClass('red');
 };

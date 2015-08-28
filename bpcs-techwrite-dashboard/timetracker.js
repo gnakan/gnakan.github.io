@@ -262,6 +262,7 @@ function addTableRow(issue) {
     $("td.timeDiff:contains('-')").addClass('green');
     $("td.timeDiff:contains('+')").addClass('red');
     $("td.editScore:contains('unavailable')").addClass('gray');
+    $("td.editScore:contains('B')").addClass('green');
 };
 
 

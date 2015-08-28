@@ -207,11 +207,9 @@ function getEditScore(issue) {
     var editScoreVar = projDef.editScoreVar;
     var score = "unavailable";
     $.each(issueComments, function(index, obj) {
-        console.log(obj)
         if (issue.url == obj.issue_url && obj.body.indexOf(editScoreVar) >= 0) {
             projectArticlesToScore++;
             score = obj.body.split(editScoreVar + ":")[1];
-            console.log(score);
             if (score == "A") {
                 projArticlesScoreTotal = projArticlesScoreTotal + 3;
             } else if (score == "B") {

@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
@@ -32,7 +34,7 @@
         </div>
         <div class='table-responsive'>
             <h3>Article Details</h3>
-            <table id="myTable" class="table table-striped table-bordered table-hover table-condensed">
+            <table id="myTable" data-toggle="table" class="table table-striped table-bordered table-hover table-condensed">
                 <tbody>
                     <tr>
                         <td>ARTICLE #</td>
@@ -49,6 +51,8 @@
         </div>
     </div>
     <script type='text/javascript' src='timetracker.js'></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/locale/bootstrap-table-zh-CN.min.js"></script>
 </body>
 
 </html>

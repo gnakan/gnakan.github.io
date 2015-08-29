@@ -56,6 +56,7 @@ var projIssues = 0;
 var projIssuesInProgress = 0;
 var projectArticlesToScore = 0;
 var projArticlesScoreTotal = 0;
+var projDeliveredArticles = 0;
 
 var issueData = {};
 var issueComments = {};
@@ -77,8 +78,14 @@ function getAllIssues() {
                             $.each(data2, function(index, obj) {
                                 issueData.push(obj);
                             });
+                            $.get(projDef.repoIssueURL + "?page=4&per_page=100")
+                                .done(function(data3) {
+                                    $.each(data3, function(index, obj) {
+                                        issueData.push(obj);
+                                    });
+                                    getAllIssueComments();
+                                })
 
-                            getAllIssueComments();
                         });
                 });
         });
@@ -105,6 +112,7 @@ function buildDashboard(data) {
     $('#dashboard-articles-progress').text(Math.floor((projIssuesInProgress / projIssues) * 100) + "%");
     $('#dashboard-articles-score').text(scoreToLetterGrade());
     $("#dashboard-articles-score:contains('B')").addClass('green');
+    $('#dashboard-articles-delivered').text(projDeliveredArticles);
 };
 
 
@@ -181,9 +189,17 @@ function getIssueStatus(issue) {
         if (projDef.allStatus.indexOf(label) >= 0) {
             issueStatus = label;
 
+            //increment the active articles in progress
             if (projDef.activeStatus.indexOf(issueStatus) >= 0) {
                 projIssuesInProgress++;
-            }
+
+                //increment the delivered articles
+                if (issueStatus == projDef.activeStatus[4]) {
+                    projDeliveredArticles++;
+                };
+            };
+
+
 
         }
     });

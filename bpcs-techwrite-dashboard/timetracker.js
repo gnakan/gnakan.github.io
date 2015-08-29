@@ -22,7 +22,7 @@ var projDef = {
         "label": "Level 4",
         "draftEstimate": 8
     }],
-
+    "queueStatus":['Ready for drafting','Ready for coding', 'Ready for editing','Ready for testing'],
     "activeStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for review'],
     "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting']
 };
@@ -33,7 +33,8 @@ var contentCreatorArr = [
     "Pooja N",
     "Brian M",
     "Thomas H",
-    "Advaiya M"
+    "Advaiya M",
+    "Gary N"
 ];
 
 var editorArr = [
@@ -57,6 +58,15 @@ var projIssuesInProgress = 0;
 var projectArticlesToScore = 0;
 var projArticlesScoreTotal = 0;
 var projDeliveredArticles = 0;
+var projArticlesDrafting = 0;
+var projArticlesDraftQueue = 0;
+var projArticlesCoding = 0;
+var projArticlesCodeQueue = 0;
+var projArticlesEditing = 0;
+var projArticlesEditQueue = 0;
+var projArticlesReEditing = 0;
+var projArticlesTesting = 0;
+var projArticlesTestQueue = 0;
 
 var issueData = {};
 var issueComments = {};
@@ -65,20 +75,20 @@ var issueComments = {};
 
 //get list of Github issues
 function getAllIssues() {
-    $.get(projDef.repoIssueURL + "?page=1&per_page=100")
+    $.get(projDef.repoIssueURL + "?client_id=55787e148edf3df37d00&client_secret=317711070dd8e8a634359e4181eed45005622edd&page=1&per_page=100")
         .done(function(data) {
             issueData = data; //initial load
-            $.get(projDef.repoIssueURL + "?page=2&per_page=100")
+            $.get(projDef.repoIssueURL + "?client_id=55787e148edf3df37d00&client_secret=317711070dd8e8a634359e4181eed45005622edd&page=2&per_page=100")
                 .done(function(data2) {
                     $.each(data2, function(index, obj) {
                         issueData.push(obj);
                     });
-                    $.get(projDef.repoIssueURL + "?page=3&per_page=100")
+                    $.get(projDef.repoIssueURL + "?client_id=55787e148edf3df37d00&client_secret=317711070dd8e8a634359e4181eed45005622edd&page=3&per_page=100")
                         .done(function(data2) {
                             $.each(data2, function(index, obj) {
                                 issueData.push(obj);
                             });
-                            $.get(projDef.repoIssueURL + "?page=4&per_page=100")
+                            $.get(projDef.repoIssueURL + "?client_id=55787e148edf3df37d00&client_secret=317711070dd8e8a634359e4181eed45005622edd&page=4&per_page=100")
                                 .done(function(data3) {
                                     $.each(data3, function(index, obj) {
                                         issueData.push(obj);
@@ -93,10 +103,17 @@ function getAllIssues() {
 
 //get all comments associated with issues
 function getAllIssueComments() {
-    $.get(projDef.repoIssueURL + "/comments?page=1&per_page=100")
+    $.get(projDef.repoIssueURL + "/comments?client_id=55787e148edf3df37d00&client_secret=317711070dd8e8a634359e4181eed45005622edd&page=1&per_page=100")
         .done(function(data) {
             issueComments = data;
-            buildDashboard(issueData);
+            $.get(projDef.repoIssueURL + "/comments?client_id=55787e148edf3df37d00&client_secret=317711070dd8e8a634359e4181eed45005622edd&page=2&per_page=100")
+                .done(function(data2) {
+                    $.each(data2, function(index, obj) {
+                        issueComments.push(obj);
+                    });
+
+                buildDashboard(issueData);
+            });
         });
 };
 
@@ -105,14 +122,22 @@ function buildDashboard(data) {
     $.each(data, function(index, obj) {
         projIssues++;
         addTableRow(obj);
-    })
+    });
 
     //build the widgets
     $('#dashboard-articles-num').text(projIssues);
     $('#dashboard-articles-progress').text(Math.floor((projIssuesInProgress / projIssues) * 100) + "%");
     $('#dashboard-articles-score').text(scoreToLetterGrade());
-    $("#dashboard-articles-score:contains('B')").addClass('green');
+    $("#dashboard-articles-score:contains('A')").addClass('green');
+    $("#dashboard-articles-score:contains('C')").addClass('red');
     $('#dashboard-articles-delivered').text(projDeliveredArticles);
+
+    $('#dashboard-articles-drafting-progress').text(Math.floor((projArticlesDrafting/(projArticlesDrafting + projArticlesDraftQueue)) * 100) + "%");
+    $('#dashboard-articles-coding-progress').text(Math.floor((projArticlesCoding/(projArticlesCodeQueue+projArticlesCoding)) * 100) + "%");
+    $('#dashboard-articles-editing-progress').text(Math.floor((projArticlesEditing/(projArticlesEditQueue+projArticlesEditing)) * 100) + "%");
+    $('#dashboard-articles-testing-progress').text(Math.floor((projArticlesTesting/(projArticlesTestQueue+projArticlesTesting)) * 100) + "%");
+    buildPieChart();
+    $('#myTable').DataTable();
 };
 
 
@@ -133,29 +158,9 @@ function scoreToLetterGrade() {
 
 //check the issue body for the issue level
 function getIssueLevel(issue, dataType) {
-    var articleLevel = "";
-    var articleEstimate = "";
-    /*
-    var issueLevel = "";
-    var testOBJ = {};
-    if (issue.body && issue.body.split('$level:')) {
-        var levelFront = issue.body.split('$level:');
-        if (typeof levelFront[1] !== 'undefined') {
-            var levelBack = levelFront[1].split(/\s+/); //split by the carriage return
-            issueLevel = levelBack[0];
-        }
-    }
+    var articleLevel = "unavailable";
+    var articleEstimate = "unavailable";
 
-    $.each(projDef.$level, function(index, obj) {
-        if (issueLevel == obj.level) {
-            var draftEstimate = obj.draftEstimate;
-            testOBJ = {
-                issueLevel, draftEstimate
-            }
-
-        }
-    });
-    */
     $.each(issue.labels, function(index, obj) {
         var label = obj.name;
 
@@ -166,12 +171,7 @@ function getIssueLevel(issue, dataType) {
                 articleEstimate = o.draftEstimate;
             }
         });
-        /*
-                if (articleLevelsArr.indexOf(label) >= 0) {
-                    label = label.replace("Level ", "");
-                    articleLevel = label;
-                }
-                */
+
     });
     if (dataType == 1) {
         return articleLevel;
@@ -183,7 +183,7 @@ function getIssueLevel(issue, dataType) {
 
 //check the issue labels 
 function getIssueStatus(issue) {
-    var issueStatus = "Ready for drafting";
+    var issueStatus = projDef.queueStatus[0];
     $.each(issue.labels, function(index, obj) {
         var label = obj.name;
         if (projDef.allStatus.indexOf(label) >= 0) {
@@ -197,19 +197,58 @@ function getIssueStatus(issue) {
                 if (issueStatus == projDef.activeStatus[4]) {
                     projDeliveredArticles++;
                 };
+
+                //increment the drafting articles
+                if (issueStatus == projDef.activeStatus[1]) {
+                    projArticlesDrafting++;
+                };
+
+                //increment the drafting articles
+                if (issueStatus == projDef.activeStatus[0]) {
+                    projArticlesCoding++;
+                };
+
+                //increment the editing articles
+                if (issueStatus == projDef.activeStatus[2]) {
+                    projArticlesEditing++;
+                };
+
+                //increment the editing articles
+                if (issueStatus == projDef.activeStatus[3]) {
+                    projArticlesTesting++;
+                };
             };
 
+            //increment the active articles in queue
+            if (projDef.queueStatus.indexOf(issueStatus) >= 0) {
+                //projIssuesInProgress++;
 
+                if (issueStatus == projDef.queueStatus[1]) {
+                    projArticlesCodeQueue++;
+                };
 
+                if (issueStatus == projDef.queueStatus[2]) {
+                    projArticlesEditQueue++;
+                };
+
+                if (issueStatus == projDef.queueStatus[3]) {
+                    projArticlesTestQueue++;
+                };
+            };
         }
+        
     });
+    if(issueStatus == projDef.queueStatus[0])
+        {
+            projArticlesDraftQueue++
+        }
     return issueStatus;
 };
 
 //checks for issue time from comments
 function getDraftTime(issue) {
     var draftVar = projDef.timeTrackingVars[0];
-    var time = "";
+    var time = "unavailable";
     $.each(issueComments, function(index, obj) {
         if (issue.url == obj.issue_url && obj.body.indexOf(draftVar) >= 0) {
             time = obj.body.split(draftVar + ":")[1];
@@ -240,7 +279,7 @@ function getEditScore(issue) {
 
 function getDiffPercent(value1, value2) {
     var diff = 0;
-    if (value1 != "" && value2 != "") {
+    if (value1 != "" && value2 != "" && !isNaN(value1) && !isNaN(value2)) {
         if (isNaN(value1)) {
             value1 = parseInt(value1)
         }
@@ -256,6 +295,10 @@ function getDiffPercent(value1, value2) {
         } else {
             diff = diff + "%"
         }
+    }
+    else
+    {
+        diff = 'unavailable';
     }
     return diff;
 };
@@ -273,14 +316,40 @@ function getContentCreator(issue) {
 };
 
 function addTableRow(issue) {
-    $('#myTable tr:last').after('<tr><td><a href="' + issue.html_url + '">' + issue.title + '</a></td><td>' + getIssueLevel(issue, 1) + '</td><td>' + getIssueStatus(issue) + '</td><td>' + getContentCreator(issue) + '</td><td>' + getIssueLevel(issue, 2) + '</td><td>' + getDraftTime(issue, 1) + '</td><td class="timeDiff">' + getDiffPercent(projDef.articleLevels[0].draftEstimate, getDraftTime(issue)) + '</td><td class="editScore">' + getEditScore(issue) + '</td></tr>');
+    $('#myTable tbody').append('<tr><td><a href="' + issue.html_url + '">' + issue.title + '</a></td><td>' + getIssueLevel(issue, 1) + '</td><td>' + getIssueStatus(issue) + '</td><td>' + getContentCreator(issue) + '</td><td>' + getIssueLevel(issue, 2) + '</td><td>' + getDraftTime(issue, 1) + '</td><td class="timeDiff">' + getDiffPercent(projDef.articleLevels[0].draftEstimate, getDraftTime(issue)) + '</td><td class="editScore">' + getEditScore(issue) + '</td></tr>');
     $("td.timeDiff:contains('-')").addClass('green');
     $("td.timeDiff:contains('+')").addClass('red');
-    $("td.editScore:contains('unavailable')").addClass('gray');
+    $("td:contains('unavailable')").addClass('gray');
     $("td.editScore:contains('B')").addClass('green');
 };
 
+function buildPieChart() {
+    new Chartist.Bar('#progress-chart', {
+        labels: ['Progress'],
+        series: [
+            [projArticlesDrafting],
+            [projArticlesCoding],
+            [projArticlesEditing],
+            [projArticlesTesting]
+        ]
+    }, {
+        seriesBarDistance: 10,
+        reverseData: false,
+        stackBars: true,
+        horizontalBars: true,
+        height: '40px',
+        axisY: {
+            offset: 0
+        }
+    });
 
-
+}
 
 getAllIssues();
+
+$(document).ready(function(){
+    
+    
+});
+
+

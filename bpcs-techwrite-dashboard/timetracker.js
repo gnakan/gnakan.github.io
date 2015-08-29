@@ -72,7 +72,7 @@ var issueData = {};
 var issueComments = {};
 
 var loading_screen = pleaseWait({
-  logo: "img/techdoc-logo.png",
+  logo: "techdoc-logo.png",
   backgroundColor: '#666',
   loadingHtml: '<div class="sk-cube-grid">'+
   '<div class="sk-cube sk-cube1"></div>' +

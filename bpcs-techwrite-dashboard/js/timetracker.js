@@ -22,7 +22,7 @@ var projDef = {
         "label": "Level 4",
         "draftEstimate": 8
     }],
-    "queueStatus":['Ready for drafting','Ready for coding', 'Ready for editing','Ready for testing'],
+    "queueStatus": ['Ready for drafting', 'Ready for coding', 'Ready for editing', 'Ready for testing'],
     "activeStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for review'],
     "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting']
 };
@@ -71,6 +71,21 @@ var projArticlesTestQueue = 0;
 var issueData = {};
 var issueComments = {};
 
+var loading_screen = pleaseWait({
+  logo: "img/techdoc-logo.png",
+  backgroundColor: '#666',
+  loadingHtml: '<div class="sk-cube-grid">'+
+  '<div class="sk-cube sk-cube1"></div>' +
+  '<div class="sk-cube sk-cube2"></div>' + 
+  '<div class="sk-cube sk-cube3"></div>' + 
+  '<div class="sk-cube sk-cube4"></div>' + 
+  '<div class="sk-cube sk-cube5"></div>' + 
+  '<div class="sk-cube sk-cube6"></div>' + 
+  '<div class="sk-cube sk-cube7"></div>' + 
+  '<div class="sk-cube sk-cube8"></div>' + 
+  '<div class="sk-cube sk-cube9"></div>' + 
+'</div>'
+});
 
 
 //get list of Github issues
@@ -112,8 +127,8 @@ function getAllIssueComments() {
                         issueComments.push(obj);
                     });
 
-                buildDashboard(issueData);
-            });
+                    buildDashboard(issueData);
+                });
         });
 };
 
@@ -132,12 +147,13 @@ function buildDashboard(data) {
     $("#dashboard-articles-score:contains('C')").addClass('red');
     $('#dashboard-articles-delivered').text(projDeliveredArticles);
 
-    $('#dashboard-articles-drafting-progress').text(Math.floor((projArticlesDrafting/(projArticlesDrafting + projArticlesDraftQueue)) * 100) + "%");
-    $('#dashboard-articles-coding-progress').text(Math.floor((projArticlesCoding/(projArticlesCodeQueue+projArticlesCoding)) * 100) + "%");
-    $('#dashboard-articles-editing-progress').text(Math.floor((projArticlesEditing/(projArticlesEditQueue+projArticlesEditing)) * 100) + "%");
-    $('#dashboard-articles-testing-progress').text(Math.floor((projArticlesTesting/(projArticlesTestQueue+projArticlesTesting)) * 100) + "%");
+    $('#dashboard-articles-drafting-progress').text(Math.floor((projArticlesDrafting / (projArticlesDrafting + projArticlesDraftQueue)) * 100) + "%");
+    $('#dashboard-articles-coding-progress').text(Math.floor((projArticlesCoding / (projArticlesCodeQueue + projArticlesCoding)) * 100) + "%");
+    $('#dashboard-articles-editing-progress').text(Math.floor((projArticlesEditing / (projArticlesEditQueue + projArticlesEditing)) * 100) + "%");
+    $('#dashboard-articles-testing-progress').text(Math.floor((projArticlesTesting / (projArticlesTestQueue + projArticlesTesting)) * 100) + "%");
     buildPieChart();
     $('#myTable').DataTable();
+    loading_screen.finish();
 };
 
 
@@ -236,12 +252,11 @@ function getIssueStatus(issue) {
                 };
             };
         }
-        
+
     });
-    if(issueStatus == projDef.queueStatus[0])
-        {
-            projArticlesDraftQueue++
-        }
+    if (issueStatus == projDef.queueStatus[0]) {
+        projArticlesDraftQueue++
+    }
     return issueStatus;
 };
 
@@ -295,9 +310,7 @@ function getDiffPercent(value1, value2) {
         } else {
             diff = diff + "%"
         }
-    }
-    else
-    {
+    } else {
         diff = 'unavailable';
     }
     return diff;
@@ -347,9 +360,7 @@ function buildPieChart() {
 
 getAllIssues();
 
-$(document).ready(function(){
-    
-    
+$(document).ready(function() {
+
+
 });
-
-

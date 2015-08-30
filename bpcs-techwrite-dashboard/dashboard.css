@@ -73,28 +73,37 @@ td.gray{
 	height: 240px;
 }
 
-.draft
+.status-indicator
+{
+  height: 10px;
+  width: 100%;
+}
+
+.draft, .code, .edit, .test
+{
+  padding: 0px;
+  background-color: white;
+}
+
+.draft .status-indicator
 {
 	background-color: #207de5;
-	color:white;
 	border: none;
 }
 
-.code
+.code .status-indicator
 {
 	background-color: #eb6420;
-	color:white;
 	border: none;
 }
 
-.edit
+.edit .status-indicator
 {
 	background-color: #5319e7;
-	color:white;
 	border: none;
 }
 
-.test
+.test .status-indicator
 {
 	background-color: #fbca04;
 	border: none;

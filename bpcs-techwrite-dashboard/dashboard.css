@@ -58,7 +58,29 @@ td.gray{
 	color: #aaa;
 }
 
-.ct-grids, .ct-labels
+.chart-tooltip
+{
+  position: absolute;
+  color:white;
+  text-align: center;
+  background-color: #8BC34A;
+  padding: 10px;
+  border: 2px solid #689F38;
+}
+
+#delivered-chart .ct-series-a .ct-line, #delivered-chart .ct-series-a .ct-point
+{
+  stroke: #8BC34A;
+  
+}
+
+#delivered-chart .ct-series-a .ct-point
+{
+  stroke-width: 20px;
+}
+
+
+#progress-chart .ct-grids, #progress-chart .ct-labels
 {
 	display:none;
 }

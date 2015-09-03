@@ -22,6 +22,11 @@ body, table
 	height: 90px;
 }
 
+#dashboard-articles-progress-num
+{
+  margin-top: -20px;
+}
+
 tbody th
 {
 	font-weight: normal;

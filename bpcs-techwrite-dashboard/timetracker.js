@@ -271,7 +271,7 @@ function getIssueStatus(issue) {
                 projIssuesInProgress++;
 
                 //increment the delivered articles
-                if (issueStatus == projDef.activeStatus[4]) {
+                if (issueStatus == projDef.activeStatus[4] || issueStatus == projDef.activeStatus[3] || issueStatus == projDef.queueStatus[3]) {
                     projDeliveredArticles++;
                     getMilestoneData(issue); //check the milestone and track accordingly
                 };

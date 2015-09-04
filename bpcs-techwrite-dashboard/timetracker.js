@@ -25,7 +25,7 @@ var projDef = {
         "draftEstimate": 8
     }],
     "queueStatus": ['Ready for drafting', 'Ready for coding', 'Ready for editing', 'Ready for testing'],
-    "activeStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for review'],
+    "activeStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for review', 'reviewing'],
     "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting']
 };
 
@@ -147,6 +147,12 @@ function getAllIssues() {
                                             $.each(data4, function(index, obj) {
                                                 issueData.push(obj);
                                             });
+                                            $.get(projDef.repoIssueURL + "?client_id=55787e148edf3df37d00&client_secret=317711070dd8e8a634359e4181eed45005622edd&page=6&per_page=100")
+                                                .done(function(data4) {
+                                                    $.each(data4, function(index, obj) {
+                                                        issueData.push(obj);
+                                                    });
+                                                });
                                             getAllIssueComments();
                                         });
                                 });
@@ -271,7 +277,14 @@ function getIssueStatus(issue) {
                 projIssuesInProgress++;
 
                 //increment the delivered articles
-                if (issueStatus == projDef.activeStatus[4] || issueStatus == projDef.activeStatus[3] || issueStatus == projDef.queueStatus[3]) {
+                if (issueStatus == projDef.activeStatus[3] || issueStatus == projDef.activeStatus[4] || issueStatus == projDef.activeStatus[5]) {
+                    projDeliveredArticles++;
+                    getMilestoneData(issue); //check the milestone and track accordingly
+                };
+
+                //increment the delivered articles
+                if (issueStatus == projDef.activeStatus[6]) {
+                    console.log(issueStatus);
                     projDeliveredArticles++;
                     getMilestoneData(issue); //check the milestone and track accordingly
                 };
@@ -291,7 +304,7 @@ function getIssueStatus(issue) {
                     projArticlesEditing++;
                 };
 
-                //increment the editing articles
+                //increment the testing articles
                 if (issueStatus == projDef.activeStatus[3]) {
                     projArticlesTesting++;
                 };
@@ -311,6 +324,7 @@ function getIssueStatus(issue) {
 
                 if (issueStatus == projDef.queueStatus[3]) {
                     projArticlesTestQueue++;
+                    projDeliveredArticles++;
                 };
             };
         }

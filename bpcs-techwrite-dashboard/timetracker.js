@@ -1,6 +1,6 @@
 //create the project definition file
 
-var week = "Week 9";
+var week = "Week 10";
 
 var projDef = {
     "repoIssueURL": "https://api.github.com/repos/gnakan/gd-cloud-docs/issues",
@@ -26,7 +26,7 @@ var projDef = {
     }],
     "queueStatus": ['Ready for drafting', 'Ready for coding', 'Ready for editing', 'Ready for testing'],
     "activeStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for review', 'reviewing'],
-    "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting']
+    "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting', 'reviewing']
 };
 
 var contentCreatorArr = [
@@ -101,6 +101,7 @@ var projArticlesEditQueue = 0;
 var projArticlesReEditing = 0;
 var projArticlesTesting = 0;
 var projArticlesTestQueue = 0;
+var projArticlesReviewing = 0;
 
 var issueData = {};
 var issueComments = {};
@@ -277,14 +278,13 @@ function getIssueStatus(issue) {
                 projIssuesInProgress++;
 
                 //increment the delivered articles
-                if (issueStatus == projDef.activeStatus[3] || issueStatus == projDef.activeStatus[4] || issueStatus == projDef.activeStatus[5]) {
+                if (issueStatus == projDef.activeStatus[4]) {
                     projDeliveredArticles++;
                     getMilestoneData(issue); //check the milestone and track accordingly
                 };
 
                 //increment the delivered articles
                 if (issueStatus == projDef.activeStatus[6]) {
-                    console.log(issueStatus);
                     projDeliveredArticles++;
                     getMilestoneData(issue); //check the milestone and track accordingly
                 };
@@ -294,7 +294,7 @@ function getIssueStatus(issue) {
                     projArticlesDrafting++;
                 };
 
-                //increment the drafting articles
+                //increment the coding articles
                 if (issueStatus == projDef.activeStatus[0]) {
                     projArticlesCoding++;
                 };
@@ -307,6 +307,15 @@ function getIssueStatus(issue) {
                 //increment the testing articles
                 if (issueStatus == projDef.activeStatus[3]) {
                     projArticlesTesting++;
+                    projDeliveredArticles++;
+                    getMilestoneData(issue);
+                };
+
+                //increment the reviewing articles
+                if (issueStatus == projDef.activeStatus[5]) {
+                    projArticlesReviewing++;
+                    projDeliveredArticles++;
+                    getMilestoneData(issue);
                 };
             };
 
@@ -326,6 +335,8 @@ function getIssueStatus(issue) {
                     projArticlesTestQueue++;
                     projDeliveredArticles++;
                 };
+
+
             };
         }
 
@@ -446,7 +457,8 @@ function buildMilestoneChart() {
             milestoneArr[5].name,
             milestoneArr[6].name,
             milestoneArr[7].name,
-            milestoneArr[8].name
+            milestoneArr[8].name,
+            milestoneArr[9].name
         ],
         series: [{
             "name": "Delivered articles",
@@ -459,7 +471,8 @@ function buildMilestoneChart() {
                 milestoneArr[5].count,
                 milestoneArr[6].count,
                 milestoneArr[7].count,
-                milestoneArr[8].count
+                milestoneArr[8].count,
+                milestoneArr[9].count
             ]
         }]
     }, {

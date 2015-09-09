@@ -226,7 +226,13 @@ function buildDashboard(data) {
     $('#dashboard-editor-2 .dashboard-widget-num').text(projArticlesEditor2); //articles that Carla is assigned
     buildPieChart();
     buildMilestoneChart();
-    $('#myTable').DataTable();
+    $('#myTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
     loading_screen.finish();
 };
 

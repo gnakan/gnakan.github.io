@@ -102,6 +102,8 @@ var projArticlesReEditing = 0;
 var projArticlesTesting = 0;
 var projArticlesTestQueue = 0;
 var projArticlesReviewing = 0;
+var projArticlesEditor1 = 0;
+var projArticlesEditor2 = 0;
 
 var issueData = {};
 var issueComments = {};
@@ -218,6 +220,10 @@ function buildDashboard(data) {
     $('#dashboard-articles-coding-progress').text(Math.floor((projArticlesCoding / (projArticlesCodeQueue + projArticlesCoding)) * 100) + "%");
     $('#dashboard-articles-editing-progress').text(Math.floor((projArticlesEditing / (projArticlesEditQueue + projArticlesEditing)) * 100) + "%");
     $('#dashboard-articles-testing-progress').text(Math.floor((projArticlesTesting / (projArticlesTestQueue + projArticlesTesting)) * 100) + "%");
+    
+
+    $('#dashboard-editor-1 .dashboard-widget-num').text(projArticlesEditor1); //articles that Crystal is assigned
+    $('#dashboard-editor-2 .dashboard-widget-num').text(projArticlesEditor2); //articles that Carla is assigned
     buildPieChart();
     buildMilestoneChart();
     $('#myTable').DataTable();
@@ -238,7 +244,7 @@ function scoreToLetterGrade() {
     }
 
     return letterGrade;
-}
+};
 
 //check the issue body for the issue level
 function getIssueLevel(issue, dataType) {
@@ -262,7 +268,6 @@ function getIssueLevel(issue, dataType) {
     } else if (dataType == 2) {
         return articleEstimate;
     }
-
 };
 
 //check the issue labels 
@@ -302,6 +307,7 @@ function getIssueStatus(issue) {
                 //increment the editing articles
                 if (issueStatus == projDef.activeStatus[2]) {
                     projArticlesEditing++;
+                    updateEditorWidget(issue);
                 };
 
                 //increment the testing articles
@@ -329,6 +335,7 @@ function getIssueStatus(issue) {
 
                 if (issueStatus == projDef.queueStatus[2]) {
                     projArticlesEditQueue++;
+                    updateEditorWidget(issue);
                 };
 
                 if (issueStatus == projDef.queueStatus[3]) {
@@ -415,6 +422,31 @@ function getContentCreator(issue) {
     return contentCreator;
 };
 
+function getEditor(issue) {
+    var editor = "";
+    $.each(issue.labels, function(index, obj) {
+        var label = obj.name;
+        if (editorArr.indexOf(label) >= 0) {
+            editor = label;
+        }
+    });
+
+    return editor;
+};
+
+function updateEditorWidget(issue){
+    var editor = getEditor(issue);
+    if(editor == editorArr[0])
+    {
+        projArticlesEditor2++;
+    }
+    else if(editor == editorArr[1])
+    {
+        projArticlesEditor1++;
+    }
+    
+};
+
 function addTableRow(issue) {
     $('#myTable tbody').append('<tr><td><a href="' + issue.html_url + '">' + issue.title + '</a></td><td>' + getIssueLevel(issue, 1) + '</td><td>' + getIssueStatus(issue) + '</td><td>' + getContentCreator(issue) + '</td><td>' + getIssueLevel(issue, 2) + '</td><td>' + getDraftTime(issue, 1) + '</td><td class="timeDiff">' + getDiffPercent(projDef.articleLevels[0].draftEstimate, getDraftTime(issue)) + '</td><td class="editScore">' + getEditScore(issue) + '</td></tr>');
     $("td.timeDiff:contains('-')").addClass('green');
@@ -422,7 +454,6 @@ function addTableRow(issue) {
     $("td:contains('unavailable')").addClass('gray');
     $("td.editScore:contains('B')").addClass('green');
 };
-
 
 function buildPieChart() {
     new Chartist.Bar('#progress-chart', {

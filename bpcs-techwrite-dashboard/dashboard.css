@@ -11,6 +11,7 @@ body, table
 	border: 1px solid #F4F7FA;
 	border-radius: 2px;
 	background-color: #F4F7FA;
+  overflow:hidden;
 }
 
 .dashboard-widget-num
@@ -22,7 +23,7 @@ body, table
 	height: 90px;
 }
 
-#dashboard-articles-progress-num
+#dashboard-articles-progress-num, .dashboard-widget-text-bottom
 {
   margin-top: -20px;
 }

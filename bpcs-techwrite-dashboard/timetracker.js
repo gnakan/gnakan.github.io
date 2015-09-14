@@ -44,6 +44,11 @@ var editorArr = [
     "Crystal S"
 ];
 
+var testerArr = [
+    "Prabhu M",
+    "Brian M."
+];
+
 var articleLevelsArr = [{
     "Level 1": 1.5
 }, {
@@ -107,6 +112,8 @@ var projArticlesTestQueue = 0;
 var projArticlesReviewing = 0;
 var projArticlesEditor1 = 0;
 var projArticlesEditor2 = 0;
+var projArticlesTester1 = 0; //prabhu
+var projArticlesTester2 = 0; //brian
 
 var issueData = {};
 var issueComments = {};
@@ -227,6 +234,9 @@ function buildDashboard(data) {
 
     $('#dashboard-editor-1 .dashboard-widget-num').text(projArticlesEditor1); //articles that Crystal is assigned
     $('#dashboard-editor-2 .dashboard-widget-num').text(projArticlesEditor2); //articles that Carla is assigned
+
+    $('#dashboard-tester-1 .dashboard-widget-num').text(projArticlesTester1); //articles that Prabhu is assigned
+    $('#dashboard-tester-2 .dashboard-widget-num').text(projArticlesTester2); //articles that Brian is assigned
     buildPieChart();
     buildMilestoneChart();
     $('#myTable').DataTable({
@@ -324,6 +334,7 @@ function getIssueStatus(issue) {
                     projArticlesTesting++;
                     projDeliveredArticles++;
                     getMilestoneData(issue);
+                    updateTesterWidget(issue);
                 };
 
                 //increment the reviewing articles
@@ -350,6 +361,8 @@ function getIssueStatus(issue) {
                 if (issueStatus == projDef.queueStatus[3]) {
                     projArticlesTestQueue++;
                     projDeliveredArticles++;
+                    getMilestoneData(issue);
+                    updateTesterWidget(issue);
                 };
 
 
@@ -443,6 +456,18 @@ function getEditor(issue) {
     return editor;
 };
 
+function getTester(issue) {
+    var tester = "";
+    $.each(issue.labels, function(index, obj) {
+        var label = obj.name;
+        if (testerArr.indexOf(label) >= 0) {
+            tester = label;
+        }
+    });
+
+    return tester;
+};
+
 function updateEditorWidget(issue){
     var editor = getEditor(issue);
     if(editor == editorArr[0])
@@ -452,6 +477,20 @@ function updateEditorWidget(issue){
     else if(editor == editorArr[1])
     {
         projArticlesEditor1++;
+    }
+    
+};
+
+//updates the tester widget on the main dashboard
+function updateTesterWidget(issue){
+    var tester = getTester(issue);
+    if(tester == testerArr[0])
+    {
+        projArticlesTester1++;
+    }
+    else if(tester == testerArr[1])
+    {
+        projArticlesTester2++;
     }
     
 };

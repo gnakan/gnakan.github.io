@@ -498,7 +498,8 @@ function buildMilestoneChart() {
             milestoneArr[6].name,
             milestoneArr[7].name,
             milestoneArr[8].name,
-            milestoneArr[9].name
+            milestoneArr[9].name,
+            milestoneArr[10].name
         ],
         series: [{
             "name": "Delivered articles",
@@ -512,7 +513,8 @@ function buildMilestoneChart() {
                 milestoneArr[6].count,
                 milestoneArr[7].count,
                 milestoneArr[8].count,
-                milestoneArr[9].count
+                milestoneArr[9].count,
+                milestoneArr[10].count
             ]
         }]
     }, {

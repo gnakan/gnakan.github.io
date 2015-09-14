@@ -1,6 +1,6 @@
 //create the project definition file
 
-var week = "Week 10";
+var week = "Week 11";
 
 var projDef = {
     "repoIssueURL": "https://api.github.com/repos/gnakan/gd-cloud-docs/issues",
@@ -83,6 +83,9 @@ var milestoneArr = [{
     "count": 0
 }, {
     "name": "Week 10",
+    "count": 0
+}, {
+    "name": "Week 11",
     "count": 0
 }];
 

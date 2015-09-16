@@ -56,7 +56,7 @@
                 </div>
                 <div class='col-md-3'>
                     <div class='dashboard-widget'>
-                        <div class='dashboard-widget-label'>Articles Delivered</div>
+                        <div class='dashboard-widget-label'>Articles In Test or GD Review</div>
                         <div id='dashboard-articles-delivered' class='dashboard-widget-num'></div>
                     </div>
                 </div>
@@ -67,35 +67,13 @@
             </div>
             <div class='row pipeline-row'>
                 <h3>Pipeline Status</h3>
-                <div id='progress-chart'></div>
-                <div class='col-md-3'>
-                    <div class='dashboard-widget draft' title='Calculated by dividing the number of articles in "Drafting" status by the total number of articles in "Ready to Draft" and "Drafting" status'>
-                        <div class='status-indicator'></div>
-                        <div class='dashboard-widget-label'>Drafting Queue Progress</div>
-                        <div id='dashboard-articles-drafting-progress' class='dashboard-widget-num-small'></div>
-                    </div>
+                <div class='col-md-12'>
+                <div id='pipeline-bar-chart'></div>
                 </div>
-                <div class='col-md-3'>
-                    <div class='dashboard-widget code' title='Calculated by dividing the number of articles in "Coding" status by the total number of articles in "Ready to Code" and "Coding" status'>
-                        <div class='status-indicator'></div>
-                        <div class='dashboard-widget-label'>Coding Queue Progress</div>
-                        <div id='dashboard-articles-coding-progress' class='dashboard-widget-num-small'></div>
-                    </div>
-                </div>
-                <div class='col-md-3'>
-                    <div class='dashboard-widget edit' title='Calculated by dividing the number of articles in "Editing" status by the total number of articles in "Ready to Edit" and "Editing" status'>
-                        <div class='status-indicator'></div>
-                        <div class='dashboard-widget-label'>Editing Queue Progress</div>
-                        <div id='dashboard-articles-editing-progress' class='dashboard-widget-num-small'></div>
-                    </div>
-                </div>
-                <div class='col-md-3'>
-                    <div class='dashboard-widget test' title='Calculated by dividing the number of articles in "Testing" status by the total number of articles in "Ready to Test" and "Testing" status'>
-                        <div class='status-indicator'></div>
-                        <div class='dashboard-widget-label'>Testing Queue Progress</div>
-                        <div id='dashboard-articles-testing-progress' class='dashboard-widget-num-small'></div>
-                    </div>
-                </div>
+                
+                
+                
+                
             </div>
             <div class='row'>
                 <h3>Workload Status</h3>

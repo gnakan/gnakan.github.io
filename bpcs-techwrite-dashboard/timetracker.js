@@ -226,26 +226,21 @@ function buildDashboard(data) {
     $("#dashboard-articles-score:contains('C')").addClass('red');
     $('#dashboard-articles-delivered').text(projDeliveredArticles);
 
-    $('#dashboard-articles-drafting-progress').text(Math.floor((projArticlesDrafting / (projArticlesDrafting + projArticlesDraftQueue)) * 100) + "%");
-    $('#dashboard-articles-coding-progress').text(Math.floor((projArticlesCoding / (projArticlesCodeQueue + projArticlesCoding)) * 100) + "%");
-    $('#dashboard-articles-editing-progress').text(Math.floor((projArticlesEditing / (projArticlesEditQueue + projArticlesEditing)) * 100) + "%");
-    $('#dashboard-articles-testing-progress').text(Math.floor((projArticlesTesting / (projArticlesTestQueue + projArticlesTesting)) * 100) + "%");
-    
-
     $('#dashboard-editor-1 .dashboard-widget-num').text(projArticlesEditor1); //articles that Crystal is assigned
     $('#dashboard-editor-2 .dashboard-widget-num').text(projArticlesEditor2); //articles that Carla is assigned
 
     $('#dashboard-tester-1 .dashboard-widget-num').text(projArticlesTester1); //articles that Prabhu is assigned
     $('#dashboard-tester-2 .dashboard-widget-num').text(projArticlesTester2); //articles that Brian is assigned
-    buildPieChart();
+    //buildPieChart();
     buildMilestoneChart();
+    buildPipeLineChart();
     $('#myTable').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'csvHtml5',
             'pdfHtml5'
         ]
-    } );
+    });
     loading_screen.finish();
 };
 
@@ -468,31 +463,25 @@ function getTester(issue) {
     return tester;
 };
 
-function updateEditorWidget(issue){
+function updateEditorWidget(issue) {
     var editor = getEditor(issue);
-    if(editor == editorArr[0])
-    {
+    if (editor == editorArr[0]) {
         projArticlesEditor2++;
-    }
-    else if(editor == editorArr[1])
-    {
+    } else if (editor == editorArr[1]) {
         projArticlesEditor1++;
     }
-    
+
 };
 
 //updates the tester widget on the main dashboard
-function updateTesterWidget(issue){
+function updateTesterWidget(issue) {
     var tester = getTester(issue);
-    if(tester == testerArr[0])
-    {
+    if (tester == testerArr[0]) {
         projArticlesTester1++;
-    }
-    else if(tester == testerArr[1])
-    {
+    } else if (tester == testerArr[1]) {
         projArticlesTester2++;
     }
-    
+
 };
 
 function addTableRow(issue) {
@@ -523,6 +512,35 @@ function buildPieChart() {
         }
     });
 };
+
+function buildPipeLineChart() {
+    var draftLabel = "Drafting (" + (Math.floor((projArticlesDrafting / (projArticlesDrafting + projArticlesDraftQueue)) * 100) + "%)");
+    var codingLabel = "Coding (" +  (Math.floor((projArticlesCoding / (projArticlesCodeQueue + projArticlesCoding)) * 100) + "%)");
+    var editingLabel = "Editing (" + (Math.floor((projArticlesEditing / (projArticlesEditQueue + projArticlesEditing)) * 100) + "%)");
+    var testingLabel = "Testing (" + (Math.floor((projArticlesTesting / (projArticlesTestQueue + projArticlesTesting)) * 100) + "%)");
+
+    new Chartist.Bar('#pipeline-bar-chart', {
+        labels: [ draftLabel, codingLabel, editingLabel, testingLabel],
+        series: [
+            [projArticlesDrafting, projArticlesCoding, projArticlesEditing, projArticlesTesting],
+            [(projArticlesDrafting + projArticlesDraftQueue), (projArticlesCoding + projArticlesCodeQueue), (projArticlesEditing + projArticlesEditQueue), (projArticlesTesting + projArticlesTestQueue)]
+        ]
+    }, {
+        stackBars: true,
+        axisY: {
+            labelInterpolationFnc: function(value) {
+                return value;
+            }
+        }
+    }).on('draw', function(data) {
+        if (data.type === 'bar') {
+            data.element.attr({
+                style: 'stroke-width: 30px'
+            });
+        }
+    });
+};
+
 
 //builds the line chart that displays articles delivered weekly
 function buildMilestoneChart() {
@@ -607,4 +625,39 @@ $(document).ready(function() {
             top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() + 330
         });
     });
+
+    var $chart2 = $('#pipeline-bar-chart');
+
+    var $toolTip2 = $chart2
+        .append('<div class="chart-tooltip"></div>')
+        .find('.chart-tooltip')
+        .hide();
+
+    $chart2.on('mouseenter', '.ct-series-a .ct-bar', function() {
+        var $point = $(this),
+            value = $point.attr('ct:value'),
+            seriesName = "In Progress";
+        $toolTip2.html(seriesName + '<br>' + value + " articles").show();
+    });
+
+    $chart2.on('mouseenter', '.ct-series-b .ct-bar', function() {
+        var $point = $(this),
+            value = $point.attr('ct:value'),
+            seriesName = "In Queue";
+        $toolTip2.html(seriesName + '<br>' + value + " articles").show();
+    });
+
+    $chart2.on('mouseleave', '.ct-bar', function() {
+        $toolTip2.hide();
+    });
+
+    $chart2.on('mousemove', function(event) {
+        $toolTip2.css({
+            left: (event.offsetX || event.originalEvent.layerX) - $toolTip2.width() / 2 - 10,
+            top: (event.offsetY || event.originalEvent.layerY) - $toolTip2.height() -20
+        });
+    });
+
+
+
 });

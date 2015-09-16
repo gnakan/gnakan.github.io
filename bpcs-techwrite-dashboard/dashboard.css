@@ -137,6 +137,16 @@ td.gray{
 	border: none;
 }
 
+#pipeline-bar-chart .ct-series-b .ct-bar
+{
+    stroke: #eee !important;
+}
+
+#pipeline-bar-chart .ct-series-a .ct-bar
+{
+    stroke: #8BC34A !important;
+}
+
 .ct-series-a .ct-bar
 {
 	stroke: #207de5;

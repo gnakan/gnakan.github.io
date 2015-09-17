@@ -25,8 +25,8 @@ var projDef = {
         "draftEstimate": 8
     }],
     "queueStatus": ['Ready for drafting', 'Ready for coding', 'Ready for editing', 'Ready for testing'],
-    "activeStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for review', 'reviewing'],
-    "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting', 'reviewing']
+    "activeStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for review', 'reviewing', 'testing review'],
+    "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting', 'reviewing', 'testing review']
 };
 
 var contentCreatorArr = [
@@ -94,6 +94,11 @@ var milestoneArr = [{
     "count": 0
 }];
 
+var concernLabelsArr = [
+    "BLOCKED",
+    "verify technical accuracy",
+    "needs copy revision"
+];
 
 var projIssues = 0;
 var projIssuesInProgress = 0;
@@ -110,10 +115,14 @@ var projArticlesReEditing = 0;
 var projArticlesTesting = 0;
 var projArticlesTestQueue = 0;
 var projArticlesReviewing = 0;
+var projArticlesReviewQueue = 0;
 var projArticlesEditor1 = 0;
 var projArticlesEditor2 = 0;
 var projArticlesTester1 = 0; //prabhu
 var projArticlesTester2 = 0; //brian
+var articlesBlocked = 0;
+var articlesTechIssues = 0;
+var articlesCopyRevision = 0;
 
 var issueData = {};
 var issueComments = {};
@@ -219,12 +228,17 @@ function buildDashboard(data) {
 
     //build the widgets
     $('#dashboard-articles-num').text(projIssues);
-    $('#dashboard-articles-progress').text(Math.floor((projIssuesInProgress / projIssues) * 100) + "%");
-    $('#dashboard-articles-progress-num').text(projIssuesInProgress + " articles");
-    $('#dashboard-articles-score').text(scoreToLetterGrade());
-    $("#dashboard-articles-score:contains('A')").addClass('green');
-    $("#dashboard-articles-score:contains('C')").addClass('red');
-    $('#dashboard-articles-delivered').text(projDeliveredArticles);
+    //$('#dashboard-articles-progress').text(Math.floor((projIssuesInProgress / projIssues) * 100) + "%");
+    $('#dashboard-articles-progress').text(projIssuesInProgress);
+    $('#dashboard-articles-progress-num').text(projArticlesDraftQueue + ' articles remaining');
+    //$('#dashboard-articles-score').text(scoreToLetterGrade());
+    //$("#dashboard-articles-score:contains('A')").addClass('green');
+    //$("#dashboard-articles-score:contains('C')").addClass('red');
+    $('#dashboard-articles-delivered').text(projArticlesReviewing + projArticlesReviewQueue);
+    $('#dashboard-articles-testing').text(projArticlesTesting + projArticlesTestQueue);
+    $('#dashboard-articles-blocked').text(articlesBlocked);
+    $('#dashboard-articles-tech-issues').text(articlesTechIssues);
+    $('#dashboard-articles-copy-revision').text(articlesCopyRevision);
 
     $('#dashboard-editor-1 .dashboard-widget-num').text(projArticlesEditor1); //articles that Crystal is assigned
     $('#dashboard-editor-2 .dashboard-widget-num').text(projArticlesEditor2); //articles that Carla is assigned
@@ -287,40 +301,48 @@ function getIssueLevel(issue, dataType) {
 //check the issue labels 
 function getIssueStatus(issue) {
     var issueStatus = projDef.queueStatus[0];
+    checkForConcerns(issue);
     $.each(issue.labels, function(index, obj) {
         var label = obj.name;
+        
+
+
         if (projDef.allStatus.indexOf(label) >= 0) {
             issueStatus = label;
 
             //increment the active articles in progress
             if (projDef.activeStatus.indexOf(issueStatus) >= 0) {
-                projIssuesInProgress++;
+                
 
                 //increment the delivered articles
                 if (issueStatus == projDef.activeStatus[4]) {
+                    projArticlesReviewQueue++;
                     projDeliveredArticles++;
                     getMilestoneData(issue); //check the milestone and track accordingly
                 };
 
                 //increment the delivered articles
                 if (issueStatus == projDef.activeStatus[6]) {
-                    projDeliveredArticles++;
+                    projIssuesInProgress++;
                     getMilestoneData(issue); //check the milestone and track accordingly
                 };
 
                 //increment the drafting articles
                 if (issueStatus == projDef.activeStatus[1]) {
                     projArticlesDrafting++;
+                    projIssuesInProgress++;
                 };
 
                 //increment the coding articles
                 if (issueStatus == projDef.activeStatus[0]) {
                     projArticlesCoding++;
+                    projIssuesInProgress++;
                 };
 
                 //increment the editing articles
                 if (issueStatus == projDef.activeStatus[2]) {
                     projArticlesEditing++;
+                    projIssuesInProgress++;
                     updateEditorWidget(issue);
                 };
 
@@ -335,7 +357,6 @@ function getIssueStatus(issue) {
                 //increment the reviewing articles
                 if (issueStatus == projDef.activeStatus[5]) {
                     projArticlesReviewing++;
-                    projDeliveredArticles++;
                     getMilestoneData(issue);
                 };
             };
@@ -343,24 +364,24 @@ function getIssueStatus(issue) {
             //increment the active articles in queue
             if (projDef.queueStatus.indexOf(issueStatus) >= 0) {
                 //projIssuesInProgress++;
-
+                //ready for coding
                 if (issueStatus == projDef.queueStatus[1]) {
+                    projIssuesInProgress++;
                     projArticlesCodeQueue++;
                 };
-
+                //ready for editing
                 if (issueStatus == projDef.queueStatus[2]) {
                     projArticlesEditQueue++;
                     updateEditorWidget(issue);
+                    projIssuesInProgress++
                 };
-
+                //ready for testing
                 if (issueStatus == projDef.queueStatus[3]) {
                     projArticlesTestQueue++;
                     projDeliveredArticles++;
                     getMilestoneData(issue);
                     updateTesterWidget(issue);
                 };
-
-
             };
         }
 
@@ -523,7 +544,7 @@ function buildPipeLineChart() {
         labels: [ draftLabel, codingLabel, editingLabel, testingLabel],
         series: [
             [projArticlesDrafting, projArticlesCoding, projArticlesEditing, projArticlesTesting],
-            [(projArticlesDrafting + projArticlesDraftQueue), (projArticlesCoding + projArticlesCodeQueue), (projArticlesEditing + projArticlesEditQueue), (projArticlesTesting + projArticlesTestQueue)]
+            [projArticlesDraftQueue, projArticlesCodeQueue, projArticlesEditQueue, projArticlesTestQueue]
         ]
     }, {
         stackBars: true,
@@ -597,6 +618,30 @@ function getMilestoneData(issue) {
     }
 
 };
+
+function checkForConcerns(issue)
+{
+
+    $.each(issue.labels, function(index, obj) {
+        var label = obj.name;
+        if (label == concernLabelsArr[0]) //blocked
+        {
+                articlesBlocked++;     
+                return true;
+        }
+        else if (label == concernLabelsArr[1]) {
+            articlesTechIssues++;
+            return true;
+        }
+        else if (label == concernLabelsArr[2]) {
+            articlesCopyRevision++;
+            return true;
+        };
+
+
+
+    });
+}
 
 getAllIssues();
 

@@ -43,20 +43,20 @@
                 </div>
                 <div class='col-md-3'>
                     <div class='dashboard-widget'>
-                        <div class='dashboard-widget-label'>Articles In Progress</div>
+                        <div class='dashboard-widget-label'>Articles In CCER Pipeline</div>
                         <div id='dashboard-articles-progress' class='dashboard-widget-num'></div>
                         <div id='dashboard-articles-progress-num'></div>
                     </div>
                 </div>
                 <div class='col-md-3'>
                     <div class='dashboard-widget'>
-                        <div class='dashboard-widget-label'>AVG Article Score (Editorial)</div>
-                        <div id='dashboard-articles-score' class='dashboard-widget-num'></div>
+                        <div class='dashboard-widget-label'>Articles In Test</div>
+                        <div id='dashboard-articles-testing' class='dashboard-widget-num'></div>
                     </div>
                 </div>
                 <div class='col-md-3'>
                     <div class='dashboard-widget'>
-                        <div class='dashboard-widget-label'>Articles In Test or GD Review</div>
+                        <div class='dashboard-widget-label'>Articles In GD Review</div>
                         <div id='dashboard-articles-delivered' class='dashboard-widget-num'></div>
                     </div>
                 </div>
@@ -68,12 +68,37 @@
             <div class='row pipeline-row'>
                 <h3>Pipeline Status</h3>
                 <div class='col-md-12'>
-                <div id='pipeline-bar-chart'></div>
+                    <div id='pipeline-bar-chart'></div>
                 </div>
-                
-                
-                
-                
+            </div>
+            <div class='row'>
+                <h3>Pipeline Concerns</h3>
+                <div class='col-md-3'>
+                    <div class='dashboard-widget'>
+                        <div class='dashboard-widget-label'>Blocked</div>
+                        <a href='https://waffle.io/gnakan/gd-cloud-docs?label=BLOCKED'>
+                            <div id='dashboard-articles-blocked' class='dashboard-widget-num'></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class='col-md-3'>
+                    <div class='dashboard-widget'>
+                        <div class='dashboard-widget-label'>Tech Issues</div>
+                        <a href='https://waffle.io/gnakan/gd-cloud-docs?label=verify%20technical%20accuracy'>
+                            <div id='dashboard-articles-tech-issues' class='dashboard-widget-num'></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class='col-md-3'>
+                    <div class='dashboard-widget'>
+                        <div class='dashboard-widget-label'>Copy Issues</div>
+                        <a href='https://waffle.io/gnakan/gd-cloud-docs?label=needs%20copy%20revision'>
+                            <div id='dashboard-articles-copy-revision' class='dashboard-widget-num'></div>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class='row'>
                 <h3>Workload Status</h3>

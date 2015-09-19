@@ -26,7 +26,7 @@ var projDef = {
     }],
     "queueStatus": ['Ready for drafting', 'Ready for coding', 'Ready for editing', 'Ready for testing'],
     "activeStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for review', 'reviewing', 'testing review'],
-    "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting', 'reviewing', 'testing review']
+    "allStatus": ['coding', 'drafting', 'editing', 'testing', 'Ready for coding', 'Ready for editing', 'Ready for review', 'Ready for testing', 'Ready for drafting', 'reviewing', 'testing review', 'gd-approved']
 };
 
 var contentCreatorArr = [
@@ -123,6 +123,7 @@ var projArticlesTester2 = 0; //brian
 var articlesBlocked = 0;
 var articlesTechIssues = 0;
 var articlesCopyRevision = 0;
+var articlesApproved = 0;
 
 var issueData = {};
 var issueComments = {};
@@ -235,6 +236,7 @@ function buildDashboard(data) {
     //$("#dashboard-articles-score:contains('A')").addClass('green');
     //$("#dashboard-articles-score:contains('C')").addClass('red');
     $('#dashboard-articles-delivered').text(projArticlesReviewing + projArticlesReviewQueue);
+    $('#dashboard-articles-approved').text(articlesApproved + ' articles approved');
     $('#dashboard-articles-testing').text(projArticlesTesting + projArticlesTestQueue);
     $('#dashboard-articles-blocked').text(articlesBlocked);
     $('#dashboard-articles-tech-issues').text(articlesTechIssues);
@@ -383,12 +385,18 @@ function getIssueStatus(issue) {
                     updateTesterWidget(issue);
                 };
             };
-        }
+
+            if(issueStatus == projDef.allStatus[11])
+            {
+                articlesApproved++;
+            }
+        };
 
     });
+    
     if (issueStatus == projDef.queueStatus[0]) {
         projArticlesDraftQueue++
-    }
+    };
     return issueStatus;
 };
 

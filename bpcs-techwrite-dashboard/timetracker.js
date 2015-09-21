@@ -1,6 +1,6 @@
 //create the project definition file
 
-var week = "Week 11";
+var week = "Week 12";
 
 var projDef = {
     "repoIssueURL": "https://api.github.com/repos/gnakan/gd-cloud-docs/issues",

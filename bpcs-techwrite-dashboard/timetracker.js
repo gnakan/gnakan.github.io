@@ -92,6 +92,9 @@ var milestoneArr = [{
 }, {
     "name": "Week 11",
     "count": 0
+}, {
+    "name": "Week 12",
+    "count": 0
 }];
 
 var concernLabelsArr = [

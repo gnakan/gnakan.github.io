@@ -45,11 +45,11 @@
 
 .homepage-hero
 {
-  background-image: url(../img/homepage-slider/1.jpeg);
+  background-image: url(../img/homepage-slider/header-1.jpg);
   height: 400px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0px -200px;
+  background-position: 0px 0px;
   overflow: hidden;
   position: relative;
 }
@@ -178,7 +178,7 @@ h4 {
   margin-bottom: 10px;
 }
 a {
-  color: #950517;
+  color: #003EA3;
 }
 a:hover {
   color: #2f556d;
@@ -1784,7 +1784,7 @@ span.color-red {
   background: #222;
   color: #A0A0A0;
   padding: 0 20px 10px 20px;
-  border-top: 4px solid #950517;
+  border-top: 4px solid #003EA3;
   margin-top: 20px;
   -webkit-box-shadow: 0 -1px 12px rgba(0,0,0,0.4);
   -moz-box-shadow: 0 -1px 12px rgba(0,0,0,0.4);
@@ -2450,7 +2450,7 @@ span.color-red {
 }
 .mainmenu-wrapper {
   background-color: #FFF;
-  border-bottom: 4px solid #950517;
+  border-bottom: 4px solid #003EA3;
   z-index: 4;
 }
 .mainmenu {
@@ -2488,7 +2488,7 @@ span.color-red {
 }
 .mainmenu > ul > li.active > a,
 .mainmenu .mainmenu-submenu-inner > li.active > a {
-  color: #950517;
+  color: #003EA3;
   font-weight: 600 !important;
 }
 .mainmenu > ul > li.mainmenu-open a,

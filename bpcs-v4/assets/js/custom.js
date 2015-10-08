@@ -108,7 +108,7 @@ function handleJobListingData(data, tabletop) {
 function addJobListing(obj){
     var listingHTML = "<div class='col-md-4'>" +
                     "<div class='white-paper-entry'> " + 
-                        "<div class='col-md-3'><i class='fa fa-comments  fa-4x'></i></div> " +
+                        "<div class='col-md-3'><i class='fa fa-globe  fa-4x'></i></div> " +
                         "<div class='col-md-8'> " + 
                             "<h4>" + obj['job-title'] + "</h4> " +
                             "<p>" + obj['location'] + "</p>" +

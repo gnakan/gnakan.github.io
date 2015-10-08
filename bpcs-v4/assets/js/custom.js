@@ -3,7 +3,7 @@
 });
 
 $(document).ready(function() {
-
+    tableTopInit();
 
     // SCROLL SCRIPTS 
     $('.scroll-me a').bind('click', function(event) { //just pass scroll-me class and start scrolling
@@ -72,7 +72,7 @@ $(document).ready(function() {
         window.location.href = './solutions.html#recognition';
     });
 
-    
+
 
 
     $('a[href^="#"]').on('click', function(event) {
@@ -85,3 +85,38 @@ $(document).ready(function() {
         }
     });
 });
+
+
+function tableTopInit() {
+    var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1nR4kcadW3rl8vhEFgLZJwmnsM8ZGGboWhXrDkyDpffM/pubhtml';
+    Tabletop.init({
+        key: public_spreadsheet_url,
+        callback: handleJobListingData,
+        simpleSheet: true
+    })
+};
+
+function handleJobListingData(data, tabletop) {
+    $("#job-listings").empty();
+
+    $.each(data, function(index, obj){
+        addJobListing(obj);
+    });
+};
+
+//creates the listing and appends it
+function addJobListing(obj){
+    var listingHTML = "<div class='col-md-4'>" +
+                    "<div class='white-paper-entry'> " + 
+                        "<div class='col-md-3'><i class='fa fa-comments  fa-4x'></i></div> " +
+                        "<div class='col-md-8'> " + 
+                            "<h4>" + obj['job-title'] + "</h4> " +
+                            "<p>" + obj['location'] + "</p>" +
+                            "<a href='" + obj['posting-url'] + "'>View job <i class='fa fa-arrow-right fa-fw'></i></a>" +  
+                       " </div>" +
+                    "</div> " +
+                "</div>";
+
+
+    $("#job-listings").append(listingHTML);
+}

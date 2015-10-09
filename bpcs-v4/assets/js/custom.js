@@ -72,6 +72,11 @@ $(document).ready(function() {
         window.location.href = './solutions.html#recognition';
     });
 
+    $('.award-location-3').on('click', function(e) {
+        window.open('http://www.bizjournals.com/seattle/morning_call/2015/09/washingtons-fastest-growing-private-companies.html', "_blank");
+        window.location.href = './solutions.html#recognition';
+    });
+
 
 
 

@@ -66,6 +66,11 @@ video#bgvid {  }
     {
         display:none;
     }
+
+    #home .hero-box
+    {
+        margin-top: 40px;
+    }
 }
 
 

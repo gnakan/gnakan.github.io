@@ -71,6 +71,30 @@ video#bgvid {  }
     {
         margin-top: 40px;
     }
+
+    .hero-box h1 {
+        font-size: 3.0em !important;
+    }
+
+    .hero-box h2 {
+        font-size: 1.5em !important;
+    }
+}
+
+@media screen and (max-width : 320px) {
+
+    #home .col-md-10
+    {
+        max-width: 300px;
+    }
+
+    .hero-box h1 {
+        font-size: 3.0em !important;
+    }
+
+    .hero-box h2 {
+        font-size: 1.5em !important;
+    }
 }
 
 

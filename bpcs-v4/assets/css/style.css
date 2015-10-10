@@ -79,6 +79,13 @@ video#bgvid {  }
     .hero-box h2 {
         font-size: 1.5em !important;
     }
+
+
+    #portfolio h2
+    {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 @media screen and (max-width : 320px) {
@@ -95,6 +102,19 @@ video#bgvid {  }
     .hero-box h2 {
         font-size: 1.5em !important;
     }
+
+    #portfolio .case-study
+    {
+        max-width: 300px;
+    }
+
+    #portfolio .col-md-6
+    {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    
 }
 
 

@@ -57,9 +57,18 @@ video#bgvid {  }
         background-color: rgba(0, 0, 0, 0.8);
     }
     .hero-box h1 {
-        font-size: 4em !important;
+        font-size: 3.5em !important;
     }
 }
+
+@media screen and (max-width: 574px) {
+    #home .overlay .btn-callToAction
+    {
+        display:none;
+    }
+}
+
+
 
 .hero-box {
     padding-top: 10px;
@@ -213,6 +222,7 @@ a:hover {
 .hero-control {
     height: 100%;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .read-more-btn {
@@ -773,8 +783,8 @@ section {
 /*CLASS TO FORMAT TEXT*/
 
 .p-cls {
-    padding-top: 30px;
-    padding-bottom: 40px;
+    /*padding-top: 30px;
+    padding-bottom: 40px;*/
 }
 /*======================================
     PARALLAX LIKE / STATS SECTION STYLES

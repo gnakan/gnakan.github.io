@@ -240,22 +240,22 @@ function buildDashboard(data) {
     $('#dashboard-articles-num').text(projIssues);
     //$('#dashboard-articles-progress').text(Math.floor((projIssuesInProgress / projIssues) * 100) + "%");
     $('#dashboard-articles-progress').text(projIssuesInProgress);
-    $('#dashboard-articles-progress-num').text(projArticlesDraftQueue + ' articles remaining');
+    //$('#dashboard-articles-progress-num').text(projArticlesDraftQueue + ' articles remaining');
     //$('#dashboard-articles-score').text(scoreToLetterGrade());
     //$("#dashboard-articles-score:contains('A')").addClass('green');
     //$("#dashboard-articles-score:contains('C')").addClass('red');
-    $('#dashboard-articles-delivered').text(projArticlesReviewing + projArticlesReviewQueue);
+    $('#dashboard-articles-delivered').text(projDeliveredArticles);
     $('#dashboard-articles-approved').text(articlesApproved + ' articles approved');
     $('#dashboard-articles-testing').text(projArticlesTesting + projArticlesTestQueue);
     $('#dashboard-articles-blocked').text(articlesBlocked);
     $('#dashboard-articles-tech-issues').text(articlesTechIssues);
     $('#dashboard-articles-copy-revision').text(articlesCopyRevision);
 
-    $('#dashboard-editor-1 .dashboard-widget-num').text(projArticlesEditor1); //articles that Crystal is assigned
-    $('#dashboard-editor-2 .dashboard-widget-num').text(projArticlesEditor2); //articles that Carla is assigned
+    //$('#dashboard-editor-1 .dashboard-widget-num').text(projArticlesEditor1); //articles that Crystal is assigned
+    //$('#dashboard-editor-2 .dashboard-widget-num').text(projArticlesEditor2); //articles that Carla is assigned
 
-    $('#dashboard-tester-1 .dashboard-widget-num').text(projArticlesTester1); //articles that Prabhu is assigned
-    $('#dashboard-tester-2 .dashboard-widget-num').text(projArticlesTester2); //articles that Brian is assigned
+    //$('#dashboard-tester-1 .dashboard-widget-num').text(projArticlesTester1); //articles that Prabhu is assigned
+    //$('#dashboard-tester-2 .dashboard-widget-num').text(projArticlesTester2); //articles that Brian is assigned
     //buildPieChart();
     buildMilestoneChart();
     buildPipeLineChart();
@@ -325,7 +325,7 @@ function getIssueStatus(issue) {
             if (projDef.activeStatus.indexOf(issueStatus) >= 0) {
                 
 
-                //increment the delivered articles
+                //Ready for review
                 if (issueStatus == projDef.activeStatus[4]) {
                     projArticlesReviewQueue++;
                     projDeliveredArticles++;
@@ -353,6 +353,7 @@ function getIssueStatus(issue) {
                 //increment the editing articles
                 if (issueStatus == projDef.activeStatus[2]) {
                     projArticlesEditing++;
+                    projDeliveredArticles++;
                     projIssuesInProgress++;
                     updateEditorWidget(issue);
                 };
@@ -360,7 +361,6 @@ function getIssueStatus(issue) {
                 //increment the testing articles
                 if (issueStatus == projDef.activeStatus[3]) {
                     projArticlesTesting++;
-                    projDeliveredArticles++;
                     getMilestoneData(issue);
                     updateTesterWidget(issue);
                 };
@@ -368,6 +368,7 @@ function getIssueStatus(issue) {
                 //increment the reviewing articles
                 if (issueStatus == projDef.activeStatus[5]) {
                     projArticlesReviewing++;
+                    projDeliveredArticles++;
                     getMilestoneData(issue);
                 };
             };
@@ -385,11 +386,11 @@ function getIssueStatus(issue) {
                     projArticlesEditQueue++;
                     updateEditorWidget(issue);
                     projIssuesInProgress++
+                    projDeliveredArticles++;
                 };
                 //ready for testing
                 if (issueStatus == projDef.queueStatus[3]) {
                     projArticlesTestQueue++;
-                    projDeliveredArticles++;
                     getMilestoneData(issue);
                     updateTesterWidget(issue);
                 };
@@ -398,6 +399,7 @@ function getIssueStatus(issue) {
             if(issueStatus == projDef.allStatus[11])
             {
                 articlesApproved++;
+                projDeliveredArticles++;
             }
         };
 
@@ -553,7 +555,7 @@ function buildPieChart() {
 
 function buildPipeLineChart() {
     var draftLabel = "Drafting (" + (Math.floor((projArticlesDrafting / (projArticlesDrafting + projArticlesDraftQueue)) * 100) + "%)");
-    var codingLabel = "Coding (" +  (Math.floor((projArticlesCoding / (projArticlesCodeQueue + projArticlesCoding)) * 100) + "%)");
+    var codingLabel = "Coding (" +  (Math.floor((projArticlesCoding / (projArticlesCodeQueue + projArticlesCoding)) * 100 | 0) + "%)");
     var editingLabel = "Editing (" + (Math.floor((projArticlesEditing / (projArticlesEditQueue + projArticlesEditing)) * 100) + "%)");
     var testingLabel = "Testing (" + (Math.floor((projArticlesTesting / (projArticlesTestQueue + projArticlesTesting)) * 100) + "%)");
 

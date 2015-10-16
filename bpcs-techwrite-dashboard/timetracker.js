@@ -354,7 +354,7 @@ function getIssueStatus(issue) {
                 if (issueStatus == projDef.activeStatus[2]) {
                     projArticlesEditing++;
                     projDeliveredArticles++;
-                    projIssuesInProgress++;
+                    //projIssuesInProgress++;
                     updateEditorWidget(issue);
                 };
 
@@ -385,7 +385,7 @@ function getIssueStatus(issue) {
                 if (issueStatus == projDef.queueStatus[2]) {
                     projArticlesEditQueue++;
                     updateEditorWidget(issue);
-                    projIssuesInProgress++
+                    //projIssuesInProgress++
                     projDeliveredArticles++;
                 };
                 //ready for testing

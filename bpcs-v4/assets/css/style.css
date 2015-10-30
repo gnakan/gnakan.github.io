@@ -570,6 +570,62 @@ form .btn {
     margin-bottom: 40px;
 }
 
+.container-blog
+{
+    width: 80%;
+    margin: 0 auto;
+    letter-spacing: .01rem;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 1.58;
+    letter-spacing: -0.003em;
+}
+
+.container-blog h4
+{
+    letter-spacing: -0.02em;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 1.22;
+    letter-spacing: -0.022em;
+    margin-top: 30px;
+        color: rgba(0,0,0,0.44);
+}
+
+.container-blog h3
+{
+    font-weight: 700;
+    font-style: normal;
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.container-blog blockquote
+{
+    letter-spacing: .01rem;
+    font-style: italic;
+    font-size: 21px;
+    line-height: 1.58;
+    letter-spacing: -0.003em;
+}
+
+.container-blog p
+{
+    margin-top: 29px;
+}
+
+.navbar-blog
+{
+    float: left;
+    line-height: 50px;
+    font-weight: 100;
+    font-size: 1.5em;
+    color: #999;
+}
+
 .container-alt-accent button,
 .btn-callToAction {
     font-weight: 100;

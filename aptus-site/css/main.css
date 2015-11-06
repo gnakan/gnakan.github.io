@@ -1675,6 +1675,10 @@ span.color-red {
     font-size: .9em;
 }
 
+.team-box .img-circle
+{
+  max-height: 100px;
+}
 
 .team-member {
   position: relative;

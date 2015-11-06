@@ -1,6 +1,6 @@
 //this is for the main go to cart button
 $('button').on('click', function(){
-	document.location.href="https://prime.500px.com/cart?utm-test=ad";
+	document.location.href="https://prime.500px.com/cart?utm_campaign=CartAbandon&utm_content=160x600&utm_medium=REM&utm_source=BPCStest1";
 });
 
 createCookie('cart', '%5B%7B%22photo_id%22%3A6315063%2C%22license%22%3A%22royalty_free%22%2C%22price%22%3A25000%7D%5D', 7);

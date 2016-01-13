@@ -114,7 +114,7 @@ video#bgvid {  }
         padding-right: 0px;
     }
 
-    
+
 }
 
 
@@ -519,6 +519,19 @@ form .btn {
     color: black;
 }
 
+.job-entry
+{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: white;
+    padding: 10px 0px 100px 0px;
+    position: relative;
+    min-height: 130px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    margin: 0px 0px 20px 0px;
+}
+
+
 .white-paper-entry {
     margin-bottom: 60px;
 }
@@ -791,7 +804,7 @@ section {
 #solutions {
     background: url(../img/solutions2.jpeg) no-repeat center center;
     /*Full Witdth background image*/
-    
+
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;
@@ -802,7 +815,7 @@ section {
 #solutions .overlay {
     background-color: rgba(0, 0, 0, 0.5);
     /*.75 opacity of the color so that background image is visible*/
-    
+
     min-height: 600px;
     background: linear-gradient(rgba(115, 162, 199, 0.5), rgba(0, 0, 0, 0));
     height: 100vh;
@@ -811,7 +824,7 @@ section {
 #team {
     background: url(../img/team.jpg) no-repeat center center;
     /*Full Witdth background image*/
-    
+
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;
@@ -824,7 +837,7 @@ section {
     background: url(../img/home2.jpeg) no-repeat center center;
     /*background: url(../img/food.jpeg) no-repeat center center;*/
     /*Full Witdth background image*/
-    
+
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;
@@ -836,7 +849,7 @@ section {
 #connect {
     background: url(../img/connect2.jpeg) no-repeat bottom center;
     /*Full Witdth background image*/
-    
+
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;
@@ -851,7 +864,7 @@ section {
 #team .overlay {
     background-color: rgba(0, 0, 0, 0.5);
     /*.75 opacity of the color so that background image is visible*/
-    
+
     min-height: 600px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
     height: 100vh;
@@ -898,7 +911,7 @@ section {
 .parallax-like {
     background: url(../img/stats.jpg) no-repeat center center;
     /* DEFINE IMAGE PATH CAREFULLY*/
-    
+
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;
@@ -919,7 +932,7 @@ section {
 
 .portfolio-item img:hover {
     /* POSTFOLIO IMAGE BIG ON HOVER */
-    
+
     cursor: pointer;
     -webkit-transform: scale(1.1, 1.1);
     -ms-transform: scale(1.1, 1.1);
@@ -927,7 +940,7 @@ section {
     transition-duration: 0.3s;
     -webkit-transition-duration: 0.3s;
     /* Safari */
-    
+
     z-index: 1;
 }
 /*================================

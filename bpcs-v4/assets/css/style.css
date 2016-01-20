@@ -823,8 +823,15 @@ section {
 
 #team {
     background: url(../img/team.jpg) no-repeat center center;
-    /*Full Witdth background image*/
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;
+    height: 100vh;
+}
 
+#careers-hero {
+    background: url(../img/careers.jpeg) no-repeat center center;
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;

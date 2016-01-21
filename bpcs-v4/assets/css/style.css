@@ -527,7 +527,6 @@ form .btn {
     position: relative;
     min-height: 130px;
     transition: all .2s ease-in-out;
-    cursor: pointer;
     margin: 0px 0px 20px 0px;
 }
 

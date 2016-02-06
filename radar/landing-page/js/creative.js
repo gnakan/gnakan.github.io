@@ -17,7 +17,12 @@
     });
 
     $('.plans').bind('click', function(){
+      mixpanel.track("View plans and pricing");
       popupwindow('https://www.surveymonkey.com/r/J2KX89P', 'Get early access to Radar', 730, 550);
+    });
+
+    $('.action-how-it-works').bind('click', function(){
+      mixpanel.track("View How It Works");
     });
 
     // Highlight the top nav as scrolling occurs

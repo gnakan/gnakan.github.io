@@ -17,14 +17,7 @@
     });
 
     $('.plans').bind('click', function(){
-      $('#smcx-sdk, #__smcx__, #test,.smcx-widget').remove();
-      var script = document.createElement( 'script' );
-      script.id = 'test';
-      script.innerHTML = '(function(e,t,o,n){var c,s,a;e.SMCX=e.SMCX||[],t.getElementById(n)||(c=t.getElementsByTagName(o),s=c[c.length-1],a=t.createElement(o),a.type="text/javascript",a.async=!0,a.id=n,a.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/M2xMEodzPuBObXcFVjH3W6kZeH30agMo3HxqPIdeC1_2BEe5Bn1ed5X9f_2F4ymQq5v0.js"].join(""),s.parentNode.insertBefore(a,s))})(window,document,"script","smcx-sdk");';
-
-      document.body.appendChild(script);
-
-
+      popupwindow('https://www.surveymonkey.com/r/J2KX89P', 'Get early access to Radar', 730, 550);
     });
 
     // Highlight the top nav as scrolling occurs
@@ -51,9 +44,16 @@
         offset: {
             top: 100
         }
-    })
+    });
 
     // Initialize WOW.js Scrolling Animations
     new WOW().init();
 
 })(jQuery); // End of use strict
+
+
+function popupwindow(url, title, w, h) {
+  var left = (screen.width/2)-(w/2);
+  var top = (screen.height/2)-(h/2);
+  return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+}

@@ -134,7 +134,7 @@ header {
   min-height: auto;
   text-align: center;
   color: #fff;
-  background-image: url(../img/header.jpg);
+  background-image: url(../img/header2.jpg);
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -152,6 +152,7 @@ header .header-content .header-content-inner h1 {
   margin-bottom: 0;
   text-transform: uppercase;
   font-weight: 700;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.69);
 }
 header .header-content .header-content-inner hr {
   margin: 30px auto;
@@ -161,6 +162,9 @@ header .header-content .header-content-inner p {
   font-size: 16px;
   font-weight: 300;
   color: rgba(255, 255, 255, .7);
+  background-color: rgba(0,0,0,.5);
+  padding: 20px 10px;
+  border-radius: 4px;
 }
 @media(min-width:768px) {
   header {

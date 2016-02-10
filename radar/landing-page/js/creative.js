@@ -25,6 +25,14 @@
       mixpanel.track("View How It Works");
     });
 
+    $('.action-for-project-managers').bind('click', function(){
+      mixpanel.track("View For Project Managers");
+    });
+
+    $('.action-for-stakeholders').bind('click', function(){
+      mixpanel.track("View For Stakeholders");
+    });
+
     // Highlight the top nav as scrolling occurs
     $('body').scrollspy({
         target: '.navbar-fixed-top',

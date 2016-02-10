@@ -141,6 +141,15 @@ header {
   background-size: cover;
   -o-background-size: cover;
 }
+
+.header3{
+  background-image: url(../img/header3.jpg);
+}
+
+.header4{
+  background-image: url(../img/header4.jpg);
+}
+
 header .header-content {
   position: relative;
   width: 100%;

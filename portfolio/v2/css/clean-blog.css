@@ -16,7 +16,8 @@ p {
   margin: 30px 0;
 }
 p a {
-  text-decoration: underline;
+  border-bottom: 1px dashed #999;
+  color: #337ab7;
 }
 h1,
 h2,

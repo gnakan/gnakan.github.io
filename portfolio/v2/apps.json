@@ -1,0 +1,72 @@
+{
+  "apps":[
+    {
+      "name": "Crusade",
+      "company": "Blueprint Consulting",
+      "overview": "A platform for creating customized dashboards.",
+      "languages": ["nodejs", "javascript", "css"],
+      "frameworks": ["meteor", "bootstrap"],
+      "libraries": ["jquery", "chartjs", "momentjs"],
+      "apis": ["zendesk api"],
+      "databases": ["mongodb"],
+      "requirements": "",
+      "url": "http://crusade.bpcs.com",
+      "screenshot": "img/crusade1.png"
+    },
+    {
+      "name": "Contoso Coffee",
+      "company": "Microsoft",
+      "overview": "An Android application for demonstrating predictive analytics capabilities during the Microsoft Global Exchange (MGX) 2016 conference.",
+      "languages": ["android"],
+      "frameworks": ["xamarin"],
+      "libraries": null,
+      "apis": ["azure machine learning"],
+      "databases": null,
+      "requirements": null,
+      "url": "https://play.google.com/apps/testing/com.contoso.android",
+      "screenshot": "img/contoso_coffee1.png"
+    },
+    {
+      "name": "ExploreAZ v1",
+      "company": "azcentral/Gannett",
+      "overview": "A mobile web application for tips about top places to eat, play and stay around Arizona.",
+      "languages": ["HTML5", "LESS", "Javascript"],
+      "frameworks": ["jQuery Mobile"],
+      "libraries": null,
+      "apis": ["Google Places api", "HTML5 geolocation api"],
+      "databases": null,
+      "requirements": null,
+      "url": "http://devwww.azcentral.com/exploreaz-old/",
+      "screenshot": "img/xaz-v1-iphone-portrait2.jpg"
+    },
+    {
+      "name": "azcentral Mobile",
+      "company": "azcentral/Gannett",
+      "overview": "Arizona Republic HTML5 web application for displaying news, weather, traffic.",
+      "languages": ["HTML5", "CSS", "Javascript"],
+      "frameworks": ["Galleria.js", "Bootstrap", "jQuery"],
+      "libraries": null,
+      "apis": ["Google Plus api","Wunderground api", "DFP api"],
+      "databases": null,
+      "requirements": null,
+      "url": "http://devwww.azcentral.com/mobile/v2/",
+      "screenshot": "img/az-mobile-mockup2.jpg"
+    }
+  ],
+  "websites":[
+    {
+      "company": "Blueprint Consulting",
+      "overview": "This is a short overview",
+      "role": ["developer", "designer"],
+      "platforms": ["web-responsive"],
+      "languages": ["html5", "php", "javascript", "css"],
+      "frameworks": [],
+      "libraries": ["jquery"],
+      "apis": ["Greenhouse.io"],
+      "databases": [],
+      "requirements": "",
+      "url": "www.bpcs.com",
+      "thumbnail": ""
+    }
+  ]
+}

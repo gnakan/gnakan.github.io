@@ -33,12 +33,6 @@ angular.module("portfolioApp", [])
             $window.scrollTo(0, 0);
             $http.get('./apps.json')
                 .success(function(data){
-                    //console.log(data);
                     $scope.apps = data.apps;
-                    //$scope.coBrandHeaderURL = $scope.site.coBrandHeader;
-                    //$scope.coBrandFooterURL = $scope.site.coBrandFooter;
-                    //$scope.coBrandUtagURL = $scope.site.coBrandUtag;
-                    //$scope.siteName = $scope.site.siteName;
-                    console.log($scope.apps);
                 });
         });

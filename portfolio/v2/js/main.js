@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
 angular.module("portfolioApp", [])
         .controller("porfolioController", function($scope, $window, $http) {
             $window.scrollTo(0, 0);
-            $http.get('../apps.json')
+            $http.get('./apps.json')
                 .success(function(data){
                     //console.log(data);
                     $scope.apps = data.apps;

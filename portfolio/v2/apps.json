@@ -27,6 +27,19 @@
       "screenshot": "img/contoso_coffee1.png"
     },
     {
+      "name": "Bacon Lettuce Tomato (BLT)",
+      "company": "Hot Dog Water Games",
+      "overview": "Available exclusively for the Kindle Fire, BLT is played the same as the popular hand game Paper, Rock, Scissors', only you choose between 'Bacon, Lettuce, or Tomato'.",
+      "languages": ["html5", "javascript"],
+      "frameworks": ["kindle", "phonegap"],
+      "libraries": ["jquery", "modernizr", "millenial media"],
+      "apis": [],
+      "databases": null,
+      "requirements": null,
+      "url": "http://www.amazon.com/Hot-Dog-Water-Games-BLT/dp/B00F4OU77S/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1387238330&sr=1-1&keywords=blt",
+      "screenshot": "img/blt-kindle.png"
+    },
+    {
       "name": "ExploreAZ v1",
       "company": "azcentral/Gannett",
       "overview": "A mobile web application for tips about top places to eat, play and stay around Arizona.",

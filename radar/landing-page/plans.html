@@ -69,7 +69,7 @@
     })(document, window.mixpanel || []);
     mixpanel.init("e7f491451e09b57c0dc9ed1c81c84b79");
 
-    mixpanel.track("Land on index page");
+    mixpanel.track("Land on plans page");
   </script>
   <!-- end Mixpanel -->
 </head>
@@ -79,7 +79,7 @@
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand page-scroll" href="#page-top">Radar</a>
+        <a class="navbar-brand page-scroll" href="index.html">Radar</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -92,46 +92,28 @@
           <li>
             <a href="#contact" data-action="goto-contact-from-index-header-nav" class="page-scroll mixpanel">Contact</a>
           </li>
-
-          <li>
-            <a href="plans.html" data-action="goto-plans-from-index-header-nav" class="btn mixpanel btn-primary btn-xl">Plans & Pricing</a>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <header>
+  <header class='header-none'>
     <div class="header-content">
       <div class="header-content-inner">
-        <h1>We make status</br>reports useful.</h1>
+        <h1>Plans & Pricing</h1>
         <hr>
-        <p>Radar eliminates long-winded emails, complicated spreadsheets and status update meetings. Get the insight you want, from the people that know, at the time you need it.
-          </br>
-          It's for project <a class='mixpanel' href='stakeholders.html' data-action="goto-stakeholders-from-index-header-hero">stakeholders</a> and <a href='projectmanagers.html' class='mixpanel' data-action="goto-projectmanagers-from-index-header-hero">project managers</a>.
+        <p>
+          Low cost plans for everyone in every environment.
         </p>
-        <a href="plans.html" data-action="goto-plans-from-index-hero" class="btn btn-primary btn-xl mixpanel">Plans & Pricing</a>
       </div>
     </div>
   </header>
-
-  <section id='devices'>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Available Everywhere You Are</h2>
-        <hr class="primary">
-        <img class='img-responsive' src='img/devices.png' />
-      </div>
-      </div>
-    </div>
-  </section>
 
   <section id="how">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">How Radar Works</h2>
+          <h2 class="section-heading">All Plans Free For First 30 Days</h2>
           <hr class="primary">
         </div>
       </div>
@@ -140,23 +122,81 @@
       <div class="row">
         <div class="col-lg-4 col-md-6 text-center">
           <div class="service-box">
-            <i class="fa fa-4x fa-cloud-download wow bounceIn text-primary"></i>
-            <h3>Project activity is collected</h3>
-            <p class="text-muted">Radar pulls all relevant data from the tools a project team uses today.</p>
+            <i class="fa fa-4x fa-user wow bounceIn text-primary"></i>
+            <h2>Basic</h2>
+            <p class="text-muted">A small project with a few stakeholders</p>
+            <h3>1<span class="smallcaps">Active Project</span></h3>
+            <h3>1<span class="smallcaps">Project Manager</span></h3>
+            <h3>3<span class="smallcaps">Stakeholders</span></h3>
+            <div class='col-md-10 col-md-offset-2 text-left text-primary'>
+              <h3>Basic includes<span class='features'>All these great features:</span></h3>
+              <ul>
+                <li>
+                  <span>Project health scorecard</span>
+
+                </li>
+                <li>
+                  <span>Access to project status management system</span>
+
+                </li>
+                <li>
+                  <span>Free native apps for iOS, Apple Watch, Android, & Windows Mobile</span>
+                </li>
+              </ul>
+            </div>
+            <a href="#" data-action="start-free-basic-trial" class="btn mixpanel btn-primary btn-xl">Start Free Trial</a>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 text-center">
           <div class="service-box">
-            <i class="fa fa-4x fa-user wow bounceIn text-primary" data-wow-delay=".1s"></i>
-            <h3>PM input is gathered</h3>
-            <p class="text-muted">Radar interacts with the project manager automatically to get the details that only a human can provide.</p>
+            <i class="fa fa-4x fa-user-plus wow bounceIn text-info" data-wow-delay=".1s"></i>
+            <h2>Plus</h2>
+            <p class="text-muted">A few small or medium sized projects</p>
+            <h3>3<span class="smallcaps">Active Projects</span></h3>
+            <h3>2<span class="smallcaps">Project Managers</span></h3>
+            <h3>9<span class="smallcaps">Stakeholders</span></h3>
+            <div class='col-md-10 col-md-offset-2 text-left text-info'>
+              <h3>Standard includes<span class='features'>Everything in <b>Basic</b>, and:</span></h3>
+              <ul class='text-info'>
+                <li>
+                  <span>One-touch stakeholder responses</span>
+                </li>
+                <li>
+                  <span>Direct PM to stakeholder communication</span>
+
+                </li>
+                <li>
+                  <span>Stakeholder usage analytics</span>
+                </li>
+                <li>
+                  <span><a target='_blank' href='https://github.com'>Github</a> integration</span>
+                </li>
+              </ul>
+            </div>
+            <a href="#" data-action="start-free-standard-trial" class="btn mixpanel btn-info btn-xl">Start Free Trial</a>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 text-center">
           <div class="service-box">
-            <i class="fa fa-4x fa-heartbeat wow bounceIn text-primary" data-wow-delay=".2s"></i>
-            <h3>Project health is determined</h3>
-            <p class="text-muted">Radar provides actionable insight into the current status of a project.</p>
+            <i class="fa fa-4x fa-users wow bounceIn text-success" data-wow-delay=".2s"></i>
+            <h2>Enterprise</h2>
+            <p class="text-muted">All you will ever need</p>
+            <h3>Unlimited<span class="smallcaps">Active Projects</span></h3>
+            <h3>10<span class="smallcaps">Project Managers</span></h3>
+            <h3>Unlimited<span class="smallcaps">Stakeholders</span></h3>
+            <div class='col-md-10 col-md-offset-2 text-left text-success'>
+              <h3>Enterprise includes<span class='features'>Everything in <b>Standard</b>, and:</span></h3>
+              <ul>
+                <li>
+                  <span><a target='_blank' href="https://www.atlassian.com/software/jira">Jira</a> integration</span>
+                </li>
+                <li>
+                  <span><a target='_blank' href="https://www.visualstudio.com/en-us/products/tfs-overview-vs.aspx">TFS</a> integration</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#" data-action="start-free-corporate-trial" class="btn mixpanel btn-success btn-xl">Start Free Trial</a>
           </div>
         </div>
 
@@ -164,15 +204,6 @@
       </div>
     </div>
   </section>
-
-  <aside class="bg-dark">
-    <div class="container text-center">
-      <div class="call-to-action">
-        <h2>Check out the plans and pricing</h2>
-        <a href="#" data-action="goto-plans-from-index-btf" class="btn btn-default btn-xl wow tada mixpanel">Plans & Pricing</a>
-      </div>
-    </div>
-  </aside>
 
   <section id="contact">
     <div class="container">

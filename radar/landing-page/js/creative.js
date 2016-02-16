@@ -16,6 +16,12 @@
         event.preventDefault();
     });
 
+    $('.mixpanel').bind('click', function(){
+      var action = $(this).data('action');
+      console.log(action);
+      //mixpanel.track("View For Project Managers");
+    });
+
     $('.plans').bind('click', function(){
       mixpanel.track("View plans and pricing");
       popupwindow('https://www.surveymonkey.com/r/J2KX89P', 'Get early access to Radar', 730, 550);

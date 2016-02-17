@@ -22,6 +22,10 @@
       //mixpanel.track("View For Project Managers");
     });
 
+    $('#openDemo').bind('click', function(){
+      popupwindow('./jarvis/index.html', 'Radar Conversation', 400, 525);
+    });
+
     $('.plans').bind('click', function(){
       mixpanel.track("View plans and pricing");
       popupwindow('https://www.surveymonkey.com/r/J2KX89P', 'Get early access to Radar', 730, 550);

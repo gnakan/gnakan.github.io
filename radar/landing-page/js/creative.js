@@ -18,8 +18,7 @@
 
     $('.mixpanel').bind('click', function(){
       var action = $(this).data('action');
-      console.log(action);
-      //mixpanel.track("View For Project Managers");
+      mixpanel.track(action);
     });
 
     $('#openDemo').bind('click', function(){
@@ -27,8 +26,7 @@
     });
 
     $('.plans').bind('click', function(){
-      mixpanel.track("View plans and pricing");
-      popupwindow('https://www.surveymonkey.com/r/J2KX89P', 'Get early access to Radar', 730, 550);
+      popupwindow('https://www.surveymonkey.com/r/Z2NYVFS', 'Get early access to Radar', 730, 550);
     });
 
     $('.action-how-it-works').bind('click', function(){

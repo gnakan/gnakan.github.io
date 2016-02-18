@@ -13,15 +13,22 @@ var ownersArr = [{
   owner: "Josh Tufts"
 },
 {
+  name: "O365-Commerce",
+  owner: "Josh Tufts"
+},
+{
   name: "O365-Case-Management",
   owner: "Josh Tufts"
+},
+{
+  name: "FTC",
+  owner: "Jesse"
 }];
 $(document).ready(function() {
   getTableData();
 
 
   $('.sidebar-menu').on('click', 'li', function() {
-    console.log($(this).data('name'));
     selected = $(this).data('name');
     $.each(ownersArr, function(index, obj) {
       if (obj.name === selected) {
@@ -59,7 +66,7 @@ function loadMetrics(data) {
     if (obj.name === selected) {
       $.each(obj.elements, function(ind, obj) {
         var goal, actual, after;
-        console.log(obj);
+        var status = 'blue';
         if (obj.after !== "%") {
           goal = obj.before + obj['jan-g'];
           actual = obj.before + obj['jan-a'];
@@ -70,7 +77,12 @@ function loadMetrics(data) {
           after = "";
         }
 
-        addMetric(obj.metric, goal, actual, after, obj.icon, obj.status, obj.tooltip,'.metrics');
+        if(obj.status !== "")
+        {
+          status = obj.status;
+        }
+
+        addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip,'.metrics');
       });
     }
 

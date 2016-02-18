@@ -23,6 +23,22 @@ var ownersArr = [{
 {
   name: "FTC",
   owner: "Jesse"
+},
+{
+  name: "FieldMetrics",
+  owner: "Jesse"
+},
+{
+  name: "Widget",
+  owner: "Kevin"
+},
+{
+  name: "Concierge",
+  owner: "Kevin"
+},
+{
+  name: "SocialMedia",
+  owner: "Veronica"
 }];
 $(document).ready(function() {
   getTableData();

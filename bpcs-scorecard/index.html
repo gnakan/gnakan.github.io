@@ -65,13 +65,111 @@
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
-        <h1 id='scorecardTitle'></h1>
+        <h1 id='scorecardTitle'>Welcome To The BPCS Scorecard</h1>
       </section>
 
       <!-- Main content -->
       <section class="content">
         <div class='row metrics'>
+          <section class="content">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <i class="fa fa-dashboard"></i>
+                <h3 class="box-title">Dashboards</h3>
+              </div>
+              <div class="box-body">
+                <p>
+                  All the data, including the dashboard list, comes from Google Sheets. For access to this spreadsheet, contact Michael C. The instructions below are specific to the spreadsheet used.
+                </p>
+                <dt>Adding A New Dashboard</dt>
+                <p>
+                  <ol>
+                    <li>
+                      Open the Google Sheet.
+                    </li>
+                    <li>
+                      <a href="http://www.gcflearnfree.org/googlespreadsheets/11.2">Add a sheet</a>. The name of the sheet <b><u>must not</u></b> contain any spaces, but hyphens are allowed.
+                    </li>
+                    <li>
+                      Refresh the scorecard. Your new dashboard will be listed in the Scorecards menu.
+                    </li>
+                  </ol>
+                </p>
 
+                <dt>Editing An Existing Dashboard</dt>
+                <p>
+                  <ol>
+                    <li>
+                      Open the Google Sheet.
+                    </li>
+                    <li>
+                      <a href="http://www.gcflearnfree.org/googlespreadsheets/11.2">Rename the sheet</a>. The name of the sheet <b><u>must not</u></b> contain any spaces, but hyphens are allowed.
+                    </li>
+                    <li>
+                      Refresh the scorecard. Your updated dashboard will be listed in the Scorecards menu.
+                    </li>
+                  </ol>
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="content">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <i class="fa fa-line-chart"></i>
+                <h3 class="box-title">Metrics</h3>
+              </div>
+              <div class="box-body">
+                <p>
+                  All data for all metrics comes from Google Sheets. No data is stored internally with this scorecard. The instructions below are specific to the spreadsheet used.
+                </p>
+                <dt>Adding A New Metric</dt>
+                <p>
+                  Each row in a Sheet represents a single metric and includes the following fields:
+                  <ul>
+                    <li>
+                      <b>metric</b>: This is the name of the metric that will be displayed at the top of the metric on the scorecard.
+                    </li>
+                    <li>
+                      <b>tooltip</b>: Text that will be displayed in a tooltip when mousing over the metric on the scorecard.
+                    </li>
+                    <li>
+                      <b>before</b>: This is the text that is displayed immediately before the metric goal. For example, if you have a metric that should display dollar amounts, the <b>before</b> column should contain the <i class="fa fa-dollar text-yellow"></i> symbol.
+                    </li>
+                    <li>
+                      <b>after</b>: This is the text that is displayed immediately after the metric goal. For example, if you have a metric that should display a percentage, the <b>after</b> column should contain the <b>%</b> symbol.
+                    </li>
+                    <li>
+                      <b>status</b>: This is a color representation of the difference between the goal value and the actual value. The accepted values are:
+                        <ul style="list-style-type: none;">
+                          <li>
+                            <i class="fa fa-circle-o text-red"></i> red: missed goal expectations
+                          </li>
+                          <li>
+                            <i class="fa fa-circle-o text-yellow"></i> yellow: didn't quite meet the goal expectation, but within an acceptable threshold
+                          </li>
+                          <li>
+                            <i class="fa fa-circle-o text-green"></i> green: met or exceeded goal expectations
+                          </li>
+                        </ul>
+
+                      For example, if your goal is 100% but your actual amount is 85%, you can choose yellow, to indicate this is a warning
+                    </li>
+                    <li>
+                      <b>icon</b>: The icon that best represents the metric. Not required but selected from the dropdown.
+                    </li>
+                    <li>
+                      <b>month-g</b>: The goal for the indicated month. This should be a number, with no percentage or dollar signs (those are added via <b>before</b> and <b>after</b>).
+                    </li>
+                    <li>
+                      <b>month-a</b>: The actual number for the indicated month. This should be a number, with no percentage or dollar signs (those are added via <b>before</b> and <b>after</b>).
+                    </li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
         <!-- Your Page Content Here -->
 

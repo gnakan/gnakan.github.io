@@ -27,12 +27,12 @@ var ownersArr = [{
 $(document).ready(function() {
   getTableData();
 
-
   $('.sidebar-menu').on('click', 'li', function() {
     selected = $(this).data('name');
+    $('#scorecardTitle').html(selected);
     $.each(ownersArr, function(index, obj) {
       if (obj.name === selected) {
-        $('#scorecardTitle').html(selected + "<small>" + obj.owner + "</small>");
+        $('#scorecardTitle').append("<small>" + obj.owner + "</small>");
       }
     });
 

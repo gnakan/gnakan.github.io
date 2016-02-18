@@ -34,7 +34,7 @@ var ownersArr = [{
 },
 {
   name: "Concierge",
-  owner: "Kevin"
+  owner: "Kevin Phillips"
 },
 {
   name: "SocialMedia",

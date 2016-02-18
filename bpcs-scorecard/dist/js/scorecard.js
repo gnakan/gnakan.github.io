@@ -6,7 +6,7 @@ var ownersArr = [{
   owner: "Michael Callahan"
 }, {
   name: "Valve",
-  owner: "Ray"
+  owner: "Ray Flores"
 },
 {
   name: "O365-Data-Protection",
@@ -22,15 +22,15 @@ var ownersArr = [{
 },
 {
   name: "FTC",
-  owner: "Jesse"
+  owner: "Jesse Cook"
 },
 {
   name: "FieldMetrics",
-  owner: "Jesse"
+  owner: "Jesse Cook"
 },
 {
   name: "Widget",
-  owner: "Kevin"
+  owner: "Kevin Phillips"
 },
 {
   name: "Concierge",
@@ -38,7 +38,7 @@ var ownersArr = [{
 },
 {
   name: "SocialMedia",
-  owner: "Veronica"
+  owner: "Veronica Torres"
 }];
 $(document).ready(function() {
   getTableData();

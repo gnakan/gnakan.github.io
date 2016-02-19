@@ -7,36 +7,28 @@ var ownersArr = [{
 }, {
   name: "Valve",
   owner: "Ray Flores"
-},
-{
+}, {
   name: "O365-Data-Protection",
   owner: "Josh Tufts"
-},
-{
+}, {
   name: "O365-Commerce",
   owner: "Josh Tufts"
-},
-{
+}, {
   name: "O365-Case-Management",
   owner: "Josh Tufts"
-},
-{
+}, {
   name: "FTC",
   owner: "Jesse Cook"
-},
-{
+}, {
   name: "FieldMetrics",
   owner: "Jesse Cook"
-},
-{
+}, {
   name: "Widget",
   owner: "Kevin Phillips"
-},
-{
+}, {
   name: "Concierge",
   owner: "Kevin Phillips"
-},
-{
+}, {
   name: "SocialMedia",
   owner: "Veronica Torres"
 }];
@@ -69,11 +61,23 @@ function getTableData() {
 function buildSidebar(data) {
   scorecardData = data;
   $('.sidebar-menu').empty();
-  $('.sidebar-menu').append("<li class='header'>SCORECARDS</li>");
+  $('.sidebar-menu').append();
+
   $.each(data, function(index, obj) {
     if (obj.name !== "selections")
-      $('.sidebar-menu').append("<li data-name=" + obj.name + "><a href='#'><i class='fa fa-dashboard'></i><span>" + obj.name + "</span></a></li>");
+      $('.sidebar-menu').append("<li class='dashboardLink' data-name=" + obj.name + "><a href='#'><i class='fa fa-dashboard'></i><span>" + obj.name + "</span></a></li>");
   });
+
+  var $links = $('.dashboardLink');
+  var alphabeticallyOrderedDivs = $links.sort(function(a, b) {
+    return $(a).attr('data-name') > $(b).attr('data-name');
+  });
+
+  $('.sidebar-menu').html("<li class='header'>SCORECARDS</li>").append(alphabeticallyOrderedDivs);
+}
+
+function sorter(a, b) {
+  return $(a).attr('data-name') > $(b).attr('data-name');
 }
 
 function loadMetrics(data) {
@@ -93,12 +97,11 @@ function loadMetrics(data) {
           after = "";
         }
 
-        if(obj.status !== "")
-        {
+        if (obj.status !== "") {
           status = obj.status;
         }
 
-        addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip,'.metrics');
+        addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip, '.metrics');
       });
     }
 
@@ -107,7 +110,7 @@ function loadMetrics(data) {
 
 
 
-function addMetric(name, goal, actual, after, icon, status, tooltip,div) {
+function addMetric(name, goal, actual, after, icon, status, tooltip, div) {
 
   var source = $('#headline1').html();
   var template = Handlebars.compile(source);
@@ -119,7 +122,7 @@ function addMetric(name, goal, actual, after, icon, status, tooltip,div) {
     icon: icon,
     status: status,
     currentMonth: currentMonth,
-    tooltip:tooltip
+    tooltip: tooltip
   };
 
   var template1 = "<div class='col-lg-6'>" +

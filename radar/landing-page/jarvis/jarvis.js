@@ -119,7 +119,7 @@ function scorecardResponse(){
 }
 
 function scorecardImage(){
-  var response = "Click the image below. <a href='scorecard.png' target='_blank'><img class='messageIMG' src='scorecard.png'></a>";
+  var response = "<a href='scorecard.png' target='_blank'><img class='messageIMG' src='scorecard.png'></a>";
   return response;
 }
 

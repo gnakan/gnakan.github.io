@@ -15,7 +15,7 @@ p {
   line-height: 1.5;
   margin: 30px 0;
 }
-p a {
+p a, p a:visited {
   border-bottom: 1px dashed #999;
   color: #337ab7;
 }

@@ -11,12 +11,13 @@
       "databases": ["mongodb"],
       "requirements": "",
       "url": "http://crusade.bpcs.com",
-      "screenshot": "img/crusade1.png"
+      "screenshot": "img/crusade1.png",
+      "featured": true
     },
     {
       "name": "Contoso Coffee",
       "company": "Microsoft",
-      "overview": "An Android application for demonstrating predictive analytics capabilities during the Microsoft Global Exchange (MGX) 2016 conference.",
+      "overview": "An Android application for demonstrating predictive analytics capabilities during the Microsoft Global Exchange (MGX) 2015 conference.",
       "languages": ["android"],
       "frameworks": ["xamarin"],
       "libraries": null,
@@ -24,7 +25,8 @@
       "databases": null,
       "requirements": null,
       "url": "https://play.google.com/apps/testing/com.contoso.android",
-      "screenshot": "img/contoso_coffee1.png"
+      "screenshot": "img/contoso_coffee1.png",
+      "featured": false
     },
     {
       "name": "Bacon Lettuce Tomato (BLT)",
@@ -40,6 +42,20 @@
       "screenshot": "img/blt-kindle.png"
     },
     {
+      "name": "AZ Magazine Tablet Storefront",
+      "company": "azcentral/Gannett",
+      "overview": "AZ brings a slice of that fascinating world to your iPad, letting readers tap into stories from Arizona and around the world...",
+      "languages": ["HTML5", "CSS", "Javascript", "PHP"],
+      "frameworks": ["Backbone.js", "jQuery"],
+      "libraries": null,
+      "apis": ["Adobe DPS api"],
+      "databases": null,
+      "requirements": null,
+      "url": "https://itunes.apple.com/us/app/az-today/id579038920?mt=8",
+      "screenshot": "img/app-azmag-storefront.jpg",
+      "featured": true
+    },
+    {
       "name": "ExploreAZ v1",
       "company": "azcentral/Gannett",
       "overview": "A mobile web application for tips about top places to eat, play and stay around Arizona.",
@@ -50,7 +66,8 @@
       "databases": null,
       "requirements": null,
       "url": "http://devwww.azcentral.com/exploreaz-old/",
-      "screenshot": "img/xaz-v1-iphone-portrait2.jpg"
+      "screenshot": "img/xaz-v1-iphone-portrait2.jpg",
+      "featured": false
     },
     {
       "name": "azcentral Mobile",
@@ -63,23 +80,59 @@
       "databases": null,
       "requirements": null,
       "url": "http://devwww.azcentral.com/mobile/v2/",
-      "screenshot": "img/az-mobile-mockup2.jpg"
+      "screenshot": "img/app-azc-mobile.png"
     }
   ],
-  "websites":[
+  "prototypes":[
     {
-      "company": "Blueprint Consulting",
-      "overview": "This is a short overview",
-      "role": ["developer", "designer"],
-      "platforms": ["web-responsive"],
-      "languages": ["html5", "php", "javascript", "css"],
-      "frameworks": [],
-      "libraries": ["jquery"],
-      "apis": ["Greenhouse.io"],
+      "name": "Red Valve",
+      "overview": "Machine learning sentiment analysis meets /valve sub-Reddit",
+      "languages": ["nodej", "javascript", "css"],
+      "frameworks": ["meteor", "Bootstrap"],
+      "libraries": ["Charts.js"],
+      "apis": ["Monkeylearn machine learning api", "Reddit api"],
+      "databases": ["mongodb"],
+      "screenshot": "img/prototype-redvalve.png"
+    },{
+      "name": "Headhunter",
+      "overview": "Combine an individual’s linkedin data with company meta data in order to identify potential engagements for the individual.",
+      "languages": ["nodejs", "javascript", "css"],
+      "frameworks": ["angular", "material design"],
+      "libraries": [],
+      "apis": ["linkedin api", "github api"],
+      "databases": ["mongodb"],
+      "screenshot": "img/prototype-headhunter.png"
+    },
+    {
+      "name": "PO Leaderboard",
+      "overview": "The gamification of product status in a corporate environment.",
+      "languages": ["nodejs", "javascript", "css"],
+      "frameworks": ["angularjs"],
+      "libraries": ["chartist", "jquery"],
+      "apis": ["firebase"],
       "databases": [],
-      "requirements": "",
-      "url": "www.bpcs.com",
-      "thumbnail": ""
+      "screenshot": "img/prototype-product-leaderboard.png",
+      "url": "https://sizzling-fire-892.firebaseapp.com/"
+    },
+    {
+      "name": "Homescout",
+      "overview": "Display the current market value of a user's home (via address).",
+      "languages": ["nodejs", "javascript", "css"],
+      "frameworks": ["bootstrap"],
+      "libraries": ["chartist", "jquery"],
+      "apis": ["zillow api"],
+      "databases": [],
+      "screenshot": "img/prototype-homescout.png"
+    },
+    {
+      "name": "Ducky Lips",
+      "overview": "Use Flappy Bird as the new 'Hello World' to learn Unity3D.",
+      "languages": ["C#"],
+      "frameworks": ["Unity3D"],
+      "libraries": [],
+      "apis": [],
+      "databases": [],
+      "screenshot": "img/prototype-duckylips.png"
     }
   ]
 }

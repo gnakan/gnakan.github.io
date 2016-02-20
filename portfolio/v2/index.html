@@ -59,6 +59,21 @@
       font-size: 18px;
     font-style: italic;
     }
+
+    .subheading
+    {
+      line-height: 40px !important;
+    }
+
+    .subheading a{
+      font-weight: bold;
+      color: #337ab7;
+      border-bottom: 1px dashed #337ab7;
+    }
+    .subheading a:hover{
+      text-decoration: none;
+      border-bottom: 1px dashed #337ab7;
+    }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 </head>
@@ -83,10 +98,16 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#design">The Designer</a>
+            <a href="designer.html">The Designer</a>
           </li>
           <li>
-            <a href="#develop">The Developer</a>
+            <a href="developer.html">The Developer</a>
+          </li>
+          <li>
+            <a target='_blank' href="https://medium.com/@gnakan/">The Blogger</a>
+          </li>
+          <li>
+            <a href="index.html">About</a>
           </li>
         </ul>
       </div>
@@ -102,104 +123,30 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           <div class="site-heading">
-            <h1>Hello.</h1>
+            <h1>Hello. I'm Gary.</h1>
             <hr class="small">
-            <span class="subheading">My name is Gary Nakanelua.</br>I am a creator that designs and develops products.</br>This is my portfolio.</span>
+            <span class="subheading">I am a creator that <a href='designer.html'>designs</a> and <a href='developer.html'>develops</a> digital products.</br>This is my portfolio.</span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Design -->
-  <section class='bg-gray' id='design'>
-    <div class="container">
-      <div class="row">
-        <h1>The Designer</h2>
-          For the last 12 years, I've done visual design across a variety of areas including UI, UX, web & print design, advertising, and branding.
-
-          <div class="row">
-            <div class='col-md-6'>
-              <img src='img/design1.png' class="img-responsive" alt="Responsive image">
-            </div>
-            <div class='col-md-6'>
-              <h2 class="post-title">My Design Portfolio</h2>
-              <h4>A collection of my recent designs</h4>
-              <ul class='tags list-inline'>
-                <li>
-                  <span class="label label-warning">sketch</span>
-                </li>
-                <li>
-                  <span class="label label-warning">fireworks</span>
-                </li>
-                <li>
-                  <span class="label label-warning">illustrator</span>
-                </li>
-              </ul>
-                <a class='btn btn-lg btn-default' target="_blank" href="https://www.behance.net/gnakan">View Design Portfolio</a>
-            </div>
-          </div>
-
-
-      </div>
-    </div>
-  </section>
-  <!-- /Design -->
-
-  <!-- Develop -->
-  <section id='develop'>
-      <div class="container">
-        <div class="row">
-          <h1>The Developer</h2>
-            <p>
-              I've been the solution architect and principal developer for a large number of products. I've had the pleasure to create products for a variety of companies including <a href='http://bpcs.com/' target="_blank">Blueprint Consulting Services</a>, <a href="https://www.microsoft.com/en-us/" target="_blank">Microsoft</a>, <a href='http://www.lockheedmartin.com/' target="_blank">Lockheed Martin</a> and <a href='http://www.gannett.com/' target="_blank">USA Today/Gannett</a>.
-            </p>
-            <p>
-              I am an advocate for microservice architecture vs monolithic systems. I love pragmatic REST API design that empowers developers rather than dogma-driven API design that favors strict architecture adherance.
-            </p>
-            <p>
-              Here are a few of the products I've developed...
-            </p>
-        </div>
-
-        <div ng-repeat="app in apps">
-
-        <div class='row project'>
-          <div class='col-md-6'>
-            <img ng-src="{{app.screenshot}}" class="img-responsive center-block" alt="Screenshot of {{app.name}}">
-          </div>
-          <div class="col-md-6">
-            <h2 class="title">{{app.name}}</h2>
-            <p class='overview'>{{app.overview}}</p>
-            <ul class='tags list-inline'>
-              <li ng-repeat="language in app.languages">
-                <span class="label label-success">{{language}}</span>
-              </li>
-              <li ng-repeat="framework in app.frameworks">
-                <span class="label label-info">{{framework}}</span>
-              </li>
-              <li ng-repeat="library in app.libraries">
-                <span class="label label-warning">{{library}}</span>
-              </li>
-              <li ng-repeat="api in app.apis">
-                <span class="label label-default">{{api}}</span>
-              </li>
-              <li ng-repeat="database in app.databases">
-                <span class="label label-default">{{database}}</span>
-              </li>
-            </ul>
-
-            <a class='btn btn-lg btn-default' target="_blank" ng-href="{{app.url}}">View {{app.name}}</a>
-          </div>
-        </div>
-        <hr>
-        </div>
-    </section>
-  <!-- /Develop -->
-
   <section>
     <div class="container">
       <div class="row">
+
+        <div class="col-md-4">
+        <img src="img/me.png" alt="This is me" class="img-circle">
+        </div>
+        <div class="col-m-8">
+        <p>
+          <b>As a designer, </b>I am always striving for visual simplicity that solicits action. My experience has taught me that great design is more than simply "making something pretty" or pushing pixels around in Photoshop. <a href='designer.html'>Learn more about me as a designer</a>.
+        </p>
+        <p>
+          <b>As a developer, </b>I want to build products that people love. My experience has taught me that developers should be approached early and often in the product lifecycle (agile development), empowered to release updates quickly (continuous integration/deployment) and treated as creative problem solvers. <a href='developer.html'>Learn more about me as a developer</a>.
+        </p>
+        </div>
       </div>
     </div>
   </section>

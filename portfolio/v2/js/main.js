@@ -34,5 +34,6 @@ angular.module("portfolioApp", [])
             $http.get('./apps.json')
                 .success(function(data){
                     $scope.apps = data.apps;
+                    $scope.prototypes = data.prototypes;
                 });
         });

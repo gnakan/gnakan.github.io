@@ -1,687 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gary Nakanelua's portfolio</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  </head>
 
-  <body>
-  <!-- Comment note: Normally I wouldn't have comments in production code, but I wanted people to see
-        that I like to comment my code properly -->
+<head>
 
-    <!-- Side Menu -->
-    <a id="menu-toggle" href="#" class="btn btn-default btn-lg toggle "><i class="fa fa-bars"></i></a>
-    <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-        <li class="sidebar-brand"><a href="http://garynakanelua.com">Gary Nakanelua</a></li>
-        <li><a href="#top">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#develop">I Develop.</a></li>
-        <li><a href="#portfolio">I Design.</a></li>
-        <li><a href="#miscellaneous">Miscellaneous</a></li>
-      </ul>
-    </div>
-    <!-- /Side Menu -->
-  
-    <!-- Full Page Image Header Area -->
-    <div id="top" class="header">
-      <div class="vert-text">
-        <h1>Gary Nakanelua</h1>
-        <h3>< Developer />  { Designer }</h3>
-        <a href="#about" class="btn btn-default btn-lg">Find Out More</a>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Thinker, creator and leader. Full stack developer, UI/UX designer">
+  <meta name="author" content="Gary Nakanelua">
+
+  <title>Gary Nakanelua</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/clean-blog.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+    .bg-gray {
+      background-color: #efefef;
+    }
+
+    section {
+      padding: 50px 0px;
+    }
+
+    h3 {
+      margin-top: 50px;
+    }
+
+    .project {
+      padding: 20px 0px;
+    }
+
+    .project .btn
+    {
+      margin-top: 20px;
+    }
+
+    .title
+    {
+      margin-bottom: 0px;
+    }
+
+    .overview
+    {
+      margin-top: 0px;
+      font-weight: 300;
+      color: gray;
+      font-size: 18px;
+    font-style: italic;
+    }
+
+    .subheading
+    {
+      line-height: 40px !important;
+    }
+
+    .subheading a{
+      font-weight: bold;
+      color: #337ab7;
+      border-bottom: 1px dashed #337ab7;
+    }
+    .subheading a:hover{
+      text-decoration: none;
+      border-bottom: 1px dashed #337ab7;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+</head>
+
+<body ng-app='portfolioApp' ng-controller="porfolioController">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Gary Nakanelua</a>
       </div>
-    </div>
-    <!-- /Full Page Image Header Area -->
-  
-    <!-- START: Intro -->
-    <div id="about" class="intro">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3 text-center">
-            <h2>About Me</h2>
-            <p class="lead">I've worked in the web industry for over 10 years, working as a web designer, ui/ux designer, web developer and development team manager.</p>
-          </div>
-        </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="designer.html">The Designer</a>
+          </li>
+          <li>
+            <a href="developer.html">The Developer</a>
+          </li>
+          <li>
+            <a target='_blank' href="https://medium.com/@gnakan/">The Blogger</a>
+          </li>
+          <li>
+            <a href="index.html">About</a>
+          </li>
+        </ul>
       </div>
+      <!-- /.navbar-collapse -->
     </div>
-    <!-- END: Intro -->
+    <!-- /.container -->
+  </nav>
 
-    <!-- START: Callout -->
-    <div class="callout">
-      <div class="vert-text">
-        <h1>What Have I Done?</h1>
-      </div>
-    </div>
-    <!-- END: Callout -->
-  
-    <!-- What I have developed -->
-    <div id="develop" class="services">
-      <div class="container"><!-- START: container -->
-        
-        <div class="row"><!-- START: Row 1-->
-          <div class="col-md-4 col-md-offset-4 text-center">
-            <h2>I Develop.</h2>
-            <hr>
+  <!-- Page Header -->
+  <!-- Set your background image for this header on the line below. -->
+  <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="site-heading">
+            <h1>Hello. I'm Gary.</h1>
+            <hr class="small">
+            <span class="subheading">I am a creator that <a href='designer.html'>designs</a> and <a href='developer.html'>develops</a> digital products.</br>This is my portfolio.</span>
           </div>
-        </div><!-- End: Row 1-->
-        
-        <div class='row'>
-          <div class="col-sm-4 text-center">
-            <div class="service-item">
-              <i class="service-icon fa icon-html5"></i>
-              <h5>Responsive Web</h5>
-              <h4>BPCS.com</h4>
-              <p><small>HTML5, CSS3, Javascript, Tabletop.js</small></p>
-              <a href='http://bpcs.com' class="btn btn-warning btn-sm " role="button">Web Link</a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="service-item">
-              <i class="service-icon fa icon-html5"></i>
-              <h5>Web App</h5>
-              <h4>Email Acquisition App</h4>
-              <p><small>Node.js, HTML5, CSS3, Javascript</small></p>
-              <a href='http://emailacq.azcentral.com' class="btn btn-warning btn-sm " role="button">Web Link</a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="service-item">
-              <i class="service-icon fa icon-angular"></i>
-              <h5>Web App</h5>
-              <h4>SecondStreet Template Generator</h4>
-              <p><small>Angularjs, HTML5, CSS3, Javascript</small></p>
-              <a href='http://pages.azcentral.com/secondstreet-generator/' class="btn btn-warning btn-sm " role="button">Web Link</a>
-            </div>
-          </div>
-
-        </div>
-
-
-
-
-        <div class="row"><!-- START: Row 2-->
-          
-          <div class="col-sm-4 text-center"><!-- START: Product Owner Leaderboard -->
-            <div class="service-item">
-              <i class="service-icon fa icon-angular"></i>
-              <h5>Web App</h5>
-              <h4>Product Owner Leaderboard</h4>
-              <p><small>Angularjs, HTML5, CSS3, Javascript, Firebase</small></p>
-              <a href='https://sizzling-fire-892.firebaseapp.com/' class="btn btn-warning btn-sm " role="button">Web Link</a>
-            </div>
-          </div><!-- END: Product Owner Leaderboard -->
-
-          <div class="col-sm-4 text-center"><!-- START: azcentral.com mobile web -->
-            <div class="service-item">
-              <i class="service-icon fa icon-html5"></i>
-              <h5>Responsive Web</h5>
-              <h4>azcentral.com Mobile (v2)</h4>
-                <p><small>HTML5, CSS3, Javascript, jQuery, Bootstrap, PHP</small></p>
-                <a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-azcentral-mobile" role="button">More Info</a>
-            </div>
-          
-           <div class="modal fade" id="modal-azcentral-mobile"><!-- START: Modal -->
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                      <span aria-hidden="true">&times;</span>
-                      <span class="sr-only">Close</span>
-                    </button>
-                     <h3 class="modal-title">azcentral Mobile Overview</h3>
-                  </div>
-                  <div class="modal-body">
-                    <p></p>
-
-                    <h4>My Responsibilities</h4>
-                    <ul>
-                      <li>Convert flat design mockup images into code</li>
-                      <li>Ensure application is responsive on all devices</li>
-                      <li>Write all application functionality</li>
-                      <li>Must be production ready in two weeks</li>
-                    </ul>
-                   
-                    <h4>Development</h4>
-                      <p>Requirements were documented in Basecamp. I was given flat image design mockups. An example of these mockups:</p>
-                      <div class='img-grid'>
-                          <img class="img-portfolio img-responsive img-thumbnail" src="img/az-mobile-mockup2.jpg">
-                          <img class="img-portfolio img-responsive img-thumbnail" src="img/az-mobile-mockup1.jpg">
-                       </div>
-                       <br>
-                       <p>The initial version was needed quickly in order to capture usage data in time for site wide relaunch happening in a few months. For speed, I opted to use Bootstrap for the responsive grid and jQuery for some additional functionality.</p>
-
-                       <p>Functionally, the application included the following:
-                         <ul>
-                           <li>JSON based article data retrieval, parsing and display</li>
-                           <li>Photo slideshows, using the Galleria javascript galler</li>
-                           <li>Weather information powered by Wunderground API</li>
-                           <li>Facebook Comments</li>
-                           <li>Doubleclick For Publishers (DFP) ad integration</li>
-                         </ul>
-                       </p>
-
-                      <h4>Release</h4>
-                      <p>Below are a few screenshots of the completed version. A functional version, with limited content, is available online <a href="http://devwww.azcentral.com/mobile/v2/">here</a>.</p>
-                      <div class='img-grid'>
-                          <img class="img-portfolio img-responsive img-thumbnail" src="img/az-mobile-final1.jpg">
-                          <img class="img-portfolio img-responsive img-thumbnail" src="img/az-mobile-final2.jpg">
-                       </div>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div><!-- END: Modal -->
-
-
-
-          </div><!-- END: azcentral.com mobile web -->
-          
-          <div class="col-sm-4 text-center">
-            <div class="service-item">
-              <i class="service-icon fa icon-html5"></i>
-              <h5>Adapative Web</h5>
-              <h4>AZ Best Mobile</h4>
-              <p><small>HTML5, CSS3, Javascript, jQuery Mobile, PHP</small></p>
-              <a href="http://www.azcentral.com/best/2013/mobile/" class="btn btn-warning btn-sm " role="button">Web Link</a>
-            </div>
-          </div>         
-        
-        </div><!-- End: Row 2-->
-
-        <div class="row"><!-- Start: Row 3-->
-          
-          <div class="col-sm-4 text-center"><!-- Start: Bacon Lettuce Tomato -->
-            <div class="service-item">
-              <i class="service-icon fa icon-android"></i>
-              <h5>Kindle (native)</h5>
-              <h4>Game: Bacon Lettuce Tomato</h4>
-              <a href="http://www.amazon.com/Hot-Dog-Water-Games-BLT/dp/B00F4OU77S/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1387238330&sr=1-1&keywords=blt" class="btn btn-warning btn-sm " role="button">Amazon Link</a>
-            </div>
-          </div><!-- End: Bacon Lettuce Tomato -->
-
-          <div class="col-sm-4 text-center"><!-- Start: AZ Magazine -->
-            <div class="service-item">
-              <i class="service-icon fa icon-apple"></i>
-              <h5>iPad (native)</h5>
-              <h4>AZ Magazine Storefront (v2)</h4>
-              <p><small>HTML, CSS, Javascript, Backbone.js, jQuery</small></p>
-              <a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-az-storefront" role="button">More info</a>
-            </div>
-          
-            <div class="modal fade" id="modal-az-storefront"><!-- START: Modal -->
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                      <span aria-hidden="true">&times;</span>
-                      <span class="sr-only">Close</span>
-                    </button>
-                     <h3 class="modal-title">AZ Magazine Storefront Overview</h3>
-                  </div>
-                  <div class="modal-body">
-                    <p>AZ brings a slice of that fascinating world to your iPad, letting readers tap into stories from Arizona and around the world by quite literally tapping - and scrolling, swiping and "scrubbing" - using interactive elements to bring stories to life. This format is undeniably cool, but AZ will deliver more than pretty things to look at. Our stories aim to inform, to uplift, to captivate... and to remind you that the world is just a little bigger than you thought.
-                    </p>
-
-                    <h4>My Responsibilities</h4>
-                    <ul>
-                      <li>Convert flat design mockup images into code</li>
-                      <li>Write all storefront application functionality.</li>
-                    </ul>
-                   
-                    <h4>Development</h4>
-                      <p>Requirements were documented in Basecamp. The complete tablet app would be built using the Adobe Digital Publishing Suite, so the storefront needed to be created using web technologies. I was given a single flat image design mockup:</p>
-                      <img class="img-portfolio img-responsive img-thumbnail" src="img/az-mag-storefront-v03.jpg">
-                      
-                      <p>Functionally, the storefont needed to use the Adobe DPS API to access data about individual folios and user account. I used Backbone.js to structure and render the storefont and some jQuery for some visual interactivity.</p>
-                    
-                      <p>The functional requirements included a basic slideshow for a small set of images. Rather than include the typical Galleria based gallery, I created a lightweight jQuery based slideshow.</p>
-
-                      <h4>Release</h4>
-                      <p>Below is a screenshot of the completed version. An interactive prototype is available online <a href="http://devwww.azcentral.com/azTablet/v2/">here</a>.</p>
-
-                      <img class="img-portfolio img-responsive img-thumbnail" src="img/az-mag-storefront-v03-final.jpg">
-
-                      <p>AZ is available for download <a href="https://itunes.apple.com/us/app/az-today/id579038920?mt=8">here</a>.</p>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div><!-- END: Modal -->
-
-          </div><!-- End: AZ Magazine -->
-          
-          <div class="col-sm-4 text-center"><!-- Start: Explore AZ v1 -->
-            <div class="service-item">
-              <i class="service-icon fa icon-html5"></i>
-              <h5>Responsive Web</h5>
-              <h4>Explore AZ Mobile Experience (v1)</h4>
-              <p><small>HTML5, LESS, Javascript, jQuery Mobile</small></p>
-              <a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-exploreAZ" role="button">More Info</a>
-            </div>
-          
-            <div class="modal fade" id="modal-exploreAZ"><!-- START: Modal -->
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                      <span aria-hidden="true">&times;</span>
-                      <span class="sr-only">Close</span>
-                    </button>
-                     <h3 class="modal-title">Explore AZ Mobile Overview</h3>
-                  </div>
-                  <div class="modal-body">
-                    <p>"For nearly 500 more insider tips from Republic experts on the top places to eat, play and stay around the state, browse our Top 10 Explore Arizona mobile experience."
-                    </p>
-
-                    <h4>My Responsibilities</h4>
-                    <ul>
-                      <li>Convert flat design mockup images into code</li>
-                      <li>Write all web application functionality.</li>
-                      <li>Have version 1 ready quickly for beta test</li>
-                    </ul>
-                   
-                    <h4>Development</h4>
-                       <p>Requirements were documented in Basecamp. I was given flat image design mockups. An example of these mockups:</p>
-                       <div class='img-grid'>
-                          <img class="img-portfolio img-responsive img-thumbnail" src="img/exploreAz/xaz-v1-iphone-portrait2.jpg">
-                          <img class="img-portfolio img-responsive img-thumbnail" src="img/exploreAz/xaz-v1-profile.jpg">
-                       </div>
-                    
-                      <p>The initial version was needed quickly for use by an external test group, so I opted to use jQuery Mobile for the application framework. Because I needed to covert image based mockups into an application quickly, I opted to use LESS to speed up the amount of CSS I had to write.</p>
-
-                      <p>For the sake of user experience, I included functionality that leveraged the HTML5 Geolocation API to default a user's destination to their current location. I also included functionality that displayed relevant user reviews via the Google Places API and the location of the venue on a Google Map.</p>
-
-                      <h4>Release</h4>
-                      <p>Below are a few screenshots of the completed version. Version 1 of the product is still available online at <a href="http://devwww.azcentral.com/exploreaz-old/">here</a>.</p>
-
-                      <div class='img-grid'>
-                          <img class="img-portfolio img-responsive img-thumbnail" src="img/exploreAz/xaz-v1-final.jpg">
-                          <img class="img-portfolio img-responsive img-thumbnail" src="img/exploreAz/xaz-v1-final2.jpg">
-                       </div>
-
-                      <p>
-                       Although a newer version of the product has since been released and much of the data has been migrated to a new publishing system, this version still functions appropriately.
-                      </p>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div><!-- END: Modal -->
-          </div><!-- End: Explore AZ v1 -->        
-        
-        </div><!-- End: Row 3-->
-
-        <div class="row"><!-- Start: Row 4-->
-
-          <div class="col-sm-4 text-center"><!-- Start: 2013 Cardinals Draft Experience -->
-              <div class="service-item">
-                <i class="service-icon fa icon-apple"></i>
-                <h5>iPad (web)</h5>
-                <h4>Cardinals Draft Experience (2013)</h4>
-                <p><small>HTML5, CSS, Javascript, jQuery, PHP</small></p>
-                <a href="http://www.azcentral.com/sports/cardinals/nfldraft/" class="btn btn-warning btn-sm " role="button">Web Link</a>
-              </div>
-          </div><!-- End: 2013 Cardinals Draft Experience -->
-
-          <div class="col-sm-4 text-center"><!-- Start: Experiments & Prototypes -->
-            <div class="service-item">
-              <i class="service-icon fa icon-chrome"></i>
-              <h5>Miscellaneous</h5>
-              <h4>Experiments & Prototypes</h4>
-              <p><small>HTML5, CSS, C#.NET, Unity3D, DART</small></p>
-              <a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-experiments" role="button">More Info</a>
-            </div>
-
-            <div class="modal fade" id="modal-experiments"><!-- START: Modal -->
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                      <span aria-hidden="true">&times;</span>
-                      <span class="sr-only">Close</span>
-                    </button>
-                     <h3 class="modal-title">Experiments & Prototypes</h3>
-                  </div>
-                  <div class="modal-body">
-                    <p>This is a collection of applications I have built using a variety of technologies. All of these are available publicly, and in many cases, I have made the source code available publicly.</p>
-
-                    <h4>Unity 3D (C#.NET & Javascript)</h4>
-                    <ul>
-                      <li><a href="http://www.kongregate.com/games/gnakan/unity-pong">Pong: An Atari Pong clone</a></li>
-                      <li><a href="http://www.kongregate.com/games/gnakan/ducky-lips">Ducky Lips: A Flappy Bird clone</a></li>
-                    </ul>
-
-                    <h4>DART</h4>
-                    <ul>
-                      <li><a href="https://bitbucket.org/gnakan/crimelord-name-badge/src">Crimelord Name Badge Generator</a></li>
-                    </ul>
-
-                    <h4>Polymer</h4>
-                    <ul>
-                      <li><a href="http://devstatus.azcentral.com">Dev Status</a></li>
-                    </ul>
-
-                    <h4>PhaserJS</h4>
-                    <ul>
-                      <li><a href="http://wheresmyshuriken.dragonbonestudios.com/">Where's My Shuriken</a>
-                      <br><small>This was a joint development effort during an 8 hour game jam with another developer at <a href="http://dragonbonestudios.com/">Dragonbone Studios</a>.</small>
-                      </li>
-                    </ul>
-       
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div><!-- END: Modal -->
-
-          </div><!-- End: Experiments & Prototypes -->            
-        
-        </div><!-- End: Row 4-->
-      
-      </div><!-- END: container -->
-    
-    </div>
-    <!-- /Develop -->
-
-
-    <!-- What I have designed -->
-    <div id="portfolio" class="portfolio">
-      <div class="container">
-        
-        <div class="row">
-          <div class="col-md-4 col-md-offset-4 text-center">
-            <h2>I Design.</h2>
-            <hr>
-          </div>
-        </div>
-
-        <div class="row">
-          <h4>Stein Mart</h4>
-          <p>UX, Layout, Visual Design, Wireframes <small>(2014)</small></p>
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="img/steinmart/wireframe1.jpg"><img class="img-portfolio img-responsive img-thumbnail" src="img/steinmart/wireframe1.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="img/steinmart/layout1.jpg"><img class="img-portfolio img-responsive img-thumbnail" src="img/steinmart/layout1.jpg"></a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="row">
-          <h4>ExploreAZ</h4>
-          <p>UX, Layout, Visual Design, Wireframes <small>(2013)</small></p>
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="img/exploreAz/xaz-v3-1.jpg"><img class="img-portfolio img-responsive img-thumbnail" src="img/exploreAz/xaz-v3-1.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="img/exploreAz/xaz-v3-2.jpg"><img class="img-portfolio img-responsive img-thumbnail" src="img/exploreAz/xaz-v3-2.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="img/exploreAz/xaz-v3-3.jpg"><img class="img-portfolio img-responsive img-thumbnail" src="img/exploreAz/xaz-v3-3.jpg"></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <h4>NearMe</h4>
-          <p>UX, Layout, Visual Design, Wireframes <small>(2013)</small></p>
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="img/nearMe/1.jpg"><img class="img-portfolio img-responsive img-thumbnail" src="img/nearMe/1.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="img/nearMe/2.jpg"><img class="img-portfolio img-responsive img-thumbnail" src="img/nearMe/2.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/nearMe/3.jpg"></a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="row">
-          <h4>Blackboard Transact Management Portal</h4>
-          <p>UX, Layout, Visual Design, Wireframes, Prototype <small>(2012)</small></p>
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/managementPortal/2.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/managementPortal/3.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/managementPortal/4.png"></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <h4>GSA Web Management System</h4>
-          <p>UX, Layout, Visual Design, Wireframes <small>(2010)</small></p>
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/webManagement/1.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/webManagement/2.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/webManagement/3.jpg"></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- even got some old stuff if you wanna look 
-        <div class="row">
-          <h4>Old Designs</h4>
-          <p>Layout, Visual Design, Branding <small>(2005 and older)</small></p>
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/oldDesigns/1.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/oldDesigns/2.jpg"></a>
-            </div>
-          </div>
-
-          <div class="col-sm-4 text-center">
-            <div class="portfolio-item">
-              <a href="#"><img class="img-portfolio img-responsive img-thumbnail" src="img/oldDesigns/3.jpg"></a>
-            </div>
-          </div>
-
-
-        </div>
-        -->
-
-      </div>
-    </div>
-    <!-- /Design -->
-
-
-    <div id='miscellaneous' class='created'>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-md-offset-4 text-center">
-            <h2>Miscellaneous</h2>
-            <hr>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4 text-center">
-            <div class="service-item">
-              <i class="service-icon fa icon-vimeo"></i>
-              <h4>Video: Edikola Submission</h4>
-              <p><small>Video concept, creation & editing</small></p>
-             <a href='http://vimeo.com/68403270' class="btn btn-default btn-sm " role="button">Vimeo Link</a>
-            </div>
-          </div>
-            <div class="col-sm-4 text-center">
-              <div class="service-item">
-                <i class="service-icon fa icon-blogger"></i>
-                <h4>Medium</h4>
-                <p><small>Blog</small></p>
-               <a href="https://medium.com/@gnakan" class="btn btn-default btn-sm " role="button">Medium Link</a>
-              </div>
-            </div>
         </div>
       </div>
     </div>
+  </header>
 
-    <!-- Call to Action -->
-    <div class="tools">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 text-center">
-            <h3>Tech, tools and other stuff I know</h3>
-            <div>
-              <code>Javascript</code>
-              <code>HTML/HTML5</code>
-              <code>CSS</code>
-              <code>jQuery</code>
-              <code>jQuery Mobile</code>
-              <code>Bootstrap</code>
-              <code>Pure</code>
-              <code>Foundation</code>
-              <code>AngularJS</code>
-              <code>Backbone.js</code>
-              <code>Node.js</code>
-              <code>Python</code>
-              <code>Django</code>
-              <code>Jade</code>
-              <code>Handlebars</code>
-              <code>C#.NET</code>
-              <code>ASP.NET</code>
-              <code>Actionscript</code>
-              <code>Unity3d</code>
-            </div>
-          </div>
+  <section>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-4">
+        <img src="img/me.png" alt="This is me" class="img-circle">
         </div>
-
-        <div class='row control-top-margin'>
-          <div class="col-sm-3 text-center"><img class='img-center' src='./img/vendor/adobe_photoshop.png'/>Adobe Photoshop</div>
-          <div class="col-sm-3 text-center"><img class='img-center' src='./img/vendor/adobe_fireworks.png'/>Adobe Fireworks</div>
-          <div class="col-sm-3 text-center"><img class='img-center' src='./img/vendor/adobe_dreamweaver.png'/>Adobe Dreamweaver</div>
-          <div class="col-sm-3 text-center"><img class='img-center' src='./img/vendor/adobe_flash.png'/>Adobe Flash</div>
+        <div class="col-m-8">
+        <p>
+          <b>As a designer, </b>I am always striving for visual simplicity that solicits action. My experience has taught me that great design is more than simply "making something pretty" or pushing pixels around in Photoshop. <a href='designer.html'>Learn more about me as a designer</a>.
+        </p>
+        <p>
+          <b>As a developer, </b>I want to build products that people love. My experience has taught me that developers should be approached early and often in the product lifecycle (agile development), empowered to release updates quickly (continuous integration/deployment) and treated as creative problem solvers. <a href='developer.html'>Learn more about me as a developer</a>.
+        </p>
         </div>
-        
-
       </div>
     </div>
-    <!-- /Call to Action -->
-    
+  </section>
+
+    <hr>
+
     <!-- Footer -->
     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3 text-center">
-            <ul class="list-inline">
-              <li><a href="mailto:gnakan@gmail.com"><i class="fa fa-envelope fa-3x"></i></li>
-              <li><a href="http://gnakan.tumblr.com"><i class="fa fa-tumblr fa-3x"></i></li>
-              <li><a href="https://plus.google.com/+GaryNakanelua/posts"><i class="fa fa-google-plus-square fa-3x"></i></li>
-              <li><a href="https://twitter.com/gnakan"><i class="fa fa-twitter fa-3x"></i></a></li>
-              <li><a href="https://bitbucket.org/gnakan"><i class="fa fa-bitbucket fa-3x"></i></a></li>
-              <li><a href="http://dribbble.com/gnakan"><i class="fa fa-dribbble fa-3x"></i></li>
-              <li><a href="skype:gnakan?userinfo"><i class="fa fa-skype fa-3x"></i></li>
-
-            </ul>
-            <div class="top-scroll">
-              <a href="#top"><i class="fa fa-circle-arrow-up scroll fa-4x"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://medium.com/@gnakan/">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/gnakan">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/gnakan?tab=repositories">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; GaryNakanelua.com 2016</p>
+                </div>
             </div>
-            <hr>
-            <p>Copyright &copy; Gary Nakanelua 2015</p>
-          </div>
         </div>
-      </div>
     </footer>
-    <!-- /Footer -->
 
-    <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-    <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
-    <script>
-        $("#menu-close").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
-        });
-    </script>
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
-        });
-    </script>
-    <script>
-      $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
-            || location.hostname == this.hostname) {
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-              $('html,body').animate({
-                scrollTop: target.offset().top
-              }, 1000);
-              return false;
-            }
-          }
-        });
-      });
-    </script>
+    <script src="js/main.js"></script>
 
-  </body>
+</body>
 
 </html>

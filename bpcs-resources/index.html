@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BPCS Resource Allocation Calendar</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-green.min.css">
+  <link rel="stylesheet" href="dist/css/scorecard.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="hold-transition skin-green sidebar-mini">
+  <div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>BPCS</b></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Blueprint</b> Consulting</span>
+      </a>
+
+      <!-- Header Navbar -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+          <li class="header">Resources</li>
+          <!-- Optionally, you can add icons to the links -->
+          <li class='.loading-status'><a href="#"><i class="fa fa-refresh fa-spin"></i> <span>Loading resources...</span></a></li>
+        </ul>
+        <!-- /.sidebar-menu -->
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1 id='scorecardTitle'>Welcome To The BPCS Resource Allocation Calendar (RAC)</h1>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class='row allocation'>
+          <section class="content">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <i class="fa fa-users"></i>
+                <h3 class="box-title">Resources</h3>
+              </div>
+              <div class="box-body">
+                <p>
+                  All the data, including the resource list, comes from <a target="_blank" href='https://docs.google.com/spreadsheets/d/1iDp0SJlnXhAPmaVJxWfnY4SvuEPGdHNTzvVjfiNkjk4/edit?usp=sharing'>Google Sheets</a>. The instructions below are specific to the spreadsheet used.
+                </p>
+                <dt>Adding A New Resource</dt>
+                <p>
+                  <ol>
+                    <li>
+                      Open the <a target="_blank" href='https://docs.google.com/spreadsheets/d/1iDp0SJlnXhAPmaVJxWfnY4SvuEPGdHNTzvVjfiNkjk4/edit?usp=sharing'>Google Sheet</a>.
+                    </li>
+                    <li>
+                      <a target="_blank" href="http://www.gcflearnfree.org/googlespreadsheets/11.2">Add a sheet</a>.
+                    </li>
+                    <li>
+                      Refresh the RAC. The new resource will be listed in the Resources menu.
+                    </li>
+                  </ol>
+                </p>
+
+                <dt>Editing An Existing Resource</dt>
+                <p>
+                  <ol>
+                    <li>
+                      Open the <a href='https://docs.google.com/spreadsheets/d/1iDp0SJlnXhAPmaVJxWfnY4SvuEPGdHNTzvVjfiNkjk4/edit?usp=sharing'>Google Sheet</a>.
+                    </li>
+                    <li>
+                      <a href="http://www.gcflearnfree.org/googlespreadsheets/11.2">Rename the sheet</a>.
+                    </li>
+                    <li>
+                      Refresh the RAC. Your updated dashboard will be listed in the Resources menu.
+                    </li>
+                  </ol>
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Your Page Content Here -->
+        <div class="row overview">
+
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="pull-right hidden-xs">
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2016 <a href="#">Blueprint Consulting Services</a>.</strong> All rights reserved.
+    </footer>
+
+  </div>
+  <!-- ./wrapper -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+  <script src="plugins/tabletop/tabletop.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="dist/js/app.min.js"></script>
+  <script src="dist/js/resources.js"></script>
+  <script src="dist/js/Chart.js"></script>
+
+
+  <script id="resourceGraph" type="text/x-handlebars-template">
+    <div class="col-md-12 headline">
+      <div class="box box-gray">
+        <div class="box-header">
+          <h3 class='box-title'>{{name}}</h3>
+        </div>
+        <div class="box-body">
+            <canvas id="myChart" height="300" style='max-height:300px;'></canvas>
+        </div>
+        <div class="box-footer"></div>
+      </div>
+    </div>
+  </script>
+
+  <script id="overviewText" type="text/x-handlebars-template">
+    <div class="col-md-4 headline">
+      <div class="box box-gray">
+        <div class="box-header">
+          <h3 class='box-title'>About {{name}} & the {{engagement}} engagement</h3>
+        </div>
+        <div class="box-body">
+            {{overview}}
+        </div>
+        <div class="box-footer"></div>
+      </div>
+    </div>
+  </script>
+</body>
+
+</html>

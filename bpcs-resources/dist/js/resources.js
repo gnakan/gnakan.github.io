@@ -5,6 +5,8 @@ var currentMonth = "January 2016";
 $(document).ready(function() {
   getTableData();
 
+  $('#weekOfMonth').html("<i class='fa fa-calendar'></i> Week " + getWeek(moment()));
+
   $('.sidebar-menu').on('click', 'li', function() {
     selected = $(this).data('name');
 
@@ -39,6 +41,13 @@ function buildSidebar(data) {
 
   $('.sidebar-menu').html("<li class='header'>RESOURCES</li>").append(alphabeticallyOrderedDivs);
 }
+
+function getWeek(date){
+        prefixes = [1,2,3,4,5];
+
+    return prefixes[0 | moment(date).date() / 7];
+}
+
 
 function sorter(a, b) {
   return $(a).attr('data-name') > $(b).attr('data-name');

@@ -65,7 +65,7 @@ function loadAllocation() {
       //build the dataset
       $.each(obj.elements, function(ind, obj) {
         var label = obj.engagement + ", " + obj.role;
-        var data = [obj.wk1, obj.wk2, obj.wk3, obj.wk4, obj.wk5];
+        var data = [parseInt(obj.wk1), parseInt(obj.wk2), parseInt(obj.wk3), parseInt(obj.wk4), parseInt(obj.wk5)];
         var fillColor;
 
         if(obj.engagement === "Bench")
@@ -79,9 +79,9 @@ function loadAllocation() {
         engagementObj = {
           label: label,
           data: data,
-          fillColor: fillColor,
-          strokeColor: fillColor,
-          pointColor: fillColor,
+          backgroundColor: fillColor,
+          borderColor: fillColor,
+          hoverBackgroundColor: fillColor
         };
 
         dataArr.push(engagementObj);
@@ -127,12 +127,34 @@ function addChart(name, datasets) {
   };
 
   var ctx = document.getElementById("myChart").getContext("2d");
-  var myBarChart = new Chart(ctx).Line(data,{
+  /*
+  var myBarChart = new Chart(ctx).Bar(data,{
     barValueSpacing : 40,
     scaleLabel: "<%=value%>%",
     responsive: true,
     maintainAspectRatio: false,
   });
+  */
+
+  var myBarChart = new Chart(ctx,{
+    type: 'bar',
+    data: data,
+    options: {
+      barValueSpacing : 40,
+      scaleLabel: "<%=value%>%",
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+                xAxes: [{
+                        stacked: true,
+                }],
+                yAxes: [{
+                        stacked: true
+                }]
+            }
+
+    }
+});
 
 
 

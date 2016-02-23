@@ -56,7 +56,7 @@ function sorter(a, b) {
 function loadAllocation() {
   $('.allocation').empty();
   $('.overview').empty();
-  var colorArr = ['#00c0ef', '#00a65a', '#f39c12', '#605ca8', '#39CCCC'];
+  var colorArr = ['rgba(0, 192, 239, 0.8)', 'rgba(0, 166, 90, 0.8)', 'rgba(243, 156, 18, 0.8)', 'rgba(96, 92, 168, 0.8)', 'rgba(57, 204, 204, 0.8)'];
   var dataArr = [];
   var engagementObj;
 
@@ -70,7 +70,7 @@ function loadAllocation() {
 
         if(obj.engagement === "Bench")
         {
-          fillColor = '#dd4b39';
+          fillColor = 'rgba(221, 75, 57, 0.8)';
         }
         else {
           fillColor = colorArr[ind];
@@ -79,7 +79,9 @@ function loadAllocation() {
         engagementObj = {
           label: label,
           data: data,
-          fillColor: fillColor
+          fillColor: fillColor,
+          strokeColor: fillColor,
+          pointColor: fillColor,
         };
 
         dataArr.push(engagementObj);
@@ -125,7 +127,7 @@ function addChart(name, datasets) {
   };
 
   var ctx = document.getElementById("myChart").getContext("2d");
-  var myBarChart = new Chart(ctx).Bar(data,{
+  var myBarChart = new Chart(ctx).Line(data,{
     barValueSpacing : 40,
     scaleLabel: "<%=value%>%",
     responsive: true,

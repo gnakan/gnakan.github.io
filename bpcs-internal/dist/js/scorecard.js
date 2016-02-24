@@ -1,6 +1,6 @@
 var selected;
 var scorecardData;
-var currentMonth = "January 2016";
+var currentMonth = "February 2016";
 
 $(document).ready(function() {
   getTableData();

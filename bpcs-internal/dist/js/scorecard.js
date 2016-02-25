@@ -1,9 +1,10 @@
 var selected;
 var scorecardData;
-var currentMonth = "February 2016";
+var currentMonth = 'jan';
 
 $(document).ready(function() {
   getTableData();
+
 
   $('.sidebar-menu').on('click', 'li', function() {
     selected = $(this).data('name');
@@ -12,8 +13,6 @@ $(document).ready(function() {
     loadMetrics();
   });
 });
-
-
 
 function getTableData() {
   Tabletop.init({
@@ -29,7 +28,7 @@ function buildSidebar(data) {
   $('.sidebar-menu').append();
 
   $.each(data, function(index, obj) {
-    if (obj.name !== "selections")
+    if (obj.name !== "selections" && obj.name !== 'metrics')
       $('.sidebar-menu').append("<li class='dashboardLink' data-name='" + obj.name + "'><a href='#'><i class='fa fa-dashboard'></i><span>" + obj.name + "</span></a></li>");
   });
 
@@ -39,6 +38,7 @@ function buildSidebar(data) {
   });
 
   $('.sidebar-menu').html("<li class='header'>PEOPLE</li>").append(alphabeticallyOrderedDivs);
+  addTableRow();
 }
 
 function sorter(a, b) {
@@ -73,8 +73,6 @@ function loadMetrics(data) {
   });
 }
 
-
-
 function addMetric(name, goal, actual, after, icon, status, tooltip, div) {
 
   var source = $('#headline1').html();
@@ -90,24 +88,55 @@ function addMetric(name, goal, actual, after, icon, status, tooltip, div) {
     tooltip: tooltip
   };
 
-  var template1 = "<div class='col-lg-6'>" +
-    "<div class='box box-info'>" +
-    "<div class='box-header'>" +
-    "<i class='fa fa-line-chart'></i>" +
-    "<h3 class='box-title'>" + name + "</h3>" +
-    "<p><small class='text-muted'>For January 2016</small></p></div>" +
-    "<div class='box-body'>" +
-    "<div class='row'>" +
-    "<div class='col-md-3'>" +
-    "<div class='row headline-info'>" +
-    "<h3 class='text-primary'>" + goal + "</h3>" +
-    "<p>Goal</p>" +
-    "<p>100</p></div>" +
-    "<div class='row headline-info'><h3 style='color: rgba(0,0,0,.5);'>" + actual + "</h3>" +
-    "<p>Actual</p><p>93</p></div></div>" +
-    "<div class='col-md-9'><canvas id='' width='700' height='250'></canvas></div></div>" +
-    "</div></div></div>";
-
   $(div).append(template(data));
 
+}
+
+function addTableRow(){
+  var dataArr = [];
+  var metricsArr = [];
+  var theadData, test;
+
+  var theadSource = $('#thead1').html();
+  var theadTemplate = Handlebars.compile(theadSource);
+
+  $.each(scorecardData, function(index, obj) {
+    var lineItem = [];
+
+
+    //get the metrics table header setup
+    if(obj.name === 'metrics')
+    {
+      $.each(obj.elements, function(index, obj){
+        if(index <= 4)
+        {
+          metricsArr.push(obj);
+        }
+      });
+    }
+
+    if (obj.name !== "selections" && obj.name !== 'metrics')
+    {
+      //add the name
+      lineItem.push(obj.name);
+
+      //add the metric data
+      $.each(obj.elements, function(index, obj){
+        lineItem.push(obj.before + obj[currentMonth + "-a"] + obj.after);
+      });
+
+      dataArr.push(lineItem);
+
+    }
+
+  });
+
+
+  var source = $('#tbody1').html();
+  var template = Handlebars.compile(source);
+  test = {metrics: dataArr};
+  theadData = {metrics: metricsArr};
+  $('#allUp thead tr').append(theadTemplate(theadData));
+  $('#allUp tbody').append(template(test));
+  $('#allUp').DataTable();
 }

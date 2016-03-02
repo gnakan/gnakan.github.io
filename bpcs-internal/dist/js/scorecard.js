@@ -28,7 +28,7 @@ function buildSidebar(data) {
   $('.sidebar-menu').append();
 
   $.each(data, function(index, obj) {
-    if (obj.name !== "selections" && obj.name !== 'metrics')
+    if (obj.name !== "selections" && obj.name !== 'metrics' && obj.name !== 'team roster')
       $('.sidebar-menu').append("<li class='dashboardLink' data-name='" + obj.name + "'><a href='#'><i class='fa fa-dashboard'></i><span>" + obj.name + "</span></a></li>");
   });
 
@@ -108,7 +108,7 @@ function addTableRow(){
     if(obj.name === 'metrics')
     {
       $.each(obj.elements, function(index, obj){
-        if(index <= 6)
+        if(index <= 7)
         {
           metricsArr.push(obj);
         }

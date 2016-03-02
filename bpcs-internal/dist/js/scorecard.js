@@ -108,7 +108,7 @@ function addTableRow(){
     if(obj.name === 'metrics')
     {
       $.each(obj.elements, function(index, obj){
-        if(index <= 4)
+        if(index <= 6)
         {
           metricsArr.push(obj);
         }

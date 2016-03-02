@@ -115,7 +115,7 @@ function addTableRow(){
       });
     }
 
-    if (obj.name !== "selections" && obj.name !== 'metrics')
+    if (obj.name !== "selections" && obj.name !== 'metrics' && obj.name !== 'team roster')
     {
       //add the name
       lineItem.push(obj.name);

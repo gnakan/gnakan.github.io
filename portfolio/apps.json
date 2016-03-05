@@ -134,5 +134,43 @@
       "databases": [],
       "screenshot": "img/prototype-duckylips.png"
     }
+  ],
+  "products":[
+    {
+      "name": "Electric Treehouse",
+      "overview": "Co-founder for a startup that would provide a platform for users to create their own projects, alone or in collaboration with others, and bring to life the imaginative ideas inspired by their youth.  It will also enable them to share those projects with an ever growing audience of digital media users.",
+      "screenshot": "img/et_logo.jpeg",
+      "featured": true
+    },
+    {
+      "name": "BLT",
+      "overview": "Founder, designer and developer for a Kindle Fire exclusive game, played the same as the popular hand game Paper, Rock, Scissors', only you choose between 'Bacon, Lettuce, or Tomato'. Game is available for free download with a PPC advertising revenue model.",
+      "screenshot": "img/blt-2.png",
+      "featured": false
+    },
+    {
+      "name": "Wangaza",
+      "overview": "Co-founder and product manager for a platform used to promote rural community usage of current web trends and technologies. Target audience was 30-48 year old computer users in rural communities with a revenue model focused around PPC advertising.",
+      "screenshot": "img/wangaza-logo.png",
+      "featured": false
+    },
+    {
+      "name": "Reloaded Core",
+      "overview": "Co-founder and product manager for a open-source based web publishing platform. Monthly subscription revenue model with customers that included attorneys, real estate agents, churches, ecommerce sites and local sports organizations.",
+      "screenshot": "img/prototype-duckylips.png",
+      "featured": false
+    },
+    {
+      "name": "Hardin County Pages",
+      "overview": "Co-founder, product manager and designer for a platform for maintaining a simple web presence that included stylish web templates, content editing and analytics. Monthly subscription revenue model with customers that included music bands, ecommerce sites, and local classifieds listing sites.",
+      "screenshot": "img/hcp_1.jpg",
+      "featured": false
+    },
+    {
+      "name": "Codeworx Design Studio",
+      "overview": "Co-founder and creative design director for the web design and development agency. Customers included attorneys, churches, real estate agents, community chamber of commerce organizations, advertising agencies, ecommerce sites, retail establishments, restaurants, and IT organizations.",
+      "screenshot": "img/cx_logo.jpg",
+      "featured": true
+    }
   ]
 }

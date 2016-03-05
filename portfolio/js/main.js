@@ -35,5 +35,6 @@ angular.module("portfolioApp", [])
                 .success(function(data){
                     $scope.apps = data.apps;
                     $scope.prototypes = data.prototypes;
+                    $scope.products = data.products;
                 });
         });

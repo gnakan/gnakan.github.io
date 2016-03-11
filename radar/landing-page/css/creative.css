@@ -3,6 +3,27 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
+.roboto
+{
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.roboto-thin
+{
+  font-weight: 100;
+  margin-top: 10px;
+}
+.roboto-normal
+{
+  font-weight: 400;
+  margin-top: 10px;
+}
+.roboto-bold
+{
+  font-weight: 700;
+  margin-top: 10px;
+}
 
 .smallcaps
 {

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
-  <link rel="stylesheet" href="dist/css/scorecard2.css">
+  <link rel="stylesheet" href="dist/css/scorecard.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -183,7 +183,7 @@
       <div class="pull-right hidden-xs">
       </div>
       <!-- Default to the left -->
-      <strong>Copyright &copy;2016 <a href="#">Blueprint Consulting Services</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2016 <a href="#">Blueprint Consulting Services</a>.</strong> All rights reserved.
     </footer>
 
   </div>
@@ -200,11 +200,11 @@
     <div class="col-lg-3 col-xs-6 headline" data-toggle="tooltip" title="{{tooltip}}">
       <div class="small-box bg-{{{status}}}">
         <div class="inner">
+          <span class="pull-right"><small class="label bg-gray text-center"><i class="fa fa-trophy"></i> Goal: {{goal}}</small></span>
           <p class="headline-name">{{name}}</p>
           <span class="headline-number">{{actual}}</span> {{after}}
           <p class="headline-updated">
-            <span class="pull-left"><small class="label bg-gray text-center"><i class="fa fa-trophy"></i> Goal: {{goal}}</small></span>
-              <span class="pull-right"><i class="fa fa-calendar"></i> For {{currentMonth}}</span>
+            <i class="fa fa-calendar"></i> For {{currentMonth}}
           </p>
         </div>
         <div class="icon">

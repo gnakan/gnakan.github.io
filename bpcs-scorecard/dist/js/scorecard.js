@@ -1,6 +1,6 @@
 var selected;
 var scorecardData;
-var currentMonth = "January 2016";
+var currentMonth = "February 2016";
 var ownersArr = [{
   name: "Crunchyroll",
   owner: "Michael Callahan"
@@ -88,12 +88,12 @@ function loadMetrics(data) {
         var goal, actual, after;
         var status = 'blue';
         if (obj.after !== "%") {
-          goal = obj.before + obj['jan-g'];
-          actual = obj.before + obj['jan-a'];
+          goal = obj.before + obj['feb-g'];
+          actual = obj.before + obj['feb-a'];
           after = obj.after;
         } else {
-          goal = obj.before + obj['jan-g'] + obj.after;
-          actual = obj.before + obj['jan-a'] + obj.after;
+          goal = obj.before + obj['feb-g'] + obj.after;
+          actual = obj.before + obj['feb-a'] + obj.after;
           after = "";
         }
 
@@ -130,7 +130,7 @@ function addMetric(name, goal, actual, after, icon, status, tooltip, div) {
     "<div class='box-header'>" +
     "<i class='fa fa-line-chart'></i>" +
     "<h3 class='box-title'>" + name + "</h3>" +
-    "<p><small class='text-muted'>For January 2016</small></p></div>" +
+    "<p><small class='text-muted'>For February 2016</small></p></div>" +
     "<div class='box-body'>" +
     "<div class='row'>" +
     "<div class='col-md-3'>" +

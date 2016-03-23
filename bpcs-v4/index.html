@@ -105,7 +105,7 @@
   <section id="blog" class='container-alt'>
     <div class="container">
       <h2>THOUGHT LEADERSHIP BLOG <a href='http://bpcs.com/blog'><small>View All</small></a></h2>
-      <div class="row">
+      <div class="row" id='blogPosts'>
         <div class="col-md-4 col-sm-4 col-xs-12">
           <i class="fa fa-comments  fa-5x"></i>
           <h4 class="head-set">Do You Need An App For That?</h4>
@@ -209,6 +209,12 @@
       n.src = '//js.hs-analytics.net/analytics/' + (Math.ceil(new Date() / r) * r) + '/1985377.js';
       e.parentNode.insertBefore(n, e);
     })(document, "script", "hs-analytics", 300000);
+  </script>
+  <script type='text/javascript'>
+  $(document).ready(function() {
+    getBlogData(3);
+  });
+
   </script>
   <!-- End of Async HubSpot Analytics Code -->
 </body>

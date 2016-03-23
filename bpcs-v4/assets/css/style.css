@@ -1,4 +1,14 @@
-﻿.awardLink
+#blogPosts .head-set {
+    padding-bottom: 0px;
+    height: 50px;
+}
+
+#blogPosts .col-md-4
+{
+  margin-bottom:40px;
+}
+
+.awardLink
 {
     cursor: pointer;
 }

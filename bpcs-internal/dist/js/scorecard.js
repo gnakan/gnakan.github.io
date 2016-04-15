@@ -60,7 +60,7 @@ function loadMetrics(data) {
           goal = obj.before + obj['mar-g'] + obj.after;
           actual = obj.before + obj['mar-a'] + obj.after;
           after = "";
-
+        }
 
         if (obj.status !== "") {
           status = obj.status;

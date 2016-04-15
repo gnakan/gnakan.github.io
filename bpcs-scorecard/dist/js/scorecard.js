@@ -1,6 +1,4 @@
-var selected;
-var scorecardData;
-var currentMonth = "February 2016";
+var selected, scorecardData, month, year, monthAbbreviation;
 var ownersArr = [{
   name: "Crunchyroll",
   owner: "Michael Callahan"
@@ -64,8 +62,30 @@ function buildSidebar(data) {
   $('.sidebar-menu').append();
 
   $.each(data, function(index, obj) {
-    if (obj.name !== "selections")
+    if (obj.name !== "selections" && obj.name !== "config")
       $('.sidebar-menu').append("<li class='dashboardLink' data-name=" + obj.name + "><a href='#'><i class='fa fa-dashboard'></i><span>" + obj.name + "</span></a></li>");
+
+    if(obj.name === "config")
+    {
+
+      $.each(obj.elements, function(index, obj){
+        if(obj.key === "month")
+        {
+          month = obj.value;
+        }
+
+        if(obj.key === "year")
+        {
+          year = obj.value;
+        }
+
+        if(obj.key === "mon-abbreviation")
+        {
+          monthAbbreviation = obj.value;
+        }
+      });
+    }
+
   });
 
   var $links = $('.dashboardLink');
@@ -88,12 +108,12 @@ function loadMetrics(data) {
         var goal, actual, after;
         var status = 'blue';
         if (obj.after !== "%") {
-          goal = obj.before + obj['feb-g'];
-          actual = obj.before + obj['feb-a'];
+          goal = obj.before + obj[monthAbbreviation + '-g'];
+          actual = obj.before + obj[monthAbbreviation + '-a'];
           after = obj.after;
         } else {
-          goal = obj.before + obj['feb-g'] + obj.after;
-          actual = obj.before + obj['feb-a'] + obj.after;
+          goal = obj.before + obj[monthAbbreviation + '-g'] + obj.after;
+          actual = obj.before + obj[monthAbbreviation + '-a'] + obj.after;
           after = "";
         }
 
@@ -121,7 +141,7 @@ function addMetric(name, goal, actual, after, icon, status, tooltip, div) {
     after: after,
     icon: icon,
     status: status,
-    currentMonth: currentMonth,
+    currentMonth: month + " " + year,
     tooltip: tooltip
   };
 

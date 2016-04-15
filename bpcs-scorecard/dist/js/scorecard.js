@@ -150,7 +150,7 @@ function addMetric(name, goal, actual, after, icon, status, tooltip, div) {
     "<div class='box-header'>" +
     "<i class='fa fa-line-chart'></i>" +
     "<h3 class='box-title'>" + name + "</h3>" +
-    "<p><small class='text-muted'>For February 2016</small></p></div>" +
+    "<p><small class='text-muted'>For " + month + " " + year + "</small></p></div>" +
     "<div class='box-body'>" +
     "<div class='row'>" +
     "<div class='col-md-3'>" +

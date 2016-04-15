@@ -1,6 +1,6 @@
 var selected;
 var scorecardData;
-var currentMonth = 'feb';
+var currentMonth = 'mar';
 
 $(document).ready(function() {
   getTableData();
@@ -53,14 +53,14 @@ function loadMetrics(data) {
         var goal, actual, after;
         var status = 'blue';
         if (obj.after !== "%") {
-          goal = obj.before + obj['feb-g'];
-          actual = obj.before + obj['feb-a'];
+          goal = obj.before + obj['mar-g'];
+          actual = obj.before + obj['mar-a'];
           after = obj.after;
         } else {
-          goal = obj.before + obj['feb-g'] + obj.after;
-          actual = obj.before + obj['feb-a'] + obj.after;
+          goal = obj.before + obj['mar-g'] + obj.after;
+          actual = obj.before + obj['mar-a'] + obj.after;
           after = "";
-        }
+
 
         if (obj.status !== "") {
           status = obj.status;

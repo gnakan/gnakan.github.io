@@ -1,5 +1,5 @@
 var selected, scorecardData, month, year, monthAbbreviation;
-
+var monArr = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 $(document).ready(function() {
   getTableData();
 
@@ -16,7 +16,9 @@ $(document).ready(function() {
   });
 });
 
-
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
 
 function getTableData() {
   Tabletop.init({
@@ -67,20 +69,35 @@ function buildSidebar(data) {
   $('.sidebar-menu').html("<li class='header'>SCORECARDS</li>").append(alphabeticallyOrderedDivs);
 }
 
+var checkTBD = function(obj, monInd){
+
+  if(obj[monArr[monInd] + '-a'] === 'TBD' || obj[monArr[monInd] + '-a'] === ' ')
+  {
+    return checkTBD(obj, monInd-1);
+  }
+  else {
+    return monArr[monInd];
+  }
+};
+
 function loadMetrics(data) {
   $('.metrics').empty();
   $.each(scorecardData, function(index, obj) {
     if (obj.name === selected) {
+
+      //checkTBD
       $.each(obj.elements, function(ind, obj) {
-        var goal, actual, after;
+        var goal, actual, after, currentGoal;
         var status = 'blue';
+        var currentMonth = checkTBD(obj, monArr.indexOf(monthAbbreviation));
+
         if (obj.after !== "%") {
-          goal = obj.before + obj[monthAbbreviation + '-g'];
-          actual = obj.before + obj[monthAbbreviation + '-a'];
+          goal = obj.before + obj[currentMonth + '-g'];
+          actual = obj.before + obj[currentMonth + '-a'];
           after = obj.after;
         } else {
-          goal = obj.before + obj[monthAbbreviation + '-g'] + obj.after;
-          actual = obj.before + obj[monthAbbreviation + '-a'] + obj.after;
+          goal = obj.before + obj[currentMonth + '-g'] + obj.after;
+          actual = obj.before + obj[currentMonth + '-a'] + obj.after;
           after = "";
         }
 
@@ -89,7 +106,7 @@ function loadMetrics(data) {
         }
         if(obj.display === 'TRUE')
         {
-          addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip, '.metrics', obj.metricSource);
+          addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip, '.metrics', obj.metricSource, currentMonth.capitalize());
         }
 
       });
@@ -99,7 +116,7 @@ function loadMetrics(data) {
 }
 
 
-function addMetric(name, goal, actual, after, icon, status, tooltip, div, metricSource) {
+function addMetric(name, goal, actual, after, icon, status, tooltip, div, metricSource, currentMonth) {
 
   var source = $('#headline1').html();
   var template = Handlebars.compile(source);
@@ -110,7 +127,7 @@ function addMetric(name, goal, actual, after, icon, status, tooltip, div, metric
     after: after,
     icon: icon,
     status: status,
-    currentMonth: month + " " + year,
+    currentMonth: currentMonth + " " + year,
     tooltip: tooltip,
     metricSource: metricSource
   };

@@ -134,7 +134,7 @@ function loadChart(){
     right: 40,
     top: 70
   },
-  height: '400px',
+  height: '350px',
   low: 0,
   showArea: true,
   plugins: [

@@ -98,7 +98,7 @@ function checkTBD(obj, monInd){
 }
 
 function loadChart(){
-  $('.metrics').html(  '<section class="content"><div class="box box-solid"><div class="box-header with-border"><i class="fa fa-line-chart"></i><h3 class="box-title">' + selectedMetric + ' <small>' + selectedToolTip + '</small></h3></div><div class="box-body chart"></div><div class="box-footer"><ul class="chart-legend clearfix"><li><i class="fa fa-circle-o text-red"></i> Goal</li><li><i class="fa fa-circle-o text-black"></i> Actual</li></ul></div></div>'
+  $('.metrics').html(  '<section class="content"><div class="box box-solid"><div class="box-header with-border"><i class="fa fa-line-chart"></i><h3 class="box-title">' + selectedMetric + ' <small>' + selectedToolTip + '</small></h3></div><div class="box-body chart"></div><div class="box-footer"><ul class="chart-legend clearfix"><li><i class="fa fa-circle-o text-red"></i> Goal</li><li><i class="fa fa-circle-o text-blue"></i> Actual</li></ul></div></div>'
 );
 
   var actualArr = [];
@@ -126,7 +126,7 @@ function loadChart(){
   new Chartist.Line('.chart', {
   labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun'],
   series: [
-    [], goalArr, [], [], actualArr
+    [], goalArr, [], [],[],[], actualArr
   ]
 }, {
   fullWidth: true,

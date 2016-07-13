@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
   <link rel="stylesheet" href="dist/css/scorecard2.css">
+  <link rel="stylesheet" href="dist/css/chartist-plugin-tooltip.css">
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -188,9 +191,11 @@
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <script src="dist/js/app.min.js"></script>
   <script src="dist/js/scorecard.js"></script>
+  <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+  <script src="dist/js/chartist-plugin-tooltip.js"></script>
 
   <script id="headline1" type="text/x-handlebars-template">
-    <div class="col-lg-3 col-xs-6 headline" data-toggle="tooltip" title="{{tooltip}}">
+    <div class="col-lg-3 col-xs-6 headline" data-metric="{{name}}" data-toggle="tooltip" title="{{tooltip}}">
       <div class="small-box bg-{{{status}}}">
         <div class="inner">
           <p class="headline-name">{{name}}</p>
@@ -207,6 +212,11 @@
         </div>
       </div>
     </div>
+  </script>
+
+
+  <script id="detailsChart" type="text/x-handlebars-template">
+    <div class="ct-chart ct-perfect-fourth"></div>
   </script>
 </body>
 

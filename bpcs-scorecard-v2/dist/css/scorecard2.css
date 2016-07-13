@@ -75,3 +75,13 @@
   text-align: center;
   margin-top: -10px;
 }
+
+.ct-label
+{
+  font-size: 1em !important;
+}
+
+.headline, .chart
+{
+  cursor: pointer;
+}

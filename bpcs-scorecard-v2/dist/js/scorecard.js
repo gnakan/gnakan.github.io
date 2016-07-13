@@ -1,10 +1,27 @@
-var selected, scorecardData, month, year, monthAbbreviation;
+var selected, scorecardData, month, year, monthAbbreviation, selectedScoreCardData, selectedMetric, selectedToolTip;
 var monArr = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 $(document).ready(function() {
   getTableData();
 
   $('.sidebar-menu').on('click', 'li', function() {
     selected = $(this).data('name');
+    $('#scorecardTitle').html(selected);
+    $.each(scorecardData.teamConfig.elements, function(index, obj) {
+      if (obj.TeamName === selected) {
+        $('#scorecardTitle').append("<small>" + obj.Owner + "</small>");
+      }
+    });
+
+    loadMetrics();
+  });
+
+  $('.metrics').on('click', '.headline', function(){
+    selectedMetric = $(this).data('metric');
+    selectedToolTip = $(this).data('original-title');
+    loadChart();
+  });
+
+  $('.metrics').on('click', '.chart', function(){
     $('#scorecardTitle').html(selected);
     $.each(scorecardData.teamConfig.elements, function(index, obj) {
       if (obj.TeamName === selected) {
@@ -69,7 +86,7 @@ function buildSidebar(data) {
   $('.sidebar-menu').html("<li class='header'>SCORECARDS</li>").append(alphabeticallyOrderedDivs);
 }
 
-var checkTBD = function(obj, monInd){
+function checkTBD(obj, monInd){
 
   if(obj[monArr[monInd] + '-a'] === 'TBD' || obj[monArr[monInd] + '-a'] === ' ')
   {
@@ -78,14 +95,72 @@ var checkTBD = function(obj, monInd){
   else {
     return monArr[monInd];
   }
-};
+}
+
+function loadChart(){
+  $('.metrics').html(  '<section class="content"><div class="box box-solid"><div class="box-header with-border"><i class="fa fa-line-chart"></i><h3 class="box-title">' + selectedMetric + ' <small>' + selectedToolTip + '</small></h3></div><div class="box-body chart"></div><div class="box-footer"><ul class="chart-legend clearfix"><li><i class="fa fa-circle-o text-red"></i> Goal</li><li><i class="fa fa-circle-o text-black"></i> Actual</li></ul></div></div>'
+);
+
+  var actualArr = [];
+  var goalArr = [];
+
+  $.each(selectedScoreCardData.elements, function(index, obj){
+    if(obj.metric === selectedMetric)
+    {
+      actualArr.push({meta:'Actual:', value: obj['jan-a']});
+      actualArr.push({meta:'Actual:', value: obj['feb-a']});
+      actualArr.push({meta:'Actual:', value: obj['mar-a']});
+      actualArr.push({meta:'Actual:', value: obj['apr-a']});
+      actualArr.push({meta:'Actual:', value: obj['may-a']});
+      actualArr.push({meta:'Actual:', value: obj['jun-a']});
+      actualArr.push({meta:'Actual:', value: obj['jul-a']});
+      actualArr.push({meta:'Actual:', value: obj['aug-a']});
+      actualArr.push({meta:'Actual:', value: obj['sep-a']});
+      actualArr.push({meta:'Actual:', value: obj['oct-a']});
+      actualArr.push({meta:'Actual:', value: obj['nov-a']});
+      actualArr.push({meta:'Actual:', value: obj['dec-a']});
+
+      goalArr.push({meta:'Goal:', value: obj['jan-g']});
+      goalArr.push({meta:'Goal:', value: obj['feb-g']});
+      goalArr.push({meta:'Goal:', value: obj['mar-g']});
+      goalArr.push({meta:'Goal:', value: obj['apr-g']});
+      goalArr.push({meta:'Goal:', value: obj['may-g']});
+      goalArr.push({meta:'Goal:', value: obj['jun-g']});
+      goalArr.push({meta:'Goal:', value: obj['jul-g']});
+      goalArr.push({meta:'Goal:', value: obj['aug-g']});
+      goalArr.push({meta:'Goal:', value: obj['sep-g']});
+      goalArr.push({meta:'Goal:', value: obj['oct-g']});
+      goalArr.push({meta:'Goal:', value: obj['nov-g']});
+      goalArr.push({meta:'Goal:', value: obj['dec-g']});
+    }
+
+  });
+  new Chartist.Line('.chart', {
+  labels: monArr,
+  series: [
+    [], goalArr, [], [], actualArr
+  ]
+}, {
+  fullWidth: true,
+  chartPadding: {
+    right: 40,
+    top: 70
+  },
+  height: '400px',
+  low: 0,
+  showArea: true,
+  plugins: [
+    Chartist.plugins.tooltip()
+  ]
+});
+
+}
 
 function loadMetrics(data) {
   $('.metrics').empty();
   $.each(scorecardData, function(index, obj) {
     if (obj.name === selected) {
-
-      //checkTBD
+      selectedScoreCardData = obj;
       $.each(obj.elements, function(ind, obj) {
         var goal, actual, after, currentGoal;
         var status = 'blue';

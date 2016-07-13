@@ -85,3 +85,9 @@
 {
   cursor: pointer;
 }
+
+.ct-series-g .ct-line {
+
+  /* Create a dashed line with a pattern */
+  stroke-dasharray: 10px 10px;
+}

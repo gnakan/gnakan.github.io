@@ -28,7 +28,6 @@ function getTableData() {
 
 function buildSidebar(data) {
   scorecardData = data;
-  //console.log(scorecardData);
   $('.sidebar-menu').empty();
   $('.sidebar-menu').append();
 
@@ -68,10 +67,6 @@ function buildSidebar(data) {
   $('.sidebar-menu').html("<li class='header'>SCORECARDS</li>").append(alphabeticallyOrderedDivs);
 }
 
-function sorter(a, b) {
-  return $(a).attr('data-name') > $(b).attr('data-name');
-}
-
 function loadMetrics(data) {
   $('.metrics').empty();
   $.each(scorecardData, function(index, obj) {
@@ -92,8 +87,11 @@ function loadMetrics(data) {
         if (obj.status !== "") {
           status = obj.status;
         }
+        if(obj.display === 'TRUE')
+        {
+          addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip, '.metrics', obj.metricSource);
+        }
 
-        addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip, '.metrics', obj.metricSource);
       });
     }
 

@@ -136,7 +136,7 @@ function loadChart(){
 
   });
   new Chartist.Line('.chart', {
-  labels: monArr,
+  labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun'],
   series: [
     [], goalArr, [], [], actualArr
   ]

@@ -113,12 +113,6 @@ function loadChart(){
       actualArr.push({meta:'Actual:', value: obj['apr-a']});
       actualArr.push({meta:'Actual:', value: obj['may-a']});
       actualArr.push({meta:'Actual:', value: obj['jun-a']});
-      actualArr.push({meta:'Actual:', value: obj['jul-a']});
-      actualArr.push({meta:'Actual:', value: obj['aug-a']});
-      actualArr.push({meta:'Actual:', value: obj['sep-a']});
-      actualArr.push({meta:'Actual:', value: obj['oct-a']});
-      actualArr.push({meta:'Actual:', value: obj['nov-a']});
-      actualArr.push({meta:'Actual:', value: obj['dec-a']});
 
       goalArr.push({meta:'Goal:', value: obj['jan-g']});
       goalArr.push({meta:'Goal:', value: obj['feb-g']});
@@ -126,12 +120,6 @@ function loadChart(){
       goalArr.push({meta:'Goal:', value: obj['apr-g']});
       goalArr.push({meta:'Goal:', value: obj['may-g']});
       goalArr.push({meta:'Goal:', value: obj['jun-g']});
-      goalArr.push({meta:'Goal:', value: obj['jul-g']});
-      goalArr.push({meta:'Goal:', value: obj['aug-g']});
-      goalArr.push({meta:'Goal:', value: obj['sep-g']});
-      goalArr.push({meta:'Goal:', value: obj['oct-g']});
-      goalArr.push({meta:'Goal:', value: obj['nov-g']});
-      goalArr.push({meta:'Goal:', value: obj['dec-g']});
     }
 
   });

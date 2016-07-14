@@ -15,7 +15,7 @@ $(document).ready(function() {
     loadMetrics();
   });
 
-  $('.metrics').on('click', '.headline', function(){
+  $('.metrics, .bpcs-metrics').on('click', '.headline', function(){
     selectedMetric = $(this).data('metric');
     selectedToolTip = $(this).data('original-title');
     loadChart();
@@ -98,6 +98,7 @@ function checkTBD(obj, monInd){
 }
 
 function loadChart(){
+  $('.bpcs-metrics').empty();
   $('.metrics').html(  '<section class="content"><div class="box box-solid"><div class="box-header with-border"><i class="fa fa-line-chart"></i><h3 class="box-title">' + selectedMetric + ' <small>' + selectedToolTip + '</small></h3></div><div class="box-body chart"></div><div class="box-footer"><ul class="chart-legend clearfix"><li><i class="fa fa-circle-o text-green"></i> Goal</li><li><i class="fa fa-circle-o text-blue"></i> Actual</li></ul></div></div>'
 );
 

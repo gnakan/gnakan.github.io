@@ -103,30 +103,27 @@ function loadChart(){
 
   var actualArr = [];
   var goalArr = [];
+  var monthCounter = monArr.indexOf(monthAbbreviation);
+  var monthAbbr = monArr[monthCounter];
+  var chartMonthLabelsArr = [];
 
   $.each(selectedScoreCardData.elements, function(index, obj){
     if(obj.metric === selectedMetric)
     {
-      actualArr.push({meta:'Actual:', value: obj['jan-a']});
-      actualArr.push({meta:'Actual:', value: obj['feb-a']});
-      actualArr.push({meta:'Actual:', value: obj['mar-a']});
-      actualArr.push({meta:'Actual:', value: obj['apr-a']});
-      actualArr.push({meta:'Actual:', value: obj['may-a']});
-      actualArr.push({meta:'Actual:', value: obj['jun-a']});
-
-      goalArr.push({meta:'Goal:', value: obj['jan-g']});
-      goalArr.push({meta:'Goal:', value: obj['feb-g']});
-      goalArr.push({meta:'Goal:', value: obj['mar-g']});
-      goalArr.push({meta:'Goal:', value: obj['apr-g']});
-      goalArr.push({meta:'Goal:', value: obj['may-g']});
-      goalArr.push({meta:'Goal:', value: obj['jun-g']});
+      for (i = -1; i < monArr.indexOf(monthAbbreviation); i++) {
+        chartMonthLabelsArr.push(monthAbbr);
+        actualArr.push({meta:'Actual:', value: obj[monthAbbr + '-a']});
+        goalArr.push({meta:'Goal:', value: obj[monthAbbr + '-g']});
+        monthCounter--;
+        monthAbbr = monArr[monthCounter];
+      }
     }
 
   });
   new Chartist.Line('.chart', {
-  labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun'],
+  labels: chartMonthLabelsArr.reverse(),
   series: [
-    [], [], [],  [], [], goalArr, actualArr
+    [], [], [],  [], [], goalArr.reverse(), actualArr.reverse()
   ]
 }, {
   fullWidth: true,
@@ -146,6 +143,7 @@ function loadChart(){
 
 function loadMetrics(data) {
   $('.metrics').empty();
+  $('.bpcs-metrics').empty();
   $.each(scorecardData, function(index, obj) {
     if (obj.name === selected) {
       selectedScoreCardData = obj;
@@ -169,7 +167,13 @@ function loadMetrics(data) {
         }
         if(obj.display === 'TRUE')
         {
-          addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip, '.metrics', obj.metricSource, currentMonth.capitalize());
+          if(obj.metricSource === "Blueprint" || obj.metricSource === "")
+          {
+            addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip, '.bpcs-metrics', obj.metricSource, currentMonth.capitalize());
+          }
+          else {
+            addMetric(obj.metric, goal, actual, after, obj.icon, status, obj.tooltip, '.metrics', obj.metricSource, currentMonth.capitalize());
+          }
         }
 
       });
@@ -194,24 +198,6 @@ function addMetric(name, goal, actual, after, icon, status, tooltip, div, metric
     tooltip: tooltip,
     metricSource: metricSource
   };
-
-  var template1 = "<div class='col-lg-6'>" +
-    "<div class='box box-info'>" +
-    "<div class='box-header'>" +
-    "<i class='fa fa-line-chart'></i>" +
-    "<h3 class='box-title'>" + name + "</h3>" +
-    "<p><small class='text-muted'>For " + month + " " + year + "</small></p></div>" +
-    "<div class='box-body'>" +
-    "<div class='row'>" +
-    "<div class='col-md-3'>" +
-    "<div class='row headline-info'>" +
-    "<h3 class='text-primary'>" + goal + "</h3>" +
-    "<p>Goal</p>" +
-    "<p>100</p></div>" +
-    "<div class='row headline-info'><h3 style='color: rgba(0,0,0,.5);'>" + actual + "</h3>" +
-    "<p>Actual</p><p>93</p></div></div>" +
-    "<div class='col-md-9'><canvas id='' width='700' height='250'></canvas></div></div>" +
-    "</div></div></div>";
 
   $(div).append(template(data));
 

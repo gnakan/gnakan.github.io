@@ -86,6 +86,11 @@
   cursor: pointer;
 }
 
+.bpcs-metrics
+{
+  margin-top: 40px;
+}
+
 .ct-series-g .ct-line {
 
   /* Create a dashed line with a pattern */

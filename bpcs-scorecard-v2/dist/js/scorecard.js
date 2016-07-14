@@ -150,7 +150,7 @@ function loadMetrics(data) {
       selectedScoreCardData = obj;
       $.each(obj.elements, function(ind, obj) {
         var goal, actual, after, currentGoal;
-        var status = 'blue';
+        var status = 'red';
         var currentMonth = checkTBD(obj, monArr.indexOf(monthAbbreviation));
 
         if (obj.after !== "%") {
@@ -166,7 +166,7 @@ function loadMetrics(data) {
         if (obj.status !== "") {
           status = obj.status;
         }
-        if(obj.display === 'TRUE')
+        if(obj.display === 'TRUE' && actual !== "")
         {
           if(obj.metricSource === "Blueprint" || obj.metricSource === "")
           {

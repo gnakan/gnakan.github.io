@@ -74,7 +74,7 @@ $(document).ready(function() {
   });
 
   $('.award-location-3').on('click', function(e) {
-    window.open('http://www.bizjournals.com/seattle/blog/techflash/2015/10/correction-blueprint-consulting-is-state-s.html', "_blank");
+    window.open('http://www.bizjournals.com/seattle/subscriber-only/2016/07/15/fastest-growing-private-companies.html', "_blank");
     window.location.href = './solutions.html#recognition';
   });
 

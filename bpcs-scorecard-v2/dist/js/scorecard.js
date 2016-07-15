@@ -133,7 +133,7 @@ function loadChart(){
     top: 70
   },
   height: '350px',
-  low: 0,
+  low: Array.min(goalArr),
   showArea: true,
   plugins: [
     Chartist.plugins.tooltip()
@@ -141,6 +141,13 @@ function loadChart(){
 });
 
 }
+
+/*
+* Used to get the lowest value of an array
+*/
+Array.min = function( array ){
+    return Math.min.apply( Math, array );
+};
 
 function loadMetrics(data) {
   $('.metrics').empty();

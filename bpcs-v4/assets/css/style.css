@@ -485,8 +485,7 @@ form .btn {
 }
 
 .navbar-brand .img-responsive {
-    height: 40px;
-    margin-top: 5px;
+    margin-top: 1px;
 }
 
 .sticky-wrapper ul {
@@ -775,7 +774,7 @@ section {
 
 .navbar-default {
     background-color: black;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, .5);
     border-color: transparent;
     color: #fff;
 }

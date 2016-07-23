@@ -73,6 +73,12 @@
       padding-top: 20px;
     }
 
+    .blogpost
+    {
+      padding: 60px;
+      margin-top: -20px;
+    }
+
     img
     {
       height: 200px;
@@ -141,11 +147,15 @@
     <div class="container">
       <div class="row">
         <p>
-          I've been the solution architect, development lead or a developer for a large number of products released in large scale production environments. I've had the pleasure to create products for a variety of companies including <a href='http://bpcs.com/' target="_blank">Blueprint Consulting Services</a>,
+          I've been the solution architect, development lead or a developer for a large number of products released in large scale production environments. I've had the pleasure to create products and services for a variety of companies including <a href='http://bpcs.com/' target="_blank">Blueprint Consulting Services</a>,
           <a href="https://www.microsoft.com/en-us/" target="_blank">Microsoft</a>, <a href='http://www.lockheedmartin.com/' target="_blank">Lockheed Martin</a> and <a href='http://www.gannett.com/' target="_blank">USA Today/Gannett</a>.
         </p>
         <p>
-          As a full-stack developer, I work heavily with MongoDB, Node.js and Angular but I'm also quite fond of Python, Flask and MySQL. I've also worked as a Microsoft .NET developer, specifically with C#, ASP.NET and SQL Server. I am an advocate for microservice architecture vs monolithic systems. I love pragmatic REST API design that indulges developers rather than dogma-driven API design that favors strict architecture adherance.
+          My passion lies in the use of machine learning in a distributed computing environment, where I utilize Apache Spark, Hadoop, Python and Scala in data mining, data analysis and predictive analytics. My experience includes working with complex events processing applications within a lambda architecure in the use of supply chain management and finance reconciliation, social media sentiment analysis and IoT predictive analytics.
+        </p>
+
+        <p>
+          As a full-stack developer, I've work heavily with the MEAN stack (MongoDB, Express, Angular, Node.js) as well as Python, Django, Flask and MySQL. I've worked as a Microsoft .NET developer, specifically with C#, ASP.NET and SQL Server. I am an advocate for microservice architecture vs monolithic systems. I love pragmatic REST API design that indulges developers rather than dogma-driven API design that favors strict architecture adherance.
         </p>
         <p>
           A few of the apps and services I have built...
@@ -211,6 +221,24 @@
           </div>
         </div>
       </span>
+  </section>
+
+  <section id='blogPosts'>
+    <div class="container">
+      <div class="row">
+          <h1>Blog Posts</h1>
+      </div>
+      <div class="row">
+        <div class='col-md-6 blogpost' ng-repeat="post in devblogposts">
+          <div class="row">
+            <h2 class="title"><a href={{post.url}} target="_blank">{{post.title}}</a></h2>
+            <p class='overview'>{{post.overview}}</p>
+          </div>
+          <div class="row">
+            <a class='btn btn-lg btn-default' href={{post.url}} target="_blank">Read more</a>
+          </div>
+        </div>
+      </div>
   </section>
 
 

@@ -172,5 +172,27 @@
       "screenshot": "img/cx_logo.jpg",
       "featured": true
     }
+  ],
+  "devblogposts":[
+    {
+      "title": "An Entry Into Big Data With Spark: Databricks Community Edition",
+      "overview": "This brief article will be a mix of overview, step-by-step instruction and opinion. However, by the end, you’ll have your very own bright and shiny Spark cluster loaded with a large dataset (a few Gb’s at least) that will be waiting on whatever fun data analysis you can throw at it.",
+      "url": "https://medium.com/@gnakan/databricks-community-edition-an-entry-into-big-data-with-spark-c63b277f466d#.bxi5vwmyv"
+    },
+    {
+      "title": "A Primer on Predictive Analytics and Supply Chain Management",
+      "overview": "The basic premise of supply chain management is to control the manufacture, storage, transportation and sales of goods and services in order to meet customer demand. Have it when they want it, keep nothing else. Predictive analytics is about using large amount of data to gain insight into possible future scenarios and their potential outcomes.",
+      "url": "http://bpcs.com/blog/pa-scm/"
+    },
+    {
+      "title": "Machine Learning Pt 2: How Does A Machine Learn?",
+      "overview": "What sort of machine learning wizardry allows a program to give twitter account recommendations, understand and respond to the questions people ask (Siri), protect people against purchase fraud (PayPal, banks, credit card companies), or even allow cars to drive themselves (Google)?",
+      "url": "http://bpcs.com/blog/machine-learning-part-2/"
+    },
+    {
+      "title": "Machine Learning Part 1: What Is It?",
+      "overview": "As a web and software developer, this definition immediately gives me reason to be excited. Why? Machine learning will save me a lot of time in development and make my application incredibly useful in ways I may not have considered or anticipated.",
+      "url": "https://medium.com/@gnakan/machine-learning-part-1-what-is-it-d1a2446a0b12"
+    }
   ]
 }

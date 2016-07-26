@@ -69,7 +69,7 @@ $(document).ready(function() {
   });
 
   $('.award-location-2').on('click', function(e) {
-    window.open('http://www.inc.com/profile/blueprint-consulting-services', "_blank");
+    window.open('http://www.bizjournals.com/seattle/news/2016/06/16/washingtons-best-workplaces-with-250-plus-workers.html#g3', "_blank");
     window.location.href = './solutions.html#recognition';
   });
 

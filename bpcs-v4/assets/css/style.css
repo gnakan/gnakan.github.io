@@ -1,3 +1,28 @@
+.practice .hero-box h2
+{
+  font-size: 4em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.practice .col-md-8 p
+{
+  font-size: 1.4em;
+  font-weight: 100;
+  margin-bottom: 26px;
+}
+
+
+.practice .hero-box h3
+{
+  font-size: 2em;
+  font-weight: 100;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+
+
 #blogPosts .head-set {
     padding-bottom: 0px;
     height: 50px;

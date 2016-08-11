@@ -87,7 +87,6 @@ function buildSidebar(data) {
 }
 
 function checkTBD(obj, monInd){
-
   if(obj[monArr[monInd] + '-a'] === 'TBD' || obj[monArr[monInd] + '-a'] === ' ')
   {
     return checkTBD(obj, monInd-1);
@@ -158,7 +157,7 @@ function loadMetrics(data) {
       $.each(obj.elements, function(ind, obj) {
         var goal, actual, after, currentGoal;
         var status = 'red';
-        var currentMonth = checkTBD(obj, monArr.indexOf(monthAbbreviation));
+        var currentMonth = checkTBD(obj, monArr.indexOf(monthAbbreviation.toLowerCase()));
 
         if (obj.after !== "%") {
           goal = obj.before + obj[currentMonth + '-g'];
